@@ -3,52 +3,56 @@ import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   return (
-    <div className="pl-5">
+    <div className="bg-white w-[100%] h-[100vh]">
       <h2>Signup</h2>
-      <div className=" flex">
-        <div className="bg-login-bg bg-cover bg-center flex flex-col w-4/12 p-5">
-          <h2 className='text-base ml-4'>AD</h2>
+      <Link to="/">back home</Link>
+      <div className=" flex pl-[10px]">
+        <div className="bg-login-bg bg-cover bg-center flex flex-col p-4 w-4/12 h-[600px]">
+          <h2>AD</h2>
           <p className="">
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quis
             ut, commodi est ullam dicta soluta optio obcaecati, perferendis
             voluptate eius corrupti nostrum odit asperiores aspernatur
-            necessitatibus! Amet, officiis incidunt".
+            necessitatibus! Amet, officiis incidun"t.
           </p>
         </div>
 
-        <div className="bg-blue-100 flex flex-col  w-4/12 p-5 pl-7">
-        <Link className='ml-4 p-2' to="/">back</Link>
-          <h2 className='mb-4 border-b border-black pb-7'>Register Your Account</h2>
-           <form className='flex flex-col'>
-              <label className=''>Name</label>
-              <input type="text"   className='border-2 border-black-400 outline-none w-4/5'/>
+        <div className="bg-white flex flex-col  w-[65%] p-5 pl-7">
+          <h2 className='border-b pb-[20px] w-[70%]'>Register Your Account</h2>
+           <form className='flex flex-col mt-[15px]'>
+              <label>Name</label>
+              <input type="text" className='w-[70%] outline-none rounded border border-black mt-[10px]  mb-[6px]'/>
 
-              <label>Phone Number</label>
-              <input type="text"   className='border-2 border-black-400 outline-none w-4/5'/>
+              <label>Phone number</label>
+              <input type="text" className='w-[70%]  outline-none rounded border border-black mt-[10px]  mb-[6px]'/>
 
               <label>Email</label>
-              <input type="text"   className='border-2 border-black-400 outline-none w-4/5'/>
+              <input type="email" className='w-[70%]  outline-none rounded border border-black mt-[10px]  mb-[6px]'/>
 
+              
               <label>Password</label>
-              <input type="password"  className='border-2 border-black-400 outline-none w-4/5'/>
+              <input type="text" className='w-[70%] outline-none rounded border border-black mt-[10px]  mb-[6px]'/>
 
-              <label>confirm Password</label>
-              <input type="password"   className='border-2 border-black-400 outline-none w-4/5'/>
-
-              <label className='p-2'>
-                <input type="checkbox" />
-                <span className='ml-2'>
-                  I agree with <Link to="/signup">terms</Link>&{' '}
-                  <Link to="/signup">Condition</Link>
-                </span>
-              </label>
-              <button className='bg-blue-800 p-1 px-2 mt-10 rounded hover:bg-blue-500 hover:text-white'>Register Account</button>
-              <span>or</span>
-              <button className=' p-1 px-2 mt-10 rounded hover:bg-blue-500 hover:text-white'>
-                {/* <img /> */}
-                <span>Register With Google</span>
-              </button>
+              <label>Confirm Password</label>
+              <input type="text" className='w-[70%] outline-none rounded border border-black mt-[10px] mb-[6px]'/>
+              <label>
+            <input type="checkbox" />
+            <span>
+              I agree with <Link to="/signup">terms</Link>&{' '}
+              <Link to="/signup">Condition</Link>
+            </span>
+          </label>
+          <button className='border ml-[100px] rounded-[20px] p-[4px] w-[40%] bg-blue-500 '>Register Account</button>
+          <h4>or</h4>
+          <button className='border rounded p-[4px] w-[40%] '>
+            {/* <img
+            src={logo}
+            alt='logo'
+             /> */}
+            <span>Register With Google</span>
+          </button>
            </form>
+
         </div>
       </div>
     </div>
