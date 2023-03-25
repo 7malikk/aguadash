@@ -9,6 +9,8 @@ import {
   BsArrowDown,
   BsArrowUp,
 } from 'react-icons/bs';
+import { GoThreeBars } from 'react-icons/go';
+import { GrClose } from 'react-icons/gr';
 import {
   mainAboutImg,
   aboutImg2,
@@ -23,6 +25,7 @@ import {
 
 const Home = () => {
   const [show, setShow] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
   const hero = useRef(null);
   const about = useRef(null);
   const services = useRef(null);
@@ -47,17 +50,68 @@ const Home = () => {
 
   return (
     <main className="relative">
+      <aside
+        className={` ${
+          showSidebar ? 'translate-x-0 ' : 'translate-x-full  '
+        } h-full bg-lightAsh  md:hidden fixed w-full z-50 flex flex-col transition ease-in-out duration-300 delay-150 p-5`}>
+        <button
+          className="mr-5 sm:mr-1 mt-6 self-end"
+          onClick={() => setShowSidebar(false)}>
+          <GrClose className="w-7 h-7" />
+        </button>
+        <ul className="space-y-6 text-center flex flex-col items-center justify-center p-8">
+          <li
+            className="border-b pb-2 hover:border-black"
+            onClick={() => {
+              handleScroll(hero);
+              setShowSidebar(false);
+            }}>
+            Home
+          </li>
+          <li
+            className="border-b pb-2 hover:border-black"
+            onClick={() => {
+              handleScroll(about);
+              setShowSidebar(false);
+            }}>
+            About
+          </li>
+          <li
+            className="border-b pb-2 hover:border-black"
+            onClick={() => {
+              handleScroll(services);
+              setShowSidebar(false);
+            }}>
+            Services
+          </li>
+          <Link to="/login">
+            <li
+              className="hover:text-hover"
+              onClick={() => setShowSidebar(false)}>
+              Login
+            </li>
+          </Link>
+          <Link to="/signup">
+            <li
+              className="bg-primary py-3 px-8 lg:py-5 lg:px-14 text-white  rounded-full hover:bg-hover"
+              onClick={() => setShowSidebar(false)}>
+              Signup
+            </li>
+          </Link>
+        </ul>
+      </aside>
+
       <div
         ref={top}
-        className="bg-black px-11 py-2 text-white flex justify-between h-[49px] ">
+        className="bg-black  px-5 md:px-11 py-2 text-white flex justify-between  h-[29px] md:h-[49px] ">
         <div className="flex w-[451px]">
           <h1 className="flex justify-center items-center">
             <BsFillEnvelopeFill className="w-6 h-6" />{' '}
-            <span className="ml-2">ad@gmail.com</span>
+            <span className="ml-2 hidden md:inline">ad@gmail.com</span>
           </h1>
-          <h1 className="flex justify-center items-center ml-[32px]">
+          <h1 className="flex justify-center items-center ml-[15px] md:ml-[32px]">
             <FiPhone className="w-6 h-6" />{' '}
-            <span className="ml-2">+(234) 903 3223 232</span>
+            <span className="ml-2 hidden md:inline">+(234) 903 3223 232</span>
           </h1>
         </div>
         <div className="flex space-x-2 items-center w-[170px] justify-end">
@@ -66,9 +120,14 @@ const Home = () => {
           <BsTwitter className="w-6 h-6 hover:cursor-pointer" />
         </div>
       </div>
-      <nav className="px-11 flex justify-between bg-white h-[102px] items-center">
+      <nav className=" px-5 md:px-11 flex justify-between bg-white  h-14 md:h-28 items-center">
         <h1 className="text-5xl font-extrabold text-primary font-play">AD</h1>
-        <ul className="flex items-center space-x-6 lg:space-x-10 text-xl lg:text-2xl">
+        <button
+          className="block md:hidden"
+          onClick={() => setShowSidebar(true)}>
+          <GoThreeBars className="w-7 h-7" />
+        </button>
+        <ul className=" items-center space-x-6 lg:space-x-10 text-xl lg:text-2xl hidden md:flex">
           <li
             className="hover:text-hover py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
             onClick={() => handleScroll(hero)}>
@@ -89,7 +148,7 @@ const Home = () => {
           </Link>
           <Link to="/signup">
             <li className="bg-primary py-3 px-12 lg:py-5 lg:px-14 text-white  rounded-full hover:bg-hover">
-              SignUp
+              Signup
             </li>
           </Link>
         </ul>
@@ -98,12 +157,12 @@ const Home = () => {
         <div
           ref={hero}
           id="hero"
-          className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-between items-center px-11 pt-[39px] pb-[44px]">
+          className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-between items-center px-5 md:px-11 pt-4 md:pt-10 pb-11">
           <div className="flex flex-col justify-between items-center ">
-            <h1 className=" text-7xl xl:text-8xl font-extrabold font-play text-center w-[90%]">
+            <h1 className="text-5xl  md:text-7xl lg:text-8xl font-extrabold font-play text-center w-[90%]">
               The water source you trust the most and rely on.
             </h1>
-            <h3 className=" w-[80%] lg:w-[753px] text-center mt-2 mb-8 text-2xl">
+            <h3 className=" w-[100%] lg:w-[753px] text-center mt-2 mb-8 text-base md:text-2xl lg:text-4xl">
               Water is the softest thing, yet it can penetrate mountains and
               earth. This shows clearly the principle of softness overcoming
               hardness.
@@ -121,44 +180,50 @@ const Home = () => {
         <div
           ref={about}
           id="about"
-          className="p-11 bg-white flex flex-col-reverse lg:flex-row justify-between">
-          <div className="image-div relative mt-6 self-center lg:mt-0">
-            <img src={mainAboutImg} alt="about us" />
-            <img
-              src={aboutImg2}
-              alt="about AD"
-              className="absolute top-36 left-[22rem] rounded-l-2xl lg:hidden xl:block"
-            />
-          </div>
-          <div className="text-div w-[90%] lg:w-1/2">
-            <h4 className="font-play text-[62px] font-bold text-primary">
-              About Us
-            </h4>
-            <div className="flex flex-col justify-between items-center text-2xl h-[240px] mt-[32px]">
-              <p>
-                Here at Aguadash we give our customers the best services they
-                need, which makes us a reliable company to work with.
-              </p>
-              <p>
-                About 60% of the human body is made up of water, and it plays a
-                vital role in various bodily functions such as digestion,
-                absorption, and transportation of nutrients.
-              </p>
+          className="flex justify-center items-center flex-col">
+          <h4 className="font-play text-5xl sm:text-[49px] md:text-[62px] font-bold text-primary  mt-[40px] lg:mt-0">
+            About Us
+          </h4>
+          <div className=" p-5 md:p-11 bg-white flex flex-col lg:flex-row justify-center items-center">
+            <div className="image-div relative mt-[40px] md:mt-6 self-center lg:mt-0">
+              <img
+                src={mainAboutImg}
+                alt="about us"
+                className="w-auto sm:w-[80%] md:w-auto lg:w-[80%] xl:w-auto"
+              />
+              <img
+                src={aboutImg2}
+                alt="about AD"
+                className="absolute hidden sm:block top-24 md:top-36 lg:top-24 xl:top-36 left-56 md:left-80 lg:left-60 xl:left-80 h-44 md:h-auto lg:h-52 xl:h-auto rounded-l-2xl"
+              />
             </div>
-            <button className="bg-primary py-5 px-14 text-white  rounded-full hover:bg-hover mt-[62px]">
-              Read More
-            </button>
+            <div className="text-div w-[90%] lg:w-1/2">
+              <div className="flex flex-col justify-between items-center text-lg space-y-4 md:text-2xl h-[240px] mt-[32px]">
+                <p>
+                  Here at Aguadash we give our customers the best services they
+                  need, which makes us a reliable company to work with.
+                </p>
+                <p>
+                  About 60% of the human body is made up of water, and it plays
+                  a vital role in various bodily functions such as digestion,
+                  absorption, and transportation of nutrients.
+                </p>
+              </div>
+              <button className="bg-primary py-5 px-14 text-white  rounded-full hover:bg-hover mt-[62px]">
+                Read More
+              </button>
+            </div>
           </div>
         </div>
         <div
           ref={services}
           id="services"
-          className="bg-lightAsh p-11 flex flex-col justify-center items-center">
-          <h4 className="font-play text-[62px] font-bold text-primary">
+          className="bg-lightAsh p-5 md:p-11 flex flex-col justify-center items-center">
+          <h4 className="font-play text-5xl sm:text-[62px] font-bold text-primary">
             Services
           </h4>
           <div className=" grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14">
-            <div className="card flex flex-col justify-center items-center relative bg-white w-96 px-12 pt-16 pb-6 mt-20 rounded-3xl">
+            <div className="card flex flex-col justify-center items-center relative bg-white w-[21rem]  sm:w-96 px-10 sm:px-12 pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={delivery}
                 alt="worldwide delivery"
@@ -176,7 +241,7 @@ const Home = () => {
                 Read More
               </button>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-hover w-96 px-12 pt-16 pb-6 mt-20 rounded-3xl text-white">
+            <div className="card flex flex-col justify-center items-center relative bg-hover  w-[21rem]  sm:w-96 px-10 sm:px-12 pt-16 pb-6 mt-20 rounded-3xl text-white">
               <img
                 src={payments}
                 alt="payments"
@@ -192,7 +257,7 @@ const Home = () => {
                 Read More
               </button>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-white w-96 px-12 pt-16 pb-6 mt-20 rounded-3xl">
+            <div className="card flex flex-col justify-center items-center relative bg-white  w-[21rem]  sm:w-96 px-10 sm:px-12 pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={ontime}
                 alt="ontime"
@@ -210,8 +275,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="bg-primary p-11 flex flex-col justify-center items-center">
-          <h4 className="font-play text-[62px] font-bold text-white">
+        <div className="bg-primary  p-5 md:p-11 flex flex-col justify-center items-center">
+          <h4 className="font-play text-5xl sm:text-[62px] font-bold text-white">
             How it works
           </h4>
           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 xl:gap-14">
@@ -277,12 +342,11 @@ const Home = () => {
       </section>
       <footer
         id="footer"
-        className="bg-black text-white px-11  grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14 pb-14">
+        className="bg-black text-white  px-5 md:px-11  grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14 pb-14">
         <div className="company w-96 space-y-5 mt-9 ">
-          <h4 className="font-play text-[62px] font-bold">AGUADASH</h4>
-          <div className="space-y-4">
-            <h5>
-              {' '}
+          <h4 className="font-play text-3xl md:text-6xl font-bold">AGUADASH</h4>
+          <div className="space-y-2 md:space-y-4">
+            <h5 className="w-[80%] md:w-auto">
               Here at Aguadash we give our customers the best services they
               need, which makes us a reliable company to work with.
             </h5>
@@ -327,13 +391,13 @@ const Home = () => {
           </div>
         </div>
       </footer>
-      <div className="bg-lightAsh px-11 py-4 flex justify-center items-center">
+      <div className="bg-lightAsh px-5 md:px-11 py-4 flex justify-center items-center text-xs sm:text-auto">
         <h6>© Copyright 2023 All Rights Reserved AguaDash</h6>
       </div>
       {show && (
         <button
           onClick={() => handleScroll(top)}
-          className=" bg-primary border border-transparent hover:border-white rounded-full p-4 fixed z-50 bottom-14 right-14 hover:bg-hover hover:text-white">
+          className=" bg-primary border border-transparent hover:border-white rounded-full p-4 fixed z-40 bottom-14 right-14 sm:right-10 lg:right-14 hover:bg-hover hover:text-white">
           <BsArrowUp className="w-6 h-6" />
         </button>
       )}
