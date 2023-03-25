@@ -181,10 +181,10 @@ const Home = () => {
           ref={about}
           id="about"
           className="flex justify-center items-center flex-col">
-          <h4 className="font-play text-5xl sm:text-[49px] md:text-[62px] font-bold text-primary  mt-[40px] lg:mt-0">
+          <h4 className="font-play text-5xl sm:text-[49px] md:text-[62px] font-bold text-primary  mt-[40px]">
             About Us
           </h4>
-          <div className=" p-5 md:p-11 bg-white flex flex-col lg:flex-row justify-center items-center">
+          <div className=" p-5 md:p-11 bg-white flex flex-col lg:flex-row justify-between items-center">
             <div className="image-div relative mt-[40px] md:mt-6 self-center lg:mt-0">
               <img
                 src={mainAboutImg}
