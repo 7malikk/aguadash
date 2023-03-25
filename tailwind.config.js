@@ -5,7 +5,18 @@ module.exports = {
     // "./public/**/*.{html,js}"
   ],
   theme: {
+    
     extend: {
+      screens:{
+        "mobile":"440px",
+  
+        "md":"768px",
+  
+        "lg":"1024px",
+  
+        "xl":"1280px",
+  
+      },
       widths:{
           100:"100px",
           40:"40px",
