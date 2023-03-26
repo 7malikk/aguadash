@@ -5,7 +5,6 @@ module.exports = {
     // "./public/**/*.{html,js}"
   ],
   theme: {
-    
     extend: {
       screens:{
         "mobile":"440px",
@@ -16,12 +15,6 @@ module.exports = {
   
         "xl":"1280px",
   
-      },
-      colors: {
-        primary: '#026583',
-        hover: 'rgba(1, 78, 101, 1)',
-        lightAsh: '#F7F9F9',
-        skyBlue: '#E6F0F3',
       },
       widths:{
           100:"100px",

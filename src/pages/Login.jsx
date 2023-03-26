@@ -7,10 +7,9 @@ const Login = () => {
   
   return (
    
-
-  <div className=' w-[100%] h-[100vh] flex flex-row '>
-      <div className='flex flex-col pl-[10px] md:flex-row'>
-          <div className="hidden  md:bg-login-bg bg-cover md:block bg-center flex flex-col w-6/12 p-5 h-[600px]">
+  <div className=' w-[100%] h-[100vh]'>
+      <div className='flex pl-[10px]'>
+          <div className=" hidden md:flex bg-login-bg bg-cover bg-center flex-col w-[50%] p-5 h-[600px]">
               <h2 className='text-base ml-4'>AD</h2>
               <p className="">
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quis
@@ -20,62 +19,65 @@ const Login = () => {
               </p>
           </div>
 
-          <div className='w-[100%] ml-[4px] md:w-[65%]  bg-white flex flex-col  md:pl-5 mt-[40px]'>
-              <Link to="/" className='pb-[20px] ml-[30px]'>back</Link>
-
-                    <h2 className=" w-[100%] pl-[40%] mr-5 md:w-[70%] pb-[20px] md:pl-[0] text-[20px] border-b-2 border-black-300 ">Login</h2>
+          <div className='bg-white  w-[100%] flex flex-col  md:w-[65%] md:pl-[80px] mt-[40px]'>
+            <Link to="/" className='pb-[20px] ml-[30px]'>back</Link>
+              <div className='pl-[6px] flex flex-col'>
+                  <h2 className=" w-[100%] pb-[20px] pr-[20px]text-[20px] border-b-2 border-black-300 md:w-[70%]">Login</h2>
                   <form className='flex flex-col pt-[20px] '>
                     <label>Email</label>
-                    <input type="text" className='w-[100%] md:w-[70%] outline-none rounded border border-black-600 mt-[10px] mb-[6px]'/>
+                    <input type="text" className='w-[100%] shadow  p-[6px] md:w-[70%] outline-none rounded border border-black-600 mt-[10px] mb-[6px]'/>
 
                     <label>Password</label>
-                    <input type="password" className='w-[100%] md:w-[70%] outline-none rounded border border-black-600 mt-[10px] mb-[6px]'/>
+                    <input type="password" className='w-[100%] shadow  p-[6px] md:w-[70%] outline-none rounded border border-black-600 mt-[10px] mb-[6px]'/>
                   </form>
 
-                    <br/><button className='w-[100%] ml-[0] bg-blue-800 md:ml-[100px]  p-1 px-2 rounded-[10px]  hover:bg-blue-500 hover:text-white md:w-[50%]'>
-                      login Account
-                    </button><span className='text-[12px] ml-[45%]'>Forgot Password? <button className='text-blue-500'>Reset</button></span>
-                  <i></i> <span>or</span><i></i>
-                    <br/><button className='w-[100%] ml-[0]  border-2 rounded p-[4px] md:w-[50%] flex justify-between md:ml-[100px]  hover:bg-blue-700 hover:text-white'>
-                <img
-                className='ml-[10px]'
-                src={logo}
-                alt='logo'
-                width={20}
-                height={30}
-                />
-                <span className=' mr-[80px] md:mr-[70px]'>Register With Google</span>
-              </button>
-              <h3 className='text-[15px] ml-[20px] pb-[30px]'>Don't have a registered account? <a className='text-blue-800'>Sign Up</a></h3>
-          </div>
-          <div className='bg-black text-white p-[20px] md:hidden'>
-            <h2 className='text-[30px] pb-[20px]'>AGUADASH</h2>
-            <p>Here at aguadash we give our customers the best services they need, which makes us a reliable company to work with.</p>
-            <div>
-              <h2 className='text-[30px] pt-[10px]'>Links</h2>
-              {/* <div>
-                <img src={facebook} width={20}  height={30}/>
-                <img src={github} width={20}  height={30}/>
-                <img src={linkind} width={20}  height={30}/>
-                <img src={twitter} width={20}  height={30}/>
-              </div> */}
-              <ul>
-                <li className='text-[14px] pt-[10px]'>Home</li>
-                <li className='text-[14px] pt-[10px]'>About</li>
-                <li className='text-[14px] pt-[10px]'>Services</li>
-                <li className='text-[14px] pt-[10px]'>Merchant</li>
-              </ul>
+                        <br/><button className='w-[100%] ml-[0] bg-blue-800 md:ml-[60px]  p-1 px-2 rounded-[10px]  hover:bg-blue-500 hover:text-white md:w-[50%]'>
+                          login Account
+                        </button><span className='text-[14px] ml-[63%] md:ml-[34%]'>Forgot Password? <button className='text-blue-500'>Reset</button></span>
+                      <i></i> <span>or</span><i></i>
+                        <br/><button className='w-[100%] ml-[0]  border-2 rounded p-[4px] md:w-[50%] flex justify-between md:ml-[60px]  hover:bg-blue-700 hover:text-white'>
+                    <img
+                    className='ml-[10px]'
+                    src={logo}
+                    alt='logo'
+                    width={20}
+                    height={30}
+                    />
+                    <span className=' mr-[120px] md:mr-[40px]'>Register With Google</span>
+                  </button>
+                  <h3 className='text-[14px] ml-[80px]  md:text-[12px] md:ml-[110px] pb-[30px]'>Don't have a registered account? <a className='text-blue-800'>Sign Up</a></h3>
+              </div>
+                  
+              {/* for moblile */}
+
+              <div className='w-[100%] bg-black text-white p-[20px] md:hidden'>
+                    <h2 className='text-[30px] pb-[20px]'>AGUADASH</h2>
+                    <p>Here at aguadash we give our customers the best services they need, which makes us a reliable company to work with.</p>
+                    <div>
+                      <h2 className='text-[30px] pt-[10px]'>Links</h2>
+                      {/* <div>
+                        <img src={facebook} width={20}  height={30}/>
+                        <img src={github} width={20}  height={30}/>
+                        <img src={linkind} width={20}  height={30}/>
+                        <img src={twitter} width={20}  height={30}/>
+                      </div> */}
+                      <ul>
+                        <li className='text-[14px] pt-[10px]'>Home</li>
+                        <li className='text-[14px] pt-[10px]'>About</li>
+                        <li className='text-[14px] pt-[10px]'>Services</li>
+                        <li className='text-[14px] pt-[10px]'>Merchant</li>
+                      </ul>
+                    </div>
+
+                    <div className='mt-[15px]'>
+                      <h2 className='text-[30px] pt-[10px]'>Contact Us</h2>
+                      <i>+234-7007089994</i>
+                      <p>park je Sung street</p>
+                      <p>info@augudash.com</p>
+                    </div>
+              </div>
             </div>
 
-            <div className='mt-[15px]'>
-              <h2 className='text-[30px] pt-[10px]'>Contact Us</h2>
-              <i>+234-7007089994</i>
-              <p>park je Sung street</p>
-              <p>info@augudash.com</p>
-            </div>
-
-          
-          </div>
       </div>
   </div>
   );
