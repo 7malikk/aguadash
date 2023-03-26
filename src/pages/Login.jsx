@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../assets/logo.png"
 
-const Login = () => {
 
+const Login = () => {
   
   return (
    
@@ -32,11 +32,11 @@ const Login = () => {
                     <input type="password" className='w-[100%] md:w-[70%] outline-none rounded border border-black-600 mt-[10px] mb-[6px]'/>
                   </form>
 
-                    <br/><button className='w-[100%] ml-[0] bg-blue-800 md:ml-[100px]  p-1 px-2 rounded-[10px] hover:bg-blue-500 hover:text-white md:w-[50%]'>
+                    <br/><button className='w-[100%] ml-[0] bg-blue-800 md:ml-[100px]  p-1 px-2 rounded-[10px]  hover:bg-blue-500 hover:text-white md:w-[50%]'>
                       login Account
                     </button><span className='text-[12px] ml-[45%]'>Forgot Password? <button className='text-blue-500'>Reset</button></span>
                   <i></i> <span>or</span><i></i>
-                    <br/><button className='w-[100%] ml-[0]  md:w-[40%] border-2 rounded p-[4px]  flex justify-between md:ml-[100px]  hover:bg-blue-700 hover:text-white'>
+                    <br/><button className='w-[100%] ml-[0]  border-2 rounded p-[4px] md:w-[50%] flex justify-between md:ml-[100px]  hover:bg-blue-700 hover:text-white'>
                 <img
                 className='ml-[10px]'
                 src={logo}
@@ -46,22 +46,29 @@ const Login = () => {
                 />
                 <span className=' mr-[80px] md:mr-[70px]'>Register With Google</span>
               </button>
+              <h3 className='text-[15px] ml-[20px] pb-[30px]'>Don't have a registered account? <a className='text-blue-800'>Sign Up</a></h3>
           </div>
-          <div className='bg-black text-white md:hidden'>
-            <h2>AGUADASH</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ab accusantium tempore accusamus autem, animi, neque unde minus veritatis ullam iusto sequi explicabo suscipit. Repellat corporis laborum dicta cumque incidunt!</p>
+          <div className='bg-black text-white p-[20px] md:hidden'>
+            <h2 className='text-[30px] pb-[20px]'>AGUADASH</h2>
+            <p>Here at aguadash we give our customers the best services they need, which makes us a reliable company to work with.</p>
             <div>
-              <h2>Links</h2>
+              <h2 className='text-[30px] pt-[10px]'>Links</h2>
+              {/* <div>
+                <img src={facebook} width={20}  height={30}/>
+                <img src={github} width={20}  height={30}/>
+                <img src={linkind} width={20}  height={30}/>
+                <img src={twitter} width={20}  height={30}/>
+              </div> */}
               <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Services</li>
-                <li>Merchant</li>
+                <li className='text-[14px] pt-[10px]'>Home</li>
+                <li className='text-[14px] pt-[10px]'>About</li>
+                <li className='text-[14px] pt-[10px]'>Services</li>
+                <li className='text-[14px] pt-[10px]'>Merchant</li>
               </ul>
             </div>
 
-            <div>
-              <h2>Contact Us</h2>
+            <div className='mt-[15px]'>
+              <h2 className='text-[30px] pt-[10px]'>Contact Us</h2>
               <i>+234-7007089994</i>
               <p>park je Sung street</p>
               <p>info@augudash.com</p>
