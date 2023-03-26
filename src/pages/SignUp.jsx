@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../assets/logo.png"
-// import {facebook,github,linkind,twitter} from "../assets/logos"
-import facebook from "../assets/logos/Facebook.png"
-import Image from '../assets/image';
+import twitter from "../assets/twitter.png"
+import github from "../assets/github.png"
+import facebook from "../assets/Facebook.png"
+
 
 
 const SignUp = (props) => {
@@ -74,8 +75,8 @@ const SignUp = (props) => {
             <p>Here at aguadash we give our customers the best services they need, which makes us a reliable company to work with.</p>
             <div>
                 <img src={facebook} width={20}  height={30}/>
-                <img src={Image.github} width={20}  height={30}/>
-                <img src={Image.twitter} width={20}  height={30}/>
+                <img src={twitter} width={20}  height={30}/>
+                <img src={github} width={20}  height={30}/>
             </div>
             <div>
               <h2 className='text-[30px] pt-[10px]'>Links</h2>
