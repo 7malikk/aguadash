@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../assets/logo.png"
+import twitter from "../assets/twitter.png"
+import github from "../assets/github.png"
+import facebook from "../assets/Facebook.png"
+import emailLogo from "../assets/email.jpeg"
 
 
 const Login = () => {
@@ -53,14 +57,13 @@ const Login = () => {
               <div className='w-[100%] bg-black text-white p-[20px] md:hidden'>
                     <h2 className='text-[30px] pb-[20px]'>AGUADASH</h2>
                     <p>Here at aguadash we give our customers the best services they need, which makes us a reliable company to work with.</p>
+                    <div className='flex flex-row'>
+                      <Link to="/signup"><img src={facebook} width={20}  height={30}className="bg-white rounded-[50%] p-[4px]" /></Link>
+                      <Link to="/signup"> <img src={twitter} width={20}  height={30} className="bg-white rounded-[50%] p-[4px] ml-[7px]"/></Link>
+                      <Link to="/signup"><img src={github} width={20}  height={30} className="bg-white rounded-[50%] p-[4px] ml-[7px]"/></Link>
+                    </div>
                     <div>
                       <h2 className='text-[30px] pt-[10px]'>Links</h2>
-                      {/* <div>
-                        <img src={facebook} width={20}  height={30}/>
-                        <img src={github} width={20}  height={30}/>
-                        <img src={linkind} width={20}  height={30}/>
-                        <img src={twitter} width={20}  height={30}/>
-                      </div> */}
                       <ul>
                         <li className='text-[14px] pt-[10px]'>Home</li>
                         <li className='text-[14px] pt-[10px]'>About</li>

@@ -9,7 +9,6 @@ const Home = () => {
       <Link to="/login">Login</Link>
       <br />
       <Link to="/signup">SignUp</Link>
-     g
     </div>
     
   );
