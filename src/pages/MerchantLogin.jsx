@@ -56,3 +56,16 @@ const MerchantLogin = () => {
 };
 
 export default MerchantLogin;
+/**<button className=' mobile:w-[40%] border mobile:ml-[100px] rounded-[20px] p-[4px]  md:w-[60%] bg-blue-900 '>Register Account</button>
+          <h4>or</h4>
+          <button className='w-[100%] border flex flex-row justify-between p-[4px] rounded shadow md:w-[60%] md:ml-[100px]'>
+            <img
+            className='ml-[10px]'
+            src={logo}
+            alt='logo'
+            width={20}
+            height={30}
+             />
+            <span className='mr-[100px] md:mr-[160px] '>Register With Google</span>
+          </button>
+          <h3 className='text-[15px] ml-[20px] md:ml-[32%] md:text-[15px]'>Don't have a registered account? <a className='text-blue-800'>Sign Up</a></h3> */

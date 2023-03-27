@@ -13,9 +13,9 @@ const Login = () => {
    
   <div className=' w-[100%] h-[100vh]'>
       <div className='flex pl-[10px]'>
-          <div className=" hidden md:flex bg-login-bg bg-cover bg-center flex-col w-[50%] p-5 h-[600px]">
-              <h2 className='text-base ml-4'>AD</h2>
-              <p className="">
+          <div className=" hidden md:flex bg-login-bg bg-cover bg-center flex-col w-[50%] p-5 h-screen">
+              <h2 className='text-[50px] text-white ml-4 pl-[40px] pb-[50px]'>AD</h2>
+              <p className="text-white">
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quis
                 ut, commodi est ullam dicta soluta optio obcaecati, perferendis
                 voluptate eius corrupti nostrum odit asperiores aspernatur
@@ -49,7 +49,7 @@ const Login = () => {
                     />
                     <span className=' mr-[120px] md:mr-[40px]'>Register With Google</span>
                   </button>
-                  <h3 className='text-[14px] ml-[80px]  md:text-[12px] md:ml-[110px] pb-[30px]'>Don't have a registered account? <a className='text-blue-800'>Sign Up</a></h3>
+                  <h3 className='text-[14px] ml-[80px]  md:text-[12px] md:ml-[110px] '>Already a registerd user? <Link></Link><a className='text-blue-800'>Sign Up</a></h3>
               </div>
                   
               {/* for moblile */}
