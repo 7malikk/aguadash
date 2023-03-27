@@ -76,7 +76,7 @@ const Login = () => {
                       <h2 className='text-[30px] pt-[10px]'>Contact Us</h2>
                       <i>+234-7007089994</i>
                       <p>park je Sung street</p>
-                      <p>info@augudash.com</p>
+                      <p> <img src={emailLogo} width={20} height={20}/>info@augudash.com</p>
                     </div>
               </div>
             </div>
