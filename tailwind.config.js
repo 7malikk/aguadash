@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage:{
-        'login-bg': "url('/src/assets/blue.png')"
-         'hero-bg': "url('/src/assets/Hero.jpg')",
-      }
+        'login-bg': "url('/src/assets/blue.png')",
+         'hero-bg': "url('/src/assets/Hero.jpg')"
+      },
       colors: {
         primary: '#026583',
         hover: 'rgba(1, 78, 101, 1)',
