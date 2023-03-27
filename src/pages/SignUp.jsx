@@ -76,13 +76,6 @@ const SignUp = () => {
             </div>
             <div>
               <h2 className='text-[30px] pt-[10px]'>Links</h2>
-
-              {/* <div>
-                <img src={facebook} width={20}  height={30}/>
-                <img src={github} width={20}  height={30}/>
-                <img src={linkind} width={20}  height={30}/>
-                <img src={twitter} width={20}  height={30}/>
-              </div> */}
               <ul>
                 <li className='text-[14px] pt-[10px]'>Home</li>
                 <li className='text-[14px] pt-[10px]'>About</li>

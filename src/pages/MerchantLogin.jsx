@@ -9,7 +9,7 @@ const MerchantLogin = () => {
           </div>
           
           <div className='bg-blue w-[100%] flex flex-col md:w-[60%] '>
-              <h2 className="w-[100%] ml-[45px] pb-[20px] mr-[30px] pr-[20px] text-[20px] border-b-2 border-black-300  md:w-[70%] ">Merchant Login</h2>
+              <h2 className="w-[80%] ml-[45px] pb-[20px] mr-[30px] pr-[20px] text-[20px] border-b-2 border-black-300  md:w-[70%] ">Merchant Login</h2>
               <div className='p-[40px]'>
                   <form className='flex flex-col pt-[10px]'>
                     <label>Username</label>
