@@ -8,12 +8,19 @@ import {
   Merchant,
   MerchantLogin,
 } from './pages';
+import ProtectedRoute from './helpers/ProtectedRoute';
 
 function App() {
   return (
     <Routes>
       <Route path="/" exact element={<Home />} />
-      <Route path="/dashboard" element={<Dashboard />}>
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }>
         <Route path="nested" element={<SignUp />} />
       </Route>
       <Route path="/login" element={<Login />} />
