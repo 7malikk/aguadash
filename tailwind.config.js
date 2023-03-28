@@ -20,8 +20,6 @@ module.exports = {
         play: ['Playfair Display', 'serif'],
         lato: ['Lato', 'serif'],
       },
-   
-
     },
   },
   plugins: [],

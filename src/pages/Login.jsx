@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../assets/logo.png"
 import { FiPhone } from 'react-icons/fi';
@@ -8,16 +8,58 @@ import {
   BsLinkedin,
   BsTwitter,
   BsFillEnvelopeFill,
-  BsArrowDown,
-  BsArrowUp,
 } from 'react-icons/bs';
+import { useAppContext } from '../context/AppContext';
+import { CgSpinnerAlt } from 'react-icons/cg';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
   
+  const {
+    handleEmailLogin,
+    handleGoogleLogin,
+    loginLoading,
+    loginError,
+    error,
+    noAcct,
+  } = useAppContext();
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setData({ ...data, [e.target.name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleEmailLogin(data);
+    setData({
+      email: '',
+      password: '',
+    });
+  };
+
+  useEffect(() => {
+    if (loginError || noAcct) {
+      toast.error(error);
+    }
+  }, [error, loginError, noAcct]);
+
   return (
    
   <div className=' w-[100%] h-[100vh]'>
+    <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+      />
       <div className='flex pl-[10px]'>
           <div className=" hidden md:flex bg-login-bg bg-cover bg-center flex-col w-[50%] p-5 h-screen">
               <h2 className='text-5xl font-extrabold text-white font-play lg:pl-[20px] lg:py-[50px]'>AD</h2>
@@ -32,22 +74,37 @@ const Login = () => {
           <Link to="/" className='text-[11px] pb-[20px] flex'><IoIosArrowBack className='mt-[4px]'/><span className='pl-[6px]'>back</span></Link>
               <div className='pl-[6px] flex flex-col'>
               <h2 className='text-center border-b pb-[20px] w-[100%]  text-black text-[20px] md:w-[50%] md:text-left'>Login</h2>
-                  <form className='flex flex-col pt-[20px] '>
-                    <label>Username</label>
-                    <input type="email" placeholder="Enter Your Username" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[50%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
+                  <form onSubmit={handleSubmit} className='flex flex-col pt-[20px] '>
+                    <label>Email</label>
+                    <input required  
+                    name='email'
+                    value={data.email}
+                onChange={handleChange} 
+                type="email" 
+                placeholder="Enter Your Email" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[50%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
 
                     <label>Password</label>
-                    <input type="email" placeholder="Enter Your Password" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[50%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
-                    
+                    <input required 
+                    value={data.password}
+                onChange={handleChange}
+                   name="password"
+                type="password"
+                placeholder="Enter Your Password" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[50%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
+                   <button type="submit" className='w-[100%] border rounded-[20px] p-[4px] mt-[20px] md:w-[50%] bg-[#0e7490] '>
+                 Login  {loginLoading ? (
+                  <CgSpinnerAlt className="w-7 h-7 animate-spin" />
+                ) : null}
+                </button> 
                   </form>
 
-                  <button className='w-[100%] border rounded-[20px] p-[4px] mt-[20px] md:w-[50%] bg-[#0e7490] '>Login</button><span className='text-[14px] md:w-[50%] text-center md:text-right'>Forgot Password? <button className='text-blue-500'>Reset</button></span>
+                  <span className='text-[14px] md:w-[50%] text-center md:text-right'>Forgot Password? 
+                  <button className='text-blue-500'>Reset</button></span>
                         <div className='flex items-center py-[10px] md:w-[50%]'>
                             <div className='flex-grow bg bg-[#334155] h-0.5'></div>
                             <div className='flex-grow-0 mx-5 text dark:text-white'>OR</div>
                             <div className='flex-grow bg bg-[#334155] h-0.5' ></div>
                         </div>
-                        <br/><button className='w-[100%] border flex flex-row justify-between p-[4px] rounded shadow md:w-[50%]'>
+                        <br/><button  onClick={handleGoogleLogin} className='w-[100%] border flex flex-row justify-between p-[4px] rounded shadow md:w-[50%]'>
                   <img
                   className='ml-[10px]'
                   src={logo}
@@ -114,8 +171,16 @@ const Login = () => {
 
             </div>
 
+            <div className="mt-[15px]">
+              <h2 className="text-[30px] pt-[10px]">Contact Us</h2>
+              <i>+234-7007089994</i>
+              <p>park je Sung street</p>
+              <p>info@augudash.com</p>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
+    </div>
   );
 };
 

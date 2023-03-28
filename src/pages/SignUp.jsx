@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import logo from '../assets/logo.png';
+import twitter from '../assets/twitter.png';
+import github from '../assets/github.png';
+import facebook from '../assets/Facebook.png';
+import emailLogo from '../assets/email.jpeg';
 import { Link } from 'react-router-dom';
-import logo from "../assets/logo.png"
+import { useAppContext } from '../context/AppContext';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { CgSpinnerAlt } from 'react-icons/cg';
 import { FiPhone } from 'react-icons/fi';
 import {IoIosArrowBack} from "react-icons/io"
 import {
@@ -8,16 +16,59 @@ import {
   BsLinkedin,
   BsTwitter,
   BsFillEnvelopeFill,
-  BsArrowDown,
-  BsArrowUp,
   
 } from 'react-icons/bs';
 
-
 const SignUp = () => {
+  const {
+    handleEmailSignUp,
+    handleGoogleSignUp,
+    signUpError,
+    error,
+    userError,
+    signUpLoading,
+  } = useAppContext();
+  const [data, setData] = useState({
+    name: '',
+    password: '',
+    phone: '',
+    confirmPwd: '',
+  });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setData({ ...data, [e.target.name]: value });
+  };
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    if (data.password === data.confirmPwd) {
+      handleEmailSignUp(data);
+      setData({
+        name: '',
+        password: '',
+        phone: '',
+        confirmPwd: '',
+      });
+    } else {
+      //toast passwords must match
+      toast.info('Passwords must match');
+    }
+  };
+
+  useEffect(() => {
+    if (signUpError || userError) {
+      toast.error(error);
+    }
+  }, [error, signUpError, userError]);
   return (
     <div className="flex flex-col   bg-white w-[100%] h-[90%]">
-      
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+      />
       <div className=" flex mobile:flex-col md:flex-row">
         <div className=" hidden  bg-login-bg md:flex  bg-cover bg-center  flex-col p-4 w-4/12 h-screen">
           <h2 className='text-5xl font-extrabold text-white font-play lg:pl-[20px] lg:py-[50px]'>AD</h2>
@@ -34,34 +85,59 @@ const SignUp = () => {
           <h2 className='text-center border-b pb-[20px] w-[100%] font-2xl  text-black text-[20px] md:w-[90%] md:text-left'>Register Your Account</h2>
                 <form className='flex flex-col mt-[15px]'>
                     <label>Name</label>
-                    <input type="text" placeholder="Enter Your Name" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
+                    <input required type="text" 
+                      name="name"
+              value={data.name}
+              onChange={handleChange}
+                    placeholder="Enter Your Name" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
 
                     <label className='text-[15px] font-[90px] text-[#1e293b]'>Phone number</label>
-                    <input type="text" placeholder="Enter Your Phone Number"  className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
+                    <input required type="tel" 
+                            name="phone"
+              value={data.phone}
+              onChange={handleChange}
+                    placeholder="Enter Your Phone Number"  className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
 
                     <label>Email Address</label>
-                    <input type="email" placeholder="Enter Your Email Address" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
+                    <input required type="email" 
+                      name="email"
+              value={data.email}
+              onChange={handleChange}
+                    placeholder="Enter Your Email Address" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
 
                     
                     <label>Create Password</label>
-                    <input type="text" placeholder="Enter Your Password" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
+                    <input required type="password"
+                     name="password"
+              value={data.password}
+              onChange={handleChange}
+                    placeholder="Enter Your Password" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
 
                     <label>Confirm Password</label>
-                    <input type="text" placeholder="Re-Enter Your Password" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
+                    <input required
+                          name="confirmPwd"
+              value={data.confirmPwd}
+              onChange={handleChange}
+                    type="password" placeholder="Re-Enter Your Password" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
+                    
                     <label className='pb-[10px]'>
-                  <input type="checkbox" className='h-[10px]' />
+                  <input required type="checkbox" className='h-[10px]' />
                   <span className='text-[11px] ml-[10px]' >
                     I agree with <Link to="/signup" className='text-[#0e7490]'>terms</Link>&{' '}
                     <Link to="/signup" className='text-[#0e7490]'>Condition</Link>
                   </span>
                 </label>
-                <button className='w-[100%] border rounded-[20px] p-[4px]  md:w-[90%] bg-[#0e7490] '>Register Account</button>
+                <button className='w-[100%] border rounded-[20px] p-[4px]  md:w-[90%] bg-[#0e7490] '>Register Account
+                 {signUpLoading ? (
+                <CgSpinnerAlt className="w-7 h-7 animate-spin" />
+              ) : null}
+                </button>
                 <div className='flex items-center py-[10px] md:w-[90%]'>
                   <div className='flex-grow bg bg-[#334155] h-0.5'></div>
                   <div className='flex-grow-0 mx-5 text dark:text-white'>OR</div>
                   <div className='flex-grow bg bg-[#334155] h-0.5' ></div>
                 </div>
-                <button className='w-[100%] border flex flex-row justify-between p-[4px] rounded shadow md:w-[90%]'>
+                <button    onClick={handleGoogleSignUp} className='w-[100%] border flex flex-row justify-between p-[4px] rounded shadow md:w-[90%]'>
                   <img
                   className='ml-[10px]'
                   src={logo}
@@ -71,7 +147,7 @@ const SignUp = () => {
                   />
                   <span className='text-[14px] mr-[30%] md:mr-[60px]'>Register With Google</span>
                 </button>
-                <h3 className='text-[11px] text-center  md:text-[11px] md:w-[90%] md:text-end'>Already a registerd user? <Link to="/signup" className='text-blue-600'>Sign in</Link></h3>
+                <h3 className='text-[11px] text-center  md:text-[11px] md:w-[90%] md:text-end'>Already a registerd user? <Link to="/login" className='text-blue-600'>Login</Link></h3>
               </form>
           </div>
            
