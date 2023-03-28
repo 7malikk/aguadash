@@ -16,6 +16,7 @@ import {
   aboutImg2,
   delivery,
   ontime,
+  
   payments,
   stepOne,
   stepTwo,
