@@ -20,16 +20,15 @@ const Login = () => {
   <div className=' w-[100%] h-[100vh]'>
       <div className='flex pl-[10px]'>
           <div className=" hidden md:flex bg-login-bg bg-cover bg-center flex-col w-[50%] p-5 h-screen">
-              <h2 className='text-[50px] text-white ml-4 pl-[40px] pb-[50px]'>AD</h2>
-              <p className="text-white">
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quis
-                ut, commodi est ullam dicta soluta optio obcaecati, perferendis
-                voluptate eius corrupti nostrum odit asperiores aspernatur
-                necessitatibus! Amet, officiis incidunt".
+              <h2 className='text-5xl font-extrabold text-white font-play lg:pl-[20px] lg:py-[50px]'>AD</h2>
+              <p className="w-[100%] lg:w-[90%] text-center text-white mt-2 mb-8 font-loto text-base md:text-xl lg:text-xl">
+              "Thirsty for hassle-free hydration? Look no more! Our water delivery service brings crisp, refreshing water straight to your door step. say goodbye to lugging heavy jugs from store or waiting in long line. with our easy online ordering system, you can get the water you need in with just a few clicks
+             Plus, with our convenient subscription serivces, you'll never have to worry about running out of water again. Trust us to keep you hydrated and refreshed!!!. 
+            "
               </p>
           </div>
 
-          <div className='bg-white  w-[100%] flex flex-col  md:w-[65%] md:pl-[80px] mt-[40px]'>
+          <div className='bg-white  w-[100%] flex flex-col  md:w-[65%] md:pl-[100px] mt-[60px]'>
           <Link to="/" className='text-[11px] pb-[20px] flex'><IoIosArrowBack className='mt-[4px]'/><span className='pl-[6px]'>back</span></Link>
               <div className='pl-[6px] flex flex-col'>
               <h2 className='text-center border-b pb-[20px] w-[100%]  text-black text-[20px] md:w-[50%] md:text-left'>Login</h2>
@@ -45,26 +44,26 @@ const Login = () => {
                   <button className='w-[100%] border rounded-[20px] p-[4px] mt-[20px] md:w-[50%] bg-[#0e7490] '>Login</button><span className='text-[14px] md:w-[50%] text-center md:text-right'>Forgot Password? <button className='text-blue-500'>Reset</button></span>
                         <div className='flex items-center py-[10px] md:w-[50%]'>
                             <div className='flex-grow bg bg-[#334155] h-0.5'></div>
-                            <div className='flex-grow-0 mx-5 text dark:text-white'>or</div>
+                            <div className='flex-grow-0 mx-5 text dark:text-white'>OR</div>
                             <div className='flex-grow bg bg-[#334155] h-0.5' ></div>
                         </div>
-                        <br/><button className='w-[97%] ml-[0]  border-2 rounded p-[4px] md:w-[50%] flex justify-between   hover:bg-blue-700 hover:text-white'>
-                    <img
-                    className='ml-[10px]'
-                    src={logo}
-                    alt='logo'
-                    width={20}
-                    height={30}
-                    />
-                    <span className=' mr-[120px] md:mr-[40px]'>Login With Google</span>
+                        <br/><button className='w-[100%] border flex flex-row justify-between p-[4px] rounded shadow md:w-[50%]'>
+                  <img
+                  className='ml-[10px]'
+                  src={logo}
+                  alt='logo'
+                  width={20}
+                  height={30}
+                  />
+                  <span className='text-[14px] mr-[30%] md:mr-[60px]'>Register With Google</span>
                   </button>
-                  <h3 className='text-[14px]  md:text-[12px] text-center md:text-right md:w-[50%]'>Don't have a registerd Account? <Link to="/signup">Signup</Link> </h3>
+                  <h3 className='text-[14px]  md:text-[12px] text-center md:text-right md:w-[50%]'>Don't have a registerd Account? <Link to="/signup" className='text-[#0e7490]'>Signup</Link> </h3>
               </div>
                   
               {/* for moblile */}
           <footer 
               id="footer"
-              className="bg-black text-white  px-5 md:hidden md:px-11  grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14 pb-14">
+              className="bg-black text-white mt-[30px] px-5 md:hidden md:px-11  grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14 pb-14">
               <div className="company w-96 space-y-5 mt-9 ">
                 <h4 className="font-play text-3xl md:text-6xl font-bold">AGUADASH</h4>
                 <div className="space-y-2 md:space-y-4">

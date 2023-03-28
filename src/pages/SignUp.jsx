@@ -20,20 +20,18 @@ const SignUp = () => {
       
       <div className=" flex mobile:flex-col md:flex-row">
         <div className=" hidden  bg-login-bg md:flex  bg-cover bg-center  flex-col p-4 w-4/12 h-screen">
-          <h2>AD</h2>
-          <p className="">
-            "Lorem ipsum dolor 
-            sit amet consectetur adipisicing elit. Cum, quis
-            ut,mmodi est ullam dicta soluta optio obcaecati, perferendis
-            voluptate eius corrupti nostrum odit asperiores aspernatur
-            necessitatibus! Amet, officiis incidun"t.
+          <h2 className='text-5xl font-extrabold text-white font-play lg:pl-[20px] lg:py-[50px]'>AD</h2>
+          <p className="w-[100%] lg:w-[90%] text-center text-white mt-2 mb-8 font-loto text-base md:text-xl lg:text-xl">
+            "Thirsty for hassle-free hydration? Look no more! Our water delivery service brings crisp, refreshing water straight to your door step. say goodbye to lugging heavy jugs from store or waiting in long line. with our easy online ordering system, you can get the water you need in with just a few clicks
+             Plus, with our convenient subscription serivces, you'll never have to worry about running out of water again. Trust us to keep you hydrated and refreshed!!!. 
+            "
           </p>
         </div>
 
         <div className="bg-white  flex-col w-[100%] pl-[6px] p-5 md:flex md:flex-col  md:w-[65%]  md:pl-[80px]">
           <Link to="/" className='text-[11px] pb-[20px] flex'><IoIosArrowBack className='mt-[4px]'/><span className='pl-[6px]'>back</span></Link>
           <div className='bg-white h-[600px] w-[100%] md:w-[50%] md:h-[90%] pl-[10px]'>
-          <h2 className='text-center border-b pb-[20px] w-[100%]  text-black text-[20px] md:w-[90%] md:text-left'>Register Your Account</h2>
+          <h2 className='text-center border-b pb-[20px] w-[100%] font-2xl  text-black text-[20px] md:w-[90%] md:text-left'>Register Your Account</h2>
                 <form className='flex flex-col mt-[15px]'>
                     <label>Name</label>
                     <input type="text" placeholder="Enter Your Name" className='placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]'/>
@@ -60,7 +58,7 @@ const SignUp = () => {
                 <button className='w-[100%] border rounded-[20px] p-[4px]  md:w-[90%] bg-[#0e7490] '>Register Account</button>
                 <div className='flex items-center py-[10px] md:w-[90%]'>
                   <div className='flex-grow bg bg-[#334155] h-0.5'></div>
-                  <div className='flex-grow-0 mx-5 text dark:text-white'>or</div>
+                  <div className='flex-grow-0 mx-5 text dark:text-white'>OR</div>
                   <div className='flex-grow bg bg-[#334155] h-0.5' ></div>
                 </div>
                 <button className='w-[100%] border flex flex-row justify-between p-[4px] rounded shadow md:w-[90%]'>
@@ -73,7 +71,7 @@ const SignUp = () => {
                   />
                   <span className='text-[14px] mr-[30%] md:mr-[60px]'>Register With Google</span>
                 </button>
-                <h3 className='text-[11px] text-center  md:text-[11px] md:mr-[24px] md:text-end'>Already a registerd user? <Link to="/signup" className='text-blue-600'>Sign in</Link></h3>
+                <h3 className='text-[11px] text-center  md:text-[11px] md:w-[90%] md:text-end'>Already a registerd user? <Link to="/signup" className='text-blue-600'>Sign in</Link></h3>
               </form>
           </div>
            
