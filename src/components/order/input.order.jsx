@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
-function InputOrder(props){
-     let{info,onAction}=props
+function InputOrder({info,onAction}){
+     const Update=(e)=>{
+          onAction(e)
+     }
      
-
-    
-
     return(
         <div className="mt-[10px] shadow border p-[10px]">
            <div className="shadow p-[2px] border-black mb-[10px] flex">
@@ -13,12 +12,7 @@ function InputOrder(props){
                 <input type="text" 
                 className="border-none outline-none rounded w-[100%] p-[10px] pl-[2px]"  
                 name="name"
-                onChange={(e)=>{
-                    setNewInfo({
-                         ...newinfo,
-                         Address:e.target.value
-                    })
-                }}
+                onChange={onAction}
                 />
            </div>
           
