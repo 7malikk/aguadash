@@ -125,7 +125,6 @@ export const AppProvider = ({ children }) => {
   // sign in with email and password
   const handleEmailLogin = async (data) => {
     dispatch({ type: 'LOGIN_BEGIN' });
-    console.log('ma');
     try {
       const userCredentials = await signInWithEmailAndPassword(
         auth,
