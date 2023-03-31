@@ -160,11 +160,14 @@ const SignUp = () => {
                   </Link>
                 </span>
               </label>
-              <button className="w-[100%] border rounded-[20px] p-[4px]  md:w-[90%] bg-[#0e7490] flex justify-center items-center">
-                Register Account
+              <button
+                disabled={signUpLoading}
+                className="w-[100%] border rounded-[20px] p-[4px]  md:w-[90%] bg-[#0e7490] flex justify-center items-center">
                 {signUpLoading ? (
                   <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
-                ) : null}
+                ) : (
+                  '  Register Account'
+                )}
               </button>
               <div className="flex items-center py-[10px] md:w-[90%]">
                 <div className="flex-grow bg bg-[#334155] h-0.5"></div>

@@ -105,12 +105,14 @@ const Login = () => {
                 className="placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[50%] rounded shadow border p-[8px] mt-[10px] mb-[6px]"
               />
               <button
+                disabled={loginLoading}
                 type="submit"
                 className="w-[100%] border rounded-[20px] p-[4px] mt-[20px] md:w-[50%] bg-[#0e7490] flex justify-center items-center">
-                Login{' '}
                 {loginLoading ? (
                   <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
-                ) : null}
+                ) : (
+                  'Login'
+                )}
               </button>
             </form>
 
