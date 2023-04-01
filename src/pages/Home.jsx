@@ -16,7 +16,6 @@ import {
   aboutImg2,
   delivery,
   ontime,
-  
   payments,
   stepOne,
   stepTwo,
@@ -158,18 +157,18 @@ const Home = () => {
         <div
           ref={hero}
           id="hero"
-          className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-between items-center px-5 md:px-11 pt-4 md:pt-10 pb-11">
+          className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-between items-center px-5 md:px-11 pt-4 md:pt-10 pb-11 space-y-2">
           <div className="flex flex-col justify-between items-center ">
-            <h1 className="text-5xl  md:text-7xl lg:text-8xl font-extrabold font-play text-center w-[90%]">
+            <h1 className="text-6xl  md:text-7xl lg:text-8xl xl:text-9xl font-extrabold font-play text-center w-[100%] md:w-11/12">
               The water source you trust the most and rely on.
             </h1>
-            <h3 className=" w-[100%] lg:w-[753px] text-center mt-2 mb-8 text-base md:text-2xl lg:text-4xl">
+            <h3 className=" w-[100%] md:w-9/12 lg:w-[600px] xl:w-[753px] text-center mt-2 mb-8 text-base md:text-2xl lg:text-2xl xl:text-4xl">
               Water is the softest thing, yet it can penetrate mountains and
               earth. This shows clearly the principle of softness overcoming
               hardness.
             </h3>
             <Link to="/login">
-              <button className="bg-primary py-5 px-14 text-white  rounded-full hover:bg-hover">
+              <button className="bg-primary py-4 px-10 xl:py-5 xl:px-14 text-white  rounded-full hover:bg-hover">
                 Order Now
               </button>
             </Link>

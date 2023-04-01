@@ -19,7 +19,12 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === 'SIGNUP_SUCCESS') {
-    return { ...state, signUpLoading: false, userData: { ...action.payload } };
+    return {
+      ...state,
+      signUpLoading: false,
+      signUpError: false,
+      userData: { ...action.payload },
+    };
   }
   if (action.type === 'LOGIN_BEGIN') {
     return { ...state, loginLoading: true };
@@ -41,10 +46,18 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === 'LOGIN_SUCCESS') {
-    return { ...state, loginLoading: false, userData: { ...action.payload } };
+    return {
+      ...state,
+      loginLoading: false,
+      loginError: false,
+      userData: { ...action.payload },
+    };
   }
   if (action.type === 'RELOAD') {
     return { ...state, userData: { ...action.payload } };
+  }
+  if (action.type === 'USER_ORDERS_SUCCESS') {
+    return { ...state, userOrders: [...action.payload] };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);
