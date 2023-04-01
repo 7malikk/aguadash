@@ -2,23 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { totalAmount, totalBags, amountOfOrders, empty } from '../assets';
 import { useAppContext } from '../context/AppContext';
+import { formatPrice } from '../helpers/helperFunctions';
 
 const Overview = () => {
-  const { userOrders, userData } = useAppContext();
-  const deliveredOrders = userOrders?.filter(
-    (order) => order.status === 'Delivered'
-  );
-
-  const formatPrice = (number) => {
-    const convert = Number(number);
-    return new Intl.NumberFormat('en-NG', {
-      style: 'currency',
-      currency: 'NGN',
-    }).format(convert);
-  };
-
-  //
-
+  const { userData, deliveredOrders } = useAppContext();
   return (
     <main className="bg-white m-6 p-6 rounded-2xl space-y-6  ">
       <h1 className="font-semibold text-4xl">Overview</h1>

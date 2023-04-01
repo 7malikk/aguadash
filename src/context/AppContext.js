@@ -15,6 +15,7 @@ const AppContext = createContext();
 const initialState = {
   userData: {},
   userOrders: [],
+  deliveredOrders: [],
   signUpLoading: false,
   loginLoading: false,
   userId: '',
