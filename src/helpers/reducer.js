@@ -67,6 +67,28 @@ const reducer = (state, action) => {
       deliveredOrders: [...delOrders],
     };
   }
+  if (action.type === 'PHONE_UPDATE_BEGINS') {
+    return {
+      ...state,
+      phoneUpdateloading: true,
+    };
+  }
+  if (action.type === 'PHONE_UPDATE_SUCCESS') {
+    return {
+      ...state,
+      phoneUpdateloading: false,
+      phoneUpdateError: false,
+      error: action.payload,
+    };
+  }
+  if (action.type === 'PHONE_UPDATE_ERROR') {
+    return {
+      ...state,
+      phoneUpdateloading: false,
+      error: action.payload,
+      phoneUpdateError: true,
+    };
+  }
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };
