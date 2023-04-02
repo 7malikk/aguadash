@@ -57,7 +57,15 @@ const reducer = (state, action) => {
     return { ...state, userData: { ...action.payload } };
   }
   if (action.type === 'USER_ORDERS_SUCCESS') {
-    return { ...state, userOrders: [...action.payload] };
+    // set delivered orders
+    const delOrders = action.payload.filter(
+      (order) => order.status === 'Delivered'
+    );
+    return {
+      ...state,
+      userOrders: [...action.payload],
+      deliveredOrders: [...delOrders],
+    };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);
