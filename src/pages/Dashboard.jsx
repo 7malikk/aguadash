@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <main className="flex h-screen md:h-full overflow-hidden">
       <Sidebar />
-      <section className="w-full max-h-[100vh] overflow-y-scroll bg-lightAsh">
+      <section className="w-full h-screen max-h-screen overflow-y-scroll bg-lightAsh">
         <DashboardNav />
         <Outlet />
       </section>

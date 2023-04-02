@@ -8,7 +8,7 @@ import {
   Merchant,
   MerchantLogin,
 } from './pages';
-import { Overview, History } from './components';
+import { Overview, History, Settings } from './components';
 import ProtectedRoute from './helpers/ProtectedRoute';
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         <Route path="home" element={<Overview />} />
         <Route path="orders" exact element={<Overview />} />
         <Route path="history" exact element={<History />} />
+        <Route path="settings" exact element={<Settings />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />

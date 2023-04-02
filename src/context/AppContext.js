@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useReducer, useEffect } from 'react';
+import React, { useContext, createContext, useReducer } from 'react';
 import { auth, db, googleProvider } from '../config/firebase';
 import {
   createUserWithEmailAndPassword,
@@ -24,6 +24,8 @@ const initialState = {
   noAcct: false,
   loginError: false,
   error: '',
+  phoneUpdateloading: false,
+  phoneUpdateError: false,
 };
 
 export const AppProvider = ({ children }) => {
@@ -236,7 +238,7 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // !!!!!!!!!!!!!!!!!!!!!!!! ALL COMMENTS WITHING THE FUNCTION BENEATH ARE IMPORTANT AND SHOULD NOT BE DELETED !!!!!!!!!!!!!!!!!!!!!!!!
+  // !!!!!!!!!!!!!!!!!!!!!!!! ALL COMMENTS WITHIN THE FUNCTION BENEATH ARE IMPORTANT AND SHOULD NOT BE DELETED !!!!!!!!!!!!!!!!!!!!!!!!
 
   auth.onAuthStateChanged((user) => {
     if (user) {
@@ -269,9 +271,34 @@ export const AppProvider = ({ children }) => {
   });
   // <--------------------------------------------User Data Retrieval Section End---------------------------------------------------------->
 
+  // <--------------------------------------------User Data Phone Number Change Start ---------------------------------------------------------->
+  const updatePhone = async (phn) => {
+    dispatch({ type: 'PHONE_UPDATE_BEGINS' });
+    const userId = auth.currentUser.uid;
+    const userDocRef = collection(db, 'users', userId);
+    try {
+      const updated = await setDoc(userDocRef, {
+        ...state.userData,
+        phone: phn,
+      });
+      dispatch({ type: 'PHONE_UPDATE_SUCCESS', payload: 'Success' });
+    } catch (error) {
+      const str = error.message;
+      const regx = /[/!@#$%^&*)(+=._-]+/g;
+      const convertErrMsg = str
+        .replace('Firebase: Error (auth/', '')
+        .replace(regx, ' ');
+      const errorMessage =
+        convertErrMsg.charAt(0).toUpperCase() + convertErrMsg.slice(1);
+      dispatch({ type: 'PHONE_UPDATE_ERROR', payload: errorMessage });
+    }
+  };
+  // <--------------------------------------------User Data Phone Number Change End ---------------------------------------------------------->
+
   return (
     <AppContext.Provider
       value={{
+        updatePhone,
         handleEmailSignUp,
         handleGoogleSignUp,
         handleLogout,

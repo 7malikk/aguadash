@@ -51,10 +51,16 @@ const Sidebar = () => {
           </NavLink>
         </ul>
         <ul className="space-y-4">
-          <li className="flex items-center bg-white text-black hover:bg-black hover:text-white px-1  py-2 rounded-lg hover:cursor-pointer">
+          <NavLink
+            to="/dashboard/settings"
+            className={({ isActive }) =>
+              isActive
+                ? 'flex justify-center md:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
+                : 'flex justify-center md:justify-start  items-center bg-white text-black px-1  py-2'
+            }>
             <RxGear className=" w-6 h-6 mr-0 md:mr-3" />
             <h4 className="hidden md:flex">Settings</h4>
-          </li>
+          </NavLink>
           <li
             className="flex items-center bg-white text-black hover:bg-black hover:text-white px-1  py-2 rounded-lg hover:cursor-pointer"
             onClick={handleLogout}>
