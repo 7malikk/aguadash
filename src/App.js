@@ -9,6 +9,7 @@ import {
   Merchant,
   MerchantLogin,
 } from './pages';
+import { Overview, History } from './components';
 import ProtectedRoute from './helpers/ProtectedRoute';
 
 function App() {
@@ -21,8 +22,10 @@ function App() {
           <ProtectedRoute>
             <Dashboard />
           </ProtectedRoute>
-        }>
-        <Route path="orders" element={<Order/>} />
+        }
+        <Route path="home" element={<Overview />} />
+        <Route path="orders" exact element={<Order />} />
+        <Route path="history" exact element={<History />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
