@@ -1,17 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router';
-import { useAppContext } from '../context/AppContext';
+import { Sidebar, DashboardNav } from '../components';
 
 const Dashboard = () => {
-  const { handleLogout, userData } = useAppContext();
-
   return (
-    <div>
-      Welcome, {userData?.name} to your dashboard
-      <br />
-      <button onClick={handleLogout}> Logout</button>
-      <Outlet />
-    </div>
+    <main className="flex h-screen md:h-full overflow-hidden">
+      <Sidebar />
+      <section className="w-full h-screen max-h-screen overflow-y-scroll bg-lightAsh">
+        <DashboardNav />
+        <Outlet />
+      </section>
+    </main>
   );
 };
 

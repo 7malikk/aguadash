@@ -4,7 +4,7 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: 'aguadash-d2414.firebaseapp.com',
   projectId: 'aguadash-d2414',
   storageBucket: 'aguadash-d2414.appspot.com',
