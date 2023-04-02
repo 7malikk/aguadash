@@ -6,8 +6,16 @@ import {usePaystackPayment} from "react-paystack"
 
 
 function InputOrder({info,setInfo,setPaymentstatus,paymentStatus}){
+     let { 
+     Address,
+     time,
+     date,
+     amount_of_Bags,
+}=info
+  let amount = amount_of_Bags * 500;
      const[email,setEmail]=useState("")
-     const[amount,setAmount]=useState("")
+     
+     console.log(amount)
     
 const paywithPaystack=(e)=>{
      e.preventDefault()
@@ -89,12 +97,14 @@ console.log(paymentStatus)
            <div className="shadow p-[2px] border mb-[10px] flex">
                 <label className="mt-[10px]">Total Cost:</label>
                 <input type="text" required className="border-none outline-none rounded w-[80%] p-[10px] pl-[2px]"  name="name"
-                 onChange={(e)=>{
-                   setAmount(e.target.value)
-                  }}
+                 value={
+                    amount_of_Bags * 500
+                } 
+
                 />
            </div>
           <button className="shadow p-[10px] border mb-[10px] flex text-center pl-[47%] rounded bg-[#0369a1] w-[100%]"
+     
      onClick={paywithPaystack}
           >Order</button>
         </div>
