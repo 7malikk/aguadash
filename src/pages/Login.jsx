@@ -169,7 +169,7 @@ const Login = () => {
               </div>
       </footer>
 
-            </div>
+         </div>
 
             <div className="mt-[15px]">
               <h2 className="text-[30px] pt-[10px]">Contact Us</h2>
