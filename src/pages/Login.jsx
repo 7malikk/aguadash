@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { FiPhone } from 'react-icons/fi';
@@ -72,7 +72,7 @@ const Login = () => {
             of water again. Trust us to keep you hydrated and refreshed!!!. "
           </p>
         </div>
-         
+
         <div className="bg-white  w-[100%] flex flex-col  md:w-[65%] md:pl-[100px] mt-[60px]">
           <Link to="/" className="text-[11px] pb-[20px] flex">
             <IoIosArrowBack className="mt-[4px]" />
@@ -169,7 +169,6 @@ const Login = () => {
               </div>
             </div>
 
-
             <div className="links space-y-5 mt-9 ml-0 lg:mt-14 lg:ml-56">
               <h6 className="text-3xl font-play font-bold">Links</h6>
               <ul className="text-xl">
@@ -193,6 +192,8 @@ const Login = () => {
             </div>
           </footer>
         </div>
+      </div>
+    </div>
   );
 };
 

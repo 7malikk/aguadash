@@ -11,6 +11,7 @@ const Settings = () => {
   const handlePhoneUpdate = (e) => {
     e.preventDefault();
     updatePhone(phone);
+    setPhone('');
   };
 
   useEffect(() => {
