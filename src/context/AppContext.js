@@ -245,14 +245,14 @@ export const AppProvider = ({ children }) => {
       // User is signed in, proceed to set and retrieve the user's data
       const userId = auth.currentUser.uid;
       // sessionStorage.setItem('userId', userId);
-      // const userDocCollectionRef = collection(db, 'users', userId, 'orders');
+      const userDocCollectionRef = collection(db, 'users', userId, 'orders');
       retrieveUser(userId);
 
       // writes orders to the user
       // setDoc(doc(userDocCollectionRef), {
       //   date: '24/03/2023',
       //   name: 'malikk',
-      //   time: '5:34 pm',
+      //   time: '5:34pm',
       //   phone: '08098121022',
       //   amount: '1200',
       //   status: 'Delivered',
@@ -275,9 +275,9 @@ export const AppProvider = ({ children }) => {
   const updatePhone = async (phn) => {
     dispatch({ type: 'PHONE_UPDATE_BEGINS' });
     const userId = auth.currentUser.uid;
-    const userDocRef = collection(db, 'users', userId);
+    const docRef = doc(db, 'users', userId);
     try {
-      const updated = await setDoc(userDocRef, {
+      const updated = await setDoc(docRef, {
         ...state.userData,
         phone: phn,
       });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import  Order from "./components/order/Order"
+import Order from './components/order/Order';
 import {
   Dashboard,
   Home,
@@ -22,7 +22,10 @@ function App() {
             <Dashboard />
           </ProtectedRoute>
         }>
-        <Route path="orders" element={<Order/>} />
+        <Route path="home" element={<Overview />} />
+        <Route path="orders" exact element={<Order />} />
+        <Route path="history" exact element={<History />} />
+        <Route path="settings" exact element={<Settings />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
@@ -34,7 +37,7 @@ function App() {
           <div>
             {' '}
             <h1>404 page not found </h1>
-++            <Link to="/">back home</Link>
+            ++ <Link to="/">back home</Link>
           </div>
         }
       />

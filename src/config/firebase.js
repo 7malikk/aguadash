@@ -4,13 +4,12 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: 'aguadash-d2414.firebaseapp.com',
-  projectId: 'aguadash-d2414',
-  storageBucket: 'aguadash-d2414.appspot.com',
-  messagingSenderId: '862840799122',
-  appId: '1:862840799122:web:ce95a94c52eb8005b2cb4b',
-  measurementId: 'G-1WRCWDQFDJ',
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  authDomain: 'aguadash2-0.firebaseapp.com',
+  projectId: 'aguadash2-0',
+  storageBucket: 'aguadash2-0.appspot.com',
+  messagingSenderId: '335222528295',
+  appId: '1:335222528295:web:cc3eab2f138af88bf1b102',
 };
 
 const app = initializeApp(firebaseConfig);

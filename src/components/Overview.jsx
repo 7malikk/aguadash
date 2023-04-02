@@ -69,42 +69,6 @@ const Overview = () => {
                 </div>
               );
             })}
-            <div className="border  border-darkAsh grid grid-cols-4 text-lg  text-left rounded-xl">
-              <h5 className="px-6 py-4">12 Bags</h5>
-              <h5 className="px-6 py-4">12/2/2023</h5>
-              <h5 className="px-6 py-4">12:00pm</h5>
-              <h5 className="px-6 py-4">₦1200</h5>
-            </div>
-            <div className="border  border-darkAsh grid grid-cols-4  text-lg  text-left rounded-xl">
-              <h5 className="px-6 py-4">12 Bags</h5>
-              <h5 className="px-6 py-4">12/2/2023</h5>
-              <h5 className="px-6 py-4">12:00pm</h5>
-              <h5 className="px-6 py-4">₦1200</h5>
-            </div>
-            <div className="border  border-darkAsh grid grid-cols-4  text-lg  text-left rounded-xl">
-              <h5 className="px-6 py-4">12 Bags</h5>
-              <h5 className="px-6 py-4">12/2/2023</h5>
-              <h5 className="px-6 py-4">12:00pm</h5>
-              <h5 className="px-6 py-4">₦1200</h5>
-            </div>
-            <div className="border  border-darkAsh grid grid-cols-4  text-lg  text-left rounded-xl">
-              <h5 className="px-6 py-4">12 Bags</h5>
-              <h5 className="px-6 py-4">12/2/2023</h5>
-              <h5 className="px-6 py-4">12:00pm</h5>
-              <h5 className="px-6 py-4">₦1200</h5>
-            </div>
-            <div className="border  border-darkAsh grid grid-cols-4  text-lg  text-left rounded-xl">
-              <h5 className="px-6 py-4">12 Bags</h5>
-              <h5 className="px-6 py-4">12/2/2023</h5>
-              <h5 className="px-6 py-4">12:00pm</h5>
-              <h5 className="px-6 py-4">₦1200</h5>
-            </div>
-            <div className="border  border-darkAsh grid grid-cols-4  text-lg  text-left rounded-xl">
-              <h5 className="px-6 py-4">12 Bags</h5>
-              <h5 className="px-6 py-4">12/2/2023</h5>
-              <h5 className="px-6 py-4">12:00pm</h5>
-              <h5 className="px-6 py-4">₦1200</h5>
-            </div>
           </section>
         ) : (
           <div className="flex flex-col justify-center items-center space-y-2">
