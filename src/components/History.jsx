@@ -16,7 +16,7 @@ const History = () => {
             return (
               <div
                 key={i}
-                className="cardOne grid grid-cols-1  md:grid-cols-2 gap-8 shadow-md p-6rounded-xl">
+                className="cardOne grid grid-cols-1  md:grid-cols-2 gap-8 shadow-md p-6 rounded-xl">
                 <div>
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Order
