@@ -16,12 +16,12 @@ const History = () => {
             return (
               <div
                 key={i}
-                className="cardOne grid grid-cols-1  md:grid-cols-2 gap-8 shadow-md px-3 py-4 rounded-xl">
+                className="cardOne grid grid-cols-1  md:grid-cols-2 gap-8 shadow-md p-6rounded-xl">
                 <div>
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Order
                   </h4>
-                  <h1 className="text-4xl font-semibold mt-2">
+                  <h1 className="text-2xl font-semibold mt-2">
                     {order['number of bags']} Bag(s)
                   </h1>
                 </div>
@@ -29,7 +29,7 @@ const History = () => {
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Status
                   </h4>
-                  <h1 className="text-4xl font-semibold mt-2">
+                  <h1 className="text-2xl font-semibold mt-2">
                     {order.status}
                   </h1>
                 </div>
@@ -37,7 +37,7 @@ const History = () => {
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Address
                   </h4>
-                  <h1 className="text-4xl font-semibold mt-2">
+                  <h1 className="text-2xl font-semibold mt-2">
                     {order.address}
                   </h1>
                 </div>
@@ -45,19 +45,19 @@ const History = () => {
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Date
                   </h4>
-                  <h1 className="text-4xl font-semibold mt-2">{order.date}</h1>
+                  <h1 className="text-2xl font-semibold mt-2">{order.date}</h1>
                 </div>
                 <div>
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Time
                   </h4>
-                  <h1 className="text-4xl font-semibold mt-2">{order.time}</h1>
+                  <h1 className="text-2xl font-semibold mt-2">{order.time}</h1>
                 </div>
                 <div>
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Amount Paid
                   </h4>
-                  <h1 className="text-4xl font-semibold mt-2">
+                  <h1 className="text-2xl font-semibold mt-2">
                     {formatPrice(order.amount)}
                   </h1>
                 </div>
@@ -68,7 +68,7 @@ const History = () => {
           <div className="flex flex-col justify-center items-center space-y-2">
             <img src={empty} alt="empty" />
             <h4 className="text-lg font-semibold">
-              You have not had a successful order, yet!
+              You have not had a complete order, yet!
             </h4>
             <Link to="/dashboard/orders">
               <button className="bg-primary py-2 px-8 xl:py-3 xl:px-10 text-white  rounded-full hover:bg-hover">

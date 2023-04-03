@@ -28,6 +28,7 @@ const SignUp = () => {
     password: '',
     phone: '',
     confirmPwd: '',
+    email: '',
   });
 
   const handleChange = (e) => {
@@ -43,6 +44,7 @@ const SignUp = () => {
         password: '',
         phone: '',
         confirmPwd: '',
+        email: '',
       });
     } else {
       //toast passwords must match

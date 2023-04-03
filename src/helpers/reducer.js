@@ -61,10 +61,20 @@ const reducer = (state, action) => {
     const delOrders = action.payload.filter(
       (order) => order.status === 'Delivered'
     );
+    // set processing orders
+    const proOrders = action.payload.filter(
+      (order) => order.status === 'Processing'
+    );
+    // set inTransit orders
+    const inTransit = action.payload.filter(
+      (order) => order.status === 'inTransit'
+    );
     return {
       ...state,
       userOrders: [...action.payload],
       deliveredOrders: [...delOrders],
+      processingOrders: [...proOrders],
+      ordersInTransit: [...inTransit],
     };
   }
   if (action.type === 'PHONE_UPDATE_BEGINS') {
@@ -87,6 +97,34 @@ const reducer = (state, action) => {
       phoneUpdateloading: false,
       error: action.payload,
       phoneUpdateError: true,
+    };
+  }
+  if (action.type === 'PAYMENT_BEGINS') {
+    return {
+      ...state,
+      paymentLoading: true,
+    };
+  }
+  if (action.type === 'PAYMENT_SUCCESS') {
+    return {
+      ...state,
+      paymentLoading: false,
+      paymentSuccessful: true,
+      paymentFailed: false,
+      error: 'Payment Successful',
+    };
+  }
+  if (action.type === 'PAYMENT_COMPLETE') {
+    return {
+      ...state,
+      paymentLoading: false,
+      paymentSuccessful: false,
+    };
+  }
+  if (action.type === 'PAYMENT_CANCELED') {
+    return {
+      ...state,
+      paymentLoading: false,
     };
   }
 
