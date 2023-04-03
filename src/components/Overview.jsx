@@ -74,7 +74,7 @@ const Overview = () => {
           <div className="flex flex-col justify-center items-center space-y-2">
             <img src={empty} alt="empty" />
             <h4 className="text-lg font-semibold">
-              You have not had a successful order, yet!
+              You have not had a complete order, yet!
             </h4>
             <Link to="/dashboard/orders">
               <button className="bg-primary py-2 px-8 xl:py-3 xl:px-10 text-white  rounded-full hover:bg-hover">

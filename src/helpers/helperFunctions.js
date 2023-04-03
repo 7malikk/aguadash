@@ -1,7 +1,27 @@
 export const formatPrice = (number) => {
-  const convert = Number(number);
   return new Intl.NumberFormat('en-NG', {
     style: 'currency',
     currency: 'NGN',
-  }).format(convert);
+  }).format(number);
+};
+
+export const initialState = {
+  userData: {},
+  userOrders: [],
+  deliveredOrders: [],
+  processingOrders: [],
+  ordersInTransit: [],
+  signUpLoading: false,
+  loginLoading: false,
+  userId: '',
+  userError: false,
+  signUpError: false,
+  noAcct: false,
+  loginError: false,
+  error: '',
+  phoneUpdateloading: false,
+  phoneUpdateError: false,
+  paymentLoading: false,
+  paymentFailed: false,
+  paymentSuccessful: false,
 };
