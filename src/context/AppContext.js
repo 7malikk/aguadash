@@ -303,8 +303,6 @@ export const AppProvider = ({ children }) => {
         totalOrders: newTotalOrders,
         totalSpent: newTotalSpent,
       });
-
-      console.log('updated User data');
     } catch (error) {
       const str = error.message;
       const regx = /[/!@#$%^&*)(+=._-]+/g;
@@ -327,11 +325,11 @@ export const AppProvider = ({ children }) => {
   // also set all successfully, paid orders, to admin allOrders, with user name, number and mail,
   // give the admin power to change each users order based on their uid
 
+  // writes orders to the user
   const updateUserOrders = async (userOrder) => {
     const userId = auth.currentUser.uid;
     const userDocCollectionRef = collection(db, 'users', userId, 'orders');
 
-    // writes orders to the user
     try {
       const update = await setDoc(doc(userDocCollectionRef), {
         ...userOrder,
@@ -342,14 +340,11 @@ export const AppProvider = ({ children }) => {
         amount: userOrder['number of bags'] * 230,
       });
       await getOrders(userId);
-      // Order data saved successfully
-      console.log('saved');
       dispatch({
         type: 'PAYMENT_SUCCESS',
         payload: 'Success',
       });
     } catch (error) {
-      // Error occurred while saving order data
       console.log('error');
     }
   };
@@ -361,9 +356,7 @@ export const AppProvider = ({ children }) => {
         ...userOrder,
         amount: userOrder['number of bags'] * 230,
       });
-      console.log('Stored in all orders');
     } catch (error) {
-      // toast there was
       const str = error.message;
       const regx = /[/!@#$%^&*)(+=._-]+/g;
       const convertErrMsg = str
@@ -384,7 +377,6 @@ export const AppProvider = ({ children }) => {
       amount: order['number of bags'] * 230 * 100,
       email: auth.currentUser.email,
       onSuccess() {
-        console.log('successfully paid');
         const userOrder = {
           ...order,
           phone: state.userData.phone,
@@ -397,7 +389,6 @@ export const AppProvider = ({ children }) => {
         updateAllOrders(userOrder);
       },
       onCancel() {
-        console.log('payment canceled');
         dispatch({ type: 'PAYMENT_CANCELED' });
       },
     });
