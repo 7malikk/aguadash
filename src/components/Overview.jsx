@@ -9,7 +9,7 @@ const Overview = () => {
   return (
     <main className="bg-white m-6 p-6 rounded-2xl space-y-6  ">
       <h1 className="font-semibold text-4xl">Overview</h1>
-      <section className="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="cards grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8">
         <div className="cardOne shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
           <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-base">
             Total Amount Spent
@@ -40,7 +40,7 @@ const Overview = () => {
           </h1>
         </div>
       </section>
-      <section className="history hidden md:block">
+      <section className="history hidden tablet:block">
         <div className="flex justify-between items-baseline">
           <h1 className="font-semibold text-4xl">History</h1>
           <Link to="/dashboard/history">
@@ -77,7 +77,7 @@ const Overview = () => {
               You have not had a complete order, yet!
             </h4>
             <Link to="/dashboard/orders">
-              <button className="bg-primary py-2 px-8 xl:py-3 xl:px-10 text-white  rounded-full hover:bg-hover">
+              <button className="bg-primary py-2 px-8 desktop:py-3 desktop:px-10 text-white  rounded-full hover:bg-hover">
                 Order Now
               </button>
             </Link>

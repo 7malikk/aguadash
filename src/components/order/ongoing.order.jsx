@@ -12,7 +12,7 @@ function OngoingOrder({ setOrder, handleButtonclicked }) {
           return (
             <div
               key={i}
-              className="cardOne grid grid-cols-1 md:grid-cols-2 gap-8 shadow-md p-6 rounded-xl bg-black text-white">
+              className="cardOne grid grid-cols-1 tablet:grid-cols-2 gap-8 shadow-md p-6 rounded-xl bg-black text-white">
               <div>
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                   Order
@@ -64,7 +64,7 @@ function OngoingOrder({ setOrder, handleButtonclicked }) {
               setOrder('compo1');
               handleButtonclicked(1);
             }}
-            className="bg-primary py-2 px-8 xl:py-3 xl:px-10 text-white  rounded-full hover:bg-hover">
+            className="bg-primary py-2 px-8 desktop:py-3 desktop:px-10 text-white  rounded-full hover:bg-hover">
             Order Now
           </button>
         </div>

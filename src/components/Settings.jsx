@@ -36,12 +36,12 @@ const Settings = () => {
       <section className="flex justify-center items-center">
         <form
           onSubmit={handlePhoneUpdate}
-          className="flex flex-col justify-center items-center space-y-4 p-4 w-full md:w-[510px] h-56 shadow-xl py-4 rounded-xl">
+          className="flex flex-col justify-center items-center space-y-4 p-4 w-full tablet:w-[32rem] h-56 shadow-xl py-4 rounded-xl">
           <label className="self-start place-self-start text-2xl font-semibold">
             Phone Number
           </label>
           <input
-            className="w-full md:w-[510px]h-20 pl-4 text-2xl"
+            className="w-full tablet:w-[32rem] h-20 pl-4 text-2xl"
             required
             type="tel"
             name="phone"
@@ -52,7 +52,7 @@ const Settings = () => {
           <button
             disabled={phoneUpdateloading}
             type="submit"
-            className="flex justify-center items-center w-full text-xl font-semibold bg-primary py-4 px-10 xl:py-5 xl:px-14 text-white  rounded-xl hover:bg-hover">
+            className="flex justify-center items-center w-full text-xl font-semibold bg-primary py-4 px-10 desktop:py-5 desktop:px-14 text-white  rounded-xl hover:bg-hover">
             {phoneUpdateloading ? (
               <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
             ) : (

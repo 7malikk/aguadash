@@ -52,8 +52,8 @@ function InputOrder() {
         newestOnTop={true}
         closeOnClick
       />
-      <div className="shadow p-[2px] border-black  flex items-center rounded-md">
-        <label className=" ml-2">Address:</label>
+      <div className="shadow p-1 border-black  flex items-center rounded-md">
+        <label className="text-lg desktop:text-2xl ml-2">Address:</label>
         <input
           type="text"
           required
@@ -63,8 +63,8 @@ function InputOrder() {
           onChange={handleChange}
         />
       </div>
-      <div className="shadow p-[2px] border  flex items-center rounded-md">
-        <label className=" ml-2">Time:</label>
+      <div className="shadow p-1 border  flex items-center rounded-md">
+        <label className="text-lg desktop:text-2xl ml-2">Time:</label>
         <input
           type="time"
           required
@@ -75,8 +75,8 @@ function InputOrder() {
         />
       </div>
 
-      <div className="shadow p-[2px] border  flex items-center rounded-md">
-        <label className=" ml-2">Date:</label>
+      <div className="shadow p-1 border  flex items-center rounded-md">
+        <label className="text-lg desktop:text-2xl ml-2">Date:</label>
         <input
           type="date"
           className="border-none outline-none rounded w-full p-[10px] pl-1"
@@ -87,8 +87,8 @@ function InputOrder() {
         />
       </div>
 
-      <div className="shadow p-[2px] border  flex items-center rounded-md">
-        <label className=" ml-2">Bags:</label>
+      <div className="shadow p-1 border  flex items-center rounded-md">
+        <label className="text-lg desktop:text-2xl ml-2">Bags:</label>
         <input
           type="number"
           className="border-none outline-none rounded w-[80%] p-[10px] pl-1"
@@ -98,8 +98,8 @@ function InputOrder() {
         />
       </div>
 
-      <div className="shadow p-[2px] border  flex items-center rounded-md">
-        <label className=" ml-2">Total Cost:</label>
+      <div className="shadow p-1 border  flex items-center rounded-md">
+        <label className="text-lg desktop:text-2xl ml-2">Total Cost:</label>
         <input
           type="text"
           required
@@ -110,7 +110,7 @@ function InputOrder() {
         />
       </div>
       <button
-        className="flex justify-center items-center shadow p-[10px] rounded-md bg-primary text-white font-semibold w-full self-center"
+        className="flex justify-center items-center h-auto desktop:h-20 text-lg desktop:text-2xl shadow p-[10px] rounded-md bg-primary text-white font-semibold w-full self-center"
         type="submit">
         {paymentLoading ? (
           <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />

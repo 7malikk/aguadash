@@ -224,41 +224,11 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // !!!!!!!!!!!!!!!!!!!!!!!! ALL COMMENTS WITHIN THE FUNCTION BENEATH ARE IMPORTANT AND SHOULD NOT BE DELETED !!!!!!!!!!!!!!!!!!!!!!!!
-
   if (sessionStorage.getItem('userId')) {
     const userId = sessionStorage.getItem('userId');
     retrieveUser(userId);
   }
-  // auth.onAuthStateChanged((user) => {
-  //   if (user) {
-  //     // User is signed in, proceed to set and retrieve the user's data
-  //     const userId = auth.currentUser.uid;
-  //     // sessionStorage.setItem('userId', userId);
-  //     const userDocCollectionRef = collection(db, 'users', userId, 'orders');
-  //     // retrieveUser(userId);
 
-  //     // writes orders to the user
-  //     // setDoc(doc(userDocCollectionRef), {
-  //     //   date: '24/03/2023',
-  //     //   name: 'malikk',
-  //     //   time: '5:34pm',
-  //     //   phone: '08098121022',
-  //     //   amount: '1200',
-  //     //   status: 'Delivered',
-  //     //   'number of bags': 7,
-  //     //   address: '1, Ahmadu Bello Way, ',
-  //     // })
-  //     //   .then(() => {
-  //     //     // Order data saved successfully
-  //     //     console.log('saved');
-  //     //   })
-  //     //   .catch((error) => {
-  //     //     // Error occurred while saving order data
-  //     //     console.log('error');
-  //     //   });
-  //   }
-  // });
   // <--------------------------------------------User Data Retrieval Section End---------------------------------------------------------->
 
   // <--------------------------------------------User Data Update Start ---------------------------------------------------------->
@@ -350,7 +320,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const updateAllOrders = async (userOrder) => {
-    const docRef = doc(db, 'allOrders', userOrder.userId);
+    const docRef = doc(db, 'allOrders', userOrder.userId, 'orders');
     try {
       await setDoc(docRef, {
         ...userOrder,

@@ -5,6 +5,11 @@ module.exports = {
     // "./public/**/*.{html,js}"
   ],
   theme: {
+    screens: {
+      tablet: '640px',
+      laptop: '1024px',
+      desktop: '1440px',
+    },
     extend: {
       backgroundImage: {
         'login-bg': "url('/src/assets/blue.png')",

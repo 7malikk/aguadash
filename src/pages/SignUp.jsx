@@ -58,7 +58,7 @@ const SignUp = () => {
     }
   }, [error, signUpError, userError]);
   return (
-    <div className="flex flex-col   bg-white w-[100%] h-[90%]">
+    <div className="flex flex-col   bg-white w-full h-[90%]">
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -66,12 +66,12 @@ const SignUp = () => {
         newestOnTop={true}
         closeOnClick
       />
-      <div className=" flex mobile:flex-col md:flex-row">
-        <div className=" hidden  bg-login-bg md:flex  bg-cover bg-center  flex-col p-4 w-4/12 h-screen">
-          <h2 className="text-5xl font-extrabold text-white font-play lg:pl-[20px] lg:py-[50px]">
+      <div className=" flex flex-col tablet:flex-row">
+        <div className=" hidden  bg-login-bg tablet:flex  bg-cover bg-center  flex-col p-4 w-4/12 h-screen">
+          <h2 className="text-5xl font-extrabold text-white font-play laptop:pl-[20px] laptop:py-[50px]">
             AD
           </h2>
-          <p className="w-[100%] lg:w-[90%] text-center text-white mt-2 mb-8 font-loto text-base md:text-xl lg:text-xl">
+          <p className="w-full laptop:w-[90%] text-center text-white mt-2 mb-8 font-loto text-base tablet:text-xl laptop:text-xl">
             "Thirsty for hassle-free hydration? Look no more! Our water delivery
             service brings crisp, refreshing water straight to your door step.
             say goodbye to lugging heavy jugs from store or waiting in long
@@ -82,13 +82,13 @@ const SignUp = () => {
           </p>
         </div>
 
-        <div className="bg-white  flex-col w-[100%] pl-[6px] p-5 md:flex md:flex-col  md:w-[65%]  md:pl-[80px]">
-          <Link to="/" className="text-[11px] pb-[20px] flex">
-            <IoIosArrowBack className="mt-[4px]" />
-            <span className="pl-[6px]">back</span>
+        <div className="bg-white  flex-col w-full pl-[6px] p-5 tablet:flex tablet:flex-col  tablet:w-[65%]  tablet:pl-[80px]">
+          <Link to="/" className="text-base pb-5 flex items-centers">
+            <IoIosArrowBack className="w-6 h-6" />
+            <span className="pl-2">Back</span>
           </Link>
-          <div className="bg-white h-[600px] w-[100%] md:w-[50%] md:h-[90%] pl-[10px]">
-            <h2 className="text-center border-b pb-[20px] w-[100%] font-2xl  text-black text-[20px] md:w-[90%] md:text-left">
+          <div className="bg-white h-[600px] w-full tablet:w-[50%] tablet:h-[90%] pl-5">
+            <h2 className="text-center border-b pb-5 w-full font-2xl  text-black text-xl tablet:w-[90%] tablet:text-left">
               Register Your Account
             </h2>
             <form onSubmit={handleSignUp} className="flex flex-col mt-[15px]">
@@ -100,7 +100,7 @@ const SignUp = () => {
                 value={data.name}
                 onChange={handleChange}
                 placeholder="Enter Your Name"
-                className="placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
               />
 
               <label className="text-[15px] font-[90px] text-[#1e293b]">
@@ -113,7 +113,7 @@ const SignUp = () => {
                 value={data.phone}
                 onChange={handleChange}
                 placeholder="Enter Your Phone Number"
-                className="placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
               />
 
               <label>Email Address</label>
@@ -124,7 +124,7 @@ const SignUp = () => {
                 value={data.email}
                 onChange={handleChange}
                 placeholder="Enter Your Email Address"
-                className="placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
               />
 
               <label>Create Password</label>
@@ -135,7 +135,7 @@ const SignUp = () => {
                 value={data.password}
                 onChange={handleChange}
                 placeholder="Enter Your Password"
-                className="placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
               />
 
               <label>Confirm Password</label>
@@ -146,12 +146,12 @@ const SignUp = () => {
                 onChange={handleChange}
                 type="password"
                 placeholder="Re-Enter Your Password"
-                className="placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none md:w-[90%] rounded shadow border p-[8px] mt-[10px] mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
               />
 
-              <label className="pb-[10px]">
-                <input required type="checkbox" className="h-[10px]" />
-                <span className="text-[11px] ml-[10px]">
+              <label className="pb-5 flex items-center">
+                <input required type="checkbox" className="h-5" />
+                <span className="text-[11px] ml-5">
                   I agree with{' '}
                   <Link to="/signup" className="text-[#0e7490]">
                     terms
@@ -164,33 +164,33 @@ const SignUp = () => {
               </label>
               <button
                 disabled={signUpLoading}
-                className="w-[100%] border rounded-[20px] p-[4px]  md:w-[90%] bg-[#0e7490] flex justify-center items-center">
+                className="w-full border rounded-full text-white p-1  tablet:w-[90%] bg-[#0e7490] flex justify-center items-center">
                 {signUpLoading ? (
                   <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
                 ) : (
                   '  Register Account'
                 )}
               </button>
-              <div className="flex items-center py-[10px] md:w-[90%]">
+              <div className="flex items-center py-5 tablet:w-[90%]">
                 <div className="flex-grow bg bg-[#334155] h-0.5"></div>
-                <div className="flex-grow-0 mx-5 text dark:text-white">OR</div>
+                <div className="flex-grow-0 mx-5  dark:text-white">OR</div>
                 <div className="flex-grow bg bg-[#334155] h-0.5"></div>
               </div>
               <button
                 onClick={handleGoogleSignUp}
-                className="w-[100%] border flex flex-row justify-between p-[4px] rounded shadow md:w-[90%]">
+                className="w-full border flex flex-row justify-between p-1 rounded shadow tablet:w-[90%]">
                 <img
-                  className="ml-[10px]"
+                  className="ml-5"
                   src={logo}
                   alt="logo"
                   width={20}
                   height={30}
                 />
-                <span className="text-[14px] mr-[30%] md:mr-[60px]">
+                <span className="text-sm mr-[30%] tablet:mr-[4rem]">
                   Register With Google
                 </span>
               </button>
-              <h3 className="text-[11px] text-center  md:text-[11px] md:w-[90%] md:text-end">
+              <h3 className="text-xs text-center  tablet:w-[90%] tablet:text-end">
                 Already a registerd user?{' '}
                 <Link to="/login" className="text-blue-600">
                   Login
@@ -203,13 +203,13 @@ const SignUp = () => {
 
           <footer
             id="footer"
-            className="bg-black text-white  px-5 md:hidden md:px-11 mt-[60px] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14 pb-14">
+            className="bg-black text-white  px-5 tablet:hidden tablet:px-11 mt-[60px] grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-8 desktop:gap-14 pb-14">
             <div className="company w-96 space-y-5 mt-9 ">
-              <h4 className="font-play text-3xl md:text-6xl font-bold">
+              <h4 className="font-play text-3xl tablet:text-6xl font-bold">
                 AGUADASH
               </h4>
-              <div className="space-y-2 md:space-y-4">
-                <h5 className="w-[80%] md:w-auto">
+              <div className="space-y-2 tablet:space-y-4">
+                <h5 className="w-[80%] tablet:w-auto">
                   Here at Aguadash we give our customers the best services they
                   need, which makes us a reliable company to work with.
                 </h5>
@@ -220,7 +220,7 @@ const SignUp = () => {
                 </div>
               </div>
             </div>
-            <div className="links space-y-5 mt-9 ml-0 lg:mt-14 lg:ml-56">
+            <div className="links space-y-5 mt-9 ml-0 laptop:mt-14 laptop:ml-56">
               <h6 className="text-3xl font-play font-bold">Links</h6>
               <ul className="text-xl">
                 <li className=" hover:cursor-pointer">Home</li>
@@ -228,7 +228,7 @@ const SignUp = () => {
                 <li className=" hover:cursor-pointer">Serivces</li>
               </ul>
             </div>
-            <div className="contactUs space-y-5  mt-9 ml-0 lg:mt-14  xl:ml-56 flex flex-col justify-start items-start">
+            <div className="contactUs space-y-5  mt-9 ml-0 laptop:mt-14  desktop:ml-56 flex flex-col justify-start items-start">
               <h6 className="text-3xl font-play font-bold">Contact Us</h6>
               <div className="flex flex-col justify-start items-start space-y-2">
                 <h1 className="flex justify-center items-center">
