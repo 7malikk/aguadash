@@ -16,7 +16,7 @@ const History = () => {
             return (
               <div
                 key={i}
-                className="cardOne grid grid-cols-1  md:grid-cols-2 gap-8 shadow-md p-6 rounded-xl">
+                className="cardOne grid grid-cols-1  tablet:grid-cols-2 gap-8 shadow-md p-6 rounded-xl">
                 <div>
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Order
@@ -71,7 +71,7 @@ const History = () => {
               You have not had a complete order, yet!
             </h4>
             <Link to="/dashboard/orders">
-              <button className="bg-primary py-2 px-8 xl:py-3 xl:px-10 text-white  rounded-full hover:bg-hover">
+              <button className="bg-primary py-2 px-8 desktop:py-3 desktop:px-10 text-white  rounded-full hover:bg-hover">
                 Order Now
               </button>
             </Link>

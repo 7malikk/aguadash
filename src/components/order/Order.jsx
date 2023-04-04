@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import InputOrder from './input.order';
 import OngoingOrder from './ongoing.order';
-import FailedOrder from './failed.order';
 import { useAppContext } from '../../context/AppContext';
 
 function Order() {
@@ -15,13 +14,13 @@ function Order() {
 
   return (
     <div className="bg-white m-6 p-6 rounded-2xl space-y-6 font-semibold flex flex-col justify-center">
-      <nav className=" bg-white flex justify-evenly border-black border py-2 px-4 rounded-md">
+      <nav className=" bg-white flex justify-evenly border-black border py-2 px-4 rounded-md  text-xl desktop:text-4xl">
         <button
           className={`${
             buttonClicked === 1
               ? 'bg-primary text-white '
               : 'bg-white text-black'
-          } w-1/2 rounded px-3 py-2`}
+          } w-1/2 rounded  h-auto desktop:h-[75px]`}
           onClick={() => {
             setOrder('compo1');
             handleButtonclicked(1);
@@ -30,7 +29,9 @@ function Order() {
         </button>
         <button
           className={`${
-            buttonClicked === 2 ? 'bg-black text-white ' : 'bg-white text-black'
+            buttonClicked === 2
+              ? 'bg-black text-white '
+              : 'bg-white text-darkAsh'
           } w-1/2 rounded px-3 py-2`}
           onClick={() => {
             setOrder('compo2');
@@ -43,7 +44,7 @@ function Order() {
                 order === 'compo2'
                   ? 'bg-white text-black'
                   : 'bg-black text-lightAsh'
-              } rounded-full py-1 px-2 ml-3 `}>
+              } rounded-full px-3 py-1 ml-3 `}>
               {processingOrders.length}
             </span>
           ) : null}
