@@ -15,6 +15,7 @@ import {
 } from 'react-icons/bs';
 
 const SignUp = () => {
+  console.log(process.env.REACT_APP_FIREBASE_APIKEY)
   const {
     handleEmailSignUp,
     handleGoogleSignUp,

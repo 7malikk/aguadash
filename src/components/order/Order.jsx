@@ -5,7 +5,6 @@ import FailedOrder from "./failed.order";
 
 function Order(){
      const[info, setInfo]=useState({
-        Publickey:"pk_test_f77f6d16d41b43c55d5d619bfa0e4a7571685cb6",
         Address:"",
         time:"",
         date:"",

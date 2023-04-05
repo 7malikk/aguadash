@@ -21,7 +21,7 @@ const paywithPaystack=(e)=>{
      e.preventDefault()
      const paystack = new PaystackPop()
      paystack.newTransaction({
-          key:"pk_test_f77f6d16d41b43c55d5d619bfa0e4a7571685cb6",
+          REACT_APP_PAYSTACK_KEY:'pk_test_f77f6d16d41b43c55d5d619bfa0e4a7571685cb6',
           amount:amount * 100,
           email,
           onSuccess(){

@@ -5,7 +5,6 @@
   "dependencies": {
     "@paystack/inline-js": "^2.12.6",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.18.0",
     "paystack": "^2.0.1",
@@ -22,8 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "react-scripts bu",
+    "test": "jest --watch *.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,8 +44,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "@babel/preset-env": "^7.21.4",
+    "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.14",
+    "babel-jest": "^29.5.0",
+    "jest": "^27.5.1",
     "postcss": "^8.4.21",
+    "react-test-renderer": "^18.2.0",
     "tailwindcss": "^3.2.7"
   }
 }
