@@ -14,6 +14,7 @@ import totalAmount from './totalAmount.svg';
 import totalBags from './totalBags.svg';
 import amountOfOrders from './amountOfOrders.svg';
 import empty from './empty.png';
+import people from './people.svg';
 
 export {
   mainAboutImg,
@@ -27,4 +28,4 @@ export {
   stepFour,
 };
 
-export { totalAmount, totalBags, amountOfOrders, empty };
+export { totalAmount, totalBags, amountOfOrders, empty, people };

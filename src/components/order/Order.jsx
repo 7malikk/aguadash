@@ -1,67 +1,64 @@
-import React,{useState} from "react"
-import InputOrder from "./input.order";
-import OngoingOrder from "./ongoing.order";
-import FailedOrder from "./failed.order";
+import React, { useState } from 'react';
+import InputOrder from './input.order';
+import OngoingOrder from './ongoing.order';
+import { useAppContext } from '../../context/AppContext';
 
-function Order(){
-     const[info, setInfo]=useState({
-        Address:"",
-        time:"",
-        date:"",
-        amount_of_Bags:"",
-        amount:400,
-     })
-    const [paymentStatus, setPaymentstatus]=useState(false)
-    const[buttonClicked, SetButtonclicked]=useState(1)
-    const[order,setOrder]=useState("compo1")
+function Order() {
+  const [buttonClicked, setButtonclicked] = useState(1);
+  const [order, setOrder] = useState('compo1');
+  const { processingOrders } = useAppContext();
 
-    const handleButtonclicked=(number)=>{
-          SetButtonclicked(number)
-    }
-    
-   return(
-    <div className="bg-white w-[534px] h-screen p-[10px]">
-        <nav className=" bg-white flex justify-between border-[#0f172a] border-[1px] p-[10px]">
-                <button className="text-white w-[30%] rounded p-[10px]"
-                style={{backgroundColor: buttonClicked === 1 ? "#0e7490" : "white",
-                color: buttonClicked===1 ? "white" : "black"
-            }}
-                onClick={()=>{
-                    setOrder("compo1")
-                    handleButtonclicked(1)
-                
-                }}
-                >Place Order</button>
-                <button className="text-white rounded p-[10px] w-[30%]"
-                style={{backgroundColor: buttonClicked === 2 ?  "#0e7490" : "white",
-                color: buttonClicked===2 ? "white" : "black"
-            }}
-                onClick={()=>{
-                    setOrder("compo2")
-                    handleButtonclicked(2)
-                    
-                }}
-                >Ongoing Orders</button>
-                <button className="text-white p-[5px] rounded w-[30%]"
-                style={{backgroundColor: buttonClicked===3 ?  "#0e7490" : "white", 
-                color: buttonClicked===3 ? "white" : "black"
-            }}
-                onClick={()=>{
-                    setOrder("compo3")
-                    handleButtonclicked(3)
-                    
-                }}
-                >Failed Orders</button>
-        </nav>
-        {order === "compo1" && <InputOrder info={info} setInfo={setInfo} setPaymentstatus={setPaymentstatus} paymentStatus={paymentStatus}/>}
-        {order=== "compo2" && <OngoingOrder info={info}/>}
-        {order === "compo3" && <FailedOrder/>}
-       {/* <InputOrder info={info} onAction={Update}/> */}
-       {/* <OngoingOrder/> */}
-       {/* <FailedOrder info={info} onAction={handleChange}/> */}
+  const handleButtonclicked = (number) => {
+    setButtonclicked(number);
+  };
+
+  return (
+    <div className="bg-white m-6 p-6 rounded-2xl space-y-6 font-semibold flex flex-col justify-center">
+      <nav className=" bg-white flex justify-evenly border-black border py-2 px-4 rounded-md  text-base tablet:text-xl desktop:text-4xl">
+        <button
+          className={`${
+            buttonClicked === 1
+              ? 'bg-primary text-white '
+              : 'bg-white text-black'
+          } w-1/2 rounded  h-auto desktop:h-[75px]`}
+          onClick={() => {
+            setOrder('compo1');
+            handleButtonclicked(1);
+          }}>
+          Place Order
+        </button>
+        <button
+          className={`${
+            buttonClicked === 2
+              ? 'bg-black text-white '
+              : 'bg-white text-darkAsh'
+          } w-1/2 rounded px-3 py-2`}
+          onClick={() => {
+            setOrder('compo2');
+            handleButtonclicked(2);
+          }}>
+          Ongoing Orders
+          {processingOrders.length ? (
+            <span
+              className={`${
+                order === 'compo2'
+                  ? 'bg-white text-black'
+                  : 'bg-black text-lightAsh'
+              } rounded-full px-1 py-0 tablet:px-4 tablet:py-1 text-base tablet:text-2xl ml-2 tablet:ml-3`}>
+              {processingOrders.length}
+            </span>
+          ) : null}
+        </button>
+      </nav>
+      {order === 'compo1' && <InputOrder />}
+      {order === 'compo2' && (
+        <OngoingOrder
+          setOrder={setOrder}
+          handleButtonclicked={handleButtonclicked}
+        />
+      )}
     </div>
-   )
+  );
 }
-
 
 export default Order;

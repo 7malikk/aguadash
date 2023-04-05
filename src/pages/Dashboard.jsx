@@ -4,7 +4,7 @@ import { Sidebar, DashboardNav } from '../components';
 
 const Dashboard = () => {
   return (
-    <main className="flex h-screen md:h-full overflow-hidden">
+    <main className="flex h-screen tablet:h-full overflow-hidden">
       <Sidebar />
       <section className="w-full h-screen max-h-screen overflow-y-scroll bg-lightAsh">
         <DashboardNav />

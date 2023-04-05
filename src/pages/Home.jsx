@@ -53,7 +53,7 @@ const Home = () => {
       <aside
         className={` ${
           showSidebar ? 'translate-x-0 ' : 'translate-x-full  '
-        } h-full bg-lightAsh  md:hidden fixed w-full z-50 flex flex-col transition ease-in-out duration-300 delay-150 p-5`}>
+        } h-full bg-lightAsh  tablet:hidden fixed w-full z-50 flex flex-col transition ease-in-out duration-300 delay-150 p-5`}>
         <button
           className="mr-5 sm:mr-1 mt-6 self-end"
           onClick={() => setShowSidebar(false)}>
@@ -93,7 +93,7 @@ const Home = () => {
           </Link>
           <Link to="/signup">
             <li
-              className="bg-primary py-3 px-8 lg:py-5 lg:px-14 text-white  rounded-full hover:bg-hover"
+              className="bg-primary py-3 px-8 laptop:py-5 laptop:px-14 text-white  rounded-full hover:bg-hover"
               onClick={() => setShowSidebar(false)}>
               Signup
             </li>
@@ -103,31 +103,33 @@ const Home = () => {
 
       <div
         ref={top}
-        className="bg-black  px-5 md:px-11 py-2 text-white flex justify-between  h-[29px] md:h-[49px] ">
-        <div className="flex w-[451px]">
+        className="bg-black  px-5 tablet:px-11 py-2 text-white flex justify-between  h-7 tablet:h-12 ">
+        <div className="flex w-[28rem]">
           <h1 className="flex justify-center items-center">
             <BsFillEnvelopeFill className="w-6 h-6" />{' '}
-            <span className="ml-2 hidden md:inline">ad@gmail.com</span>
+            <span className="ml-2 hidden tablet:inline">ad@gmail.com</span>
           </h1>
-          <h1 className="flex justify-center items-center ml-[15px] md:ml-[32px]">
+          <h1 className="flex justify-center items-center ml-4 tablet:ml-8">
             <FiPhone className="w-6 h-6" />{' '}
-            <span className="ml-2 hidden md:inline">+(234) 903 3223 232</span>
+            <span className="ml-2 hidden tablet:inline">
+              +(234) 903 3223 232
+            </span>
           </h1>
         </div>
-        <div className="flex space-x-2 items-center w-[170px] justify-end">
+        <div className="flex space-x-2 items-center w-[10rem] justify-end">
           <BsFacebook className="w-6 h-6 hover:cursor-pointer" />{' '}
           <BsLinkedin className="w-6 h-6 hover:cursor-pointer" />{' '}
           <BsTwitter className="w-6 h-6 hover:cursor-pointer" />
         </div>
       </div>
-      <nav className=" px-5 md:px-11 flex justify-between bg-white  h-14 md:h-28 items-center">
+      <nav className=" px-5 tablet:px-11 flex justify-between bg-white  h-14 tablet:h-20 laptop:h-24 desktop:h-28 items-center">
         <h1 className="text-5xl font-extrabold text-primary font-play">AD</h1>
         <button
-          className="block md:hidden"
+          className="block tablet:hidden"
           onClick={() => setShowSidebar(true)}>
           <GoThreeBars className="w-7 h-7" />
         </button>
-        <ul className=" items-center space-x-6 lg:space-x-10 text-xl lg:text-2xl hidden md:flex">
+        <ul className=" items-center space-x-6 laptop:space-x-10 text-lg laptop:text-xl desktop:text-2xl hidden tablet:flex">
           <li
             className="hover:text-hover py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
             onClick={() => handleScroll(hero)}>
@@ -147,7 +149,7 @@ const Home = () => {
             <li className="hover:text-hover ">Login</li>
           </Link>
           <Link to="/signup">
-            <li className="bg-primary py-3 px-12 lg:py-5 lg:px-14 text-white  rounded-full hover:bg-hover">
+            <li className="bg-primary py-3 px-8 tablet:py-1 tablet:px-5 laptop:py-3 laptop:px-8 desktop:py-5 desktop:px-14 text-white  rounded-full hover:bg-hover">
               Signup
             </li>
           </Link>
@@ -157,18 +159,18 @@ const Home = () => {
         <div
           ref={hero}
           id="hero"
-          className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-between items-center px-5 md:px-11 pt-4 md:pt-10 pb-11 space-y-2">
+          className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-evenly items-center px-5 tablet:px-11 pt-4 tablet:pt-10 pb-11 space-y-2">
           <div className="flex flex-col justify-between items-center ">
-            <h1 className="text-6xl  md:text-7xl lg:text-8xl xl:text-9xl font-extrabold font-play text-center w-[100%] md:w-11/12">
+            <h1 className="text-6xl  laptop:text-8xl desktop:text-8xl  font-extrabold font-play text-center w-full tablet:w-11/12">
               The water source you trust the most and rely on.
             </h1>
-            <h3 className=" w-[100%] md:w-9/12 lg:w-[600px] xl:w-[753px] text-center mt-2 mb-8 text-base md:text-2xl lg:text-2xl xl:text-4xl">
+            <h3 className=" w-full tablet:w-9/12 laptop:w-[37rem] desktop:w-[47rem] text-center mt-2 mb-8 text-base tablet:text-2xl laptop:text-2xl desktop:text-4xl">
               Water is the softest thing, yet it can penetrate mountains and
               earth. This shows clearly the principle of softness overcoming
               hardness.
             </h3>
             <Link to="/login">
-              <button className="bg-primary py-4 px-10 xl:py-5 xl:px-14 text-white  rounded-full hover:bg-hover">
+              <button className="bg-primary py-3 px-8 tablet:py-1 tablet:px-5 laptop:py-3 laptop:px-8 desktop:py-5 desktop:px-14 text-white  rounded-full hover:bg-hover">
                 Order Now
               </button>
             </Link>
@@ -181,24 +183,24 @@ const Home = () => {
           ref={about}
           id="about"
           className="flex justify-center items-center flex-col">
-          <h4 className="font-play text-5xl sm:text-[49px] md:text-[62px] font-bold text-primary  mt-[40px]">
+          <h4 className="font-play text-5xl  tablet:text-6xl font-bold text-primary  mt-10">
             About Us
           </h4>
-          <div className=" p-5 md:p-11 bg-white flex flex-col lg:flex-row justify-between items-center">
-            <div className="image-div relative mt-[40px] md:mt-6 self-center lg:mt-0">
+          <div className=" p-5 tablet:p-11 bg-white flex flex-col laptop:flex-row justify-between items-center">
+            <div className="image-div relative mt-10 tablet:mt-6 self-center laptop:mt-0">
               <img
                 src={mainAboutImg}
                 alt="about us"
-                className="w-auto sm:w-[80%] md:w-auto lg:w-[80%] xl:w-auto"
+                className="w-auto sm:w-[80%] tablet:w-auto laptop:w-4/5 destop:w-auto"
               />
               <img
                 src={aboutImg2}
                 alt="about AD"
-                className="absolute hidden sm:block top-24 md:top-36 lg:top-24 xl:top-36 left-56 md:left-80 lg:left-60 xl:left-80 h-44 md:h-auto lg:h-52 xl:h-auto rounded-l-2xl"
+                className="absolute hidden tablet:block top-24 tablet:top-36 laptop:top-24  left-56 tablet:left-80 laptop:left-60  h-44 tablet:h-auto laptop:h-52 desktop:h-auto rounded-l-2xl"
               />
             </div>
-            <div className="text-div w-[90%] lg:w-1/2">
-              <div className="flex flex-col justify-between items-center text-lg space-y-4 md:text-2xl h-[240px] mt-[32px]">
+            <div className="text-div w-11/12 laptop:w-1/2">
+              <div className="flex flex-col justify-evenly items-center text-lg space-y-4 tablet:text-2xl h-60 mt-8">
                 <p>
                   Here at Aguadash we give our customers the best services they
                   need, which makes us a reliable company to work with.
@@ -209,7 +211,7 @@ const Home = () => {
                   absorption, and transportation of nutrients.
                 </p>
               </div>
-              <button className="bg-primary py-5 px-14 text-white  rounded-full hover:bg-hover mt-[62px]">
+              <button className="bg-primary py-5 px-14 text-white  rounded-full hover:bg-hover mt-16">
                 Read More
               </button>
             </div>
@@ -218,12 +220,12 @@ const Home = () => {
         <div
           ref={services}
           id="services"
-          className="bg-lightAsh p-5 md:p-11 flex flex-col justify-center items-center">
-          <h4 className="font-play text-5xl sm:text-[62px] font-bold text-primary">
+          className="bg-lightAsh p-5 tablet:p-11 flex flex-col justify-center items-center">
+          <h4 className="font-play text-5xl font-bold text-primary">
             Services
           </h4>
-          <div className=" grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14">
-            <div className="card flex flex-col justify-center items-center relative bg-white w-[21rem]  sm:w-96 px-10 sm:px-12 pt-16 pb-6 mt-20 rounded-3xl">
+          <div className=" grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-2 desktop:grid-cols-3 gap-8 laptop:gap-14">
+            <div className="card flex flex-col justify-center items-center relative bg-white w-[21rem]  px-10 pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={delivery}
                 alt="worldwide delivery"
@@ -241,7 +243,7 @@ const Home = () => {
                 Read More
               </button>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-hover  w-[21rem]  sm:w-96 px-10 sm:px-12 pt-16 pb-6 mt-20 rounded-3xl text-white">
+            <div className="card flex flex-col justify-center items-center relative bg-hover  w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl text-white">
               <img
                 src={payments}
                 alt="payments"
@@ -257,7 +259,7 @@ const Home = () => {
                 Read More
               </button>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-white  w-[21rem]  sm:w-96 px-10 sm:px-12 pt-16 pb-6 mt-20 rounded-3xl">
+            <div className="card flex flex-col justify-center items-center relative bg-white  w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={ontime}
                 alt="ontime"
@@ -275,11 +277,11 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="bg-primary  p-5 md:p-11 flex flex-col justify-center items-center">
-          <h4 className="font-play text-5xl sm:text-[62px] font-bold text-white">
+        <div className="bg-primary  p-5 tablet:p-11 flex flex-col justify-center items-center">
+          <h4 className="font-play text-5xl font-bold text-white">
             How it works
           </h4>
-          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 xl:gap-14">
+          <div className=" grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3  desktop:grid-cols-4 gap-8 desktop:gap-14">
             <div className="card flex flex-col justify-between items-center relative bg-white py-2 px-2 mt-16 rounded-3xl ">
               <img
                 src={stepOne}
@@ -288,7 +290,7 @@ const Home = () => {
               />
               <div className="flex flex-col justify-center items-center mt-6">
                 <h4 className="font-play font-bold text-2xl">Step 1.</h4>
-                <p className="font-semibold text-center w-[280px]">
+                <p className="font-semibold text-center w-72">
                   User signs up with email and password.
                 </p>
               </div>
@@ -301,7 +303,7 @@ const Home = () => {
               />
               <div className="flex flex-col justify-center items-center mt-6">
                 <h4 className="font-play font-bold text-2xl">Step 2.</h4>
-                <p className="font-semibold text-center w-[289px]">
+                <p className="font-semibold text-center w-72">
                   Fill out order form.
                 </p>
               </div>
@@ -314,7 +316,7 @@ const Home = () => {
               />
               <div className="flex flex-col justify-center items-center mt-6">
                 <h4 className="font-play font-bold text-2xl">Step 3.</h4>
-                <p className="font-semibold text-center  w-[289px]">
+                <p className="font-semibold text-center  w-72">
                   Make payment via card or transfer.
                 </p>
               </div>
@@ -327,14 +329,14 @@ const Home = () => {
               />
               <div className="flex flex-col justify-center items-center mt-6">
                 <h4 className="font-play font-bold text-2xl">Step 4.</h4>
-                <p className="font-semibold text-center  w-[289px]">
+                <p className="font-semibold text-center  w-72">
                   Recieve your order promptly
                 </p>
               </div>
             </div>
           </div>
           <Link to="/login">
-            <button className="bg-white py-5 px-14 text-black mb-[35px] mt-[64px] rounded-full hover:bg-lightAsh  font-semibold">
+            <button className="bg-white py-5 px-14 text-black mb-9 mt-16 rounded-full hover:bg-lightAsh  font-semibold">
               Order Now
             </button>
           </Link>
@@ -342,11 +344,13 @@ const Home = () => {
       </section>
       <footer
         id="footer"
-        className="bg-black text-white  px-5 md:px-11  grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14 pb-14">
+        className="bg-black text-white  px-5 tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-8 desktop:gap-14 pb-14">
         <div className="company w-96 space-y-5 mt-9 ">
-          <h4 className="font-play text-3xl md:text-6xl font-bold">AGUADASH</h4>
-          <div className="space-y-2 md:space-y-4">
-            <h5 className="w-[80%] md:w-auto">
+          <h4 className="font-play text-3xl tablet:text-6xl font-bold">
+            AGUADASH
+          </h4>
+          <div className="space-y-2 tablet:space-y-4">
+            <h5 className="w-[80%] tablet:w-auto">
               Here at Aguadash we give our customers the best services they
               need, which makes us a reliable company to work with.
             </h5>
@@ -357,7 +361,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="links space-y-5 mt-9 ml-0 lg:mt-14 lg:ml-56">
+        <div className="links space-y-5 mt-9 ml-0 laptop:mt-14 laptop:ml-56">
           <h6 className="text-3xl font-play font-bold">Links</h6>
           <ul className="text-xl">
             <li
@@ -377,7 +381,7 @@ const Home = () => {
             </li>
           </ul>
         </div>
-        <div className="contactUs space-y-5  mt-9 ml-0 lg:mt-14  xl:ml-56 flex flex-col justify-start items-start">
+        <div className="contactUs space-y-5  mt-9 ml-0 laptop:mt-14  desktop:ml-56 flex flex-col justify-start items-start">
           <h6 className="text-3xl font-play font-bold">Contact Us</h6>
           <div className="flex flex-col justify-start items-start space-y-2">
             <h1 className="flex justify-center items-center">
@@ -391,13 +395,13 @@ const Home = () => {
           </div>
         </div>
       </footer>
-      <div className="bg-lightAsh px-5 md:px-11 py-4 flex justify-center items-center text-xs sm:text-auto">
+      <div className="bg-lightAsh px-5 tablet:px-11 py-4 flex justify-center items-center text-xs sm:text-auto">
         <h6>© Copyright 2023 All Rights Reserved AguaDash</h6>
       </div>
       {show && (
         <button
           onClick={() => handleScroll(top)}
-          className=" bg-primary border border-transparent hover:border-white rounded-full p-4 fixed z-40 bottom-14 right-14 sm:right-10 lg:right-14 hover:bg-hover hover:text-white">
+          className=" bg-primary border border-transparent hover:border-white rounded-full p-4 fixed z-40 bottom-14 right-14 sm:right-10 laptop:right-14 hover:bg-hover hover:text-white">
           <BsArrowUp className="w-6 h-6" />
         </button>
       )}

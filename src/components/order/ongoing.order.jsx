@@ -1,39 +1,76 @@
-import React from "react"
+import React from 'react';
+import { useAppContext } from '../../context/AppContext';
+import { formatPrice } from '../../helpers/helperFunctions';
 
-function OngoingOrder({info}){
-    
+function OngoingOrder({ setOrder, handleButtonclicked }) {
+  const { processingOrders } = useAppContext();
 
-    return(
-        <div className="mt-[10px] shadow border p-[10px] ">
-
-            <div className="grid grid-cols-2 gap-x-[8rem] bg-black p-[10px] mt-[10px]">
-                <div>
-                    <p className="text-[13px] text-white">current Order</p>
-                    <h2 className="text-[20px] text-white text-black font-bold font-play">{info.amount_of_Bags}</h2>
-                </div>
-                <div>
-                    <p className="text-[13px] text-white">Status</p>
-                    <h2 className="text-[20px] text-white text-black font-bold font-play">Processing</h2>
-                </div>
-                <div>
-                    <p className="text-[13px] text-white">Address</p>
-                    <h2 className="text-[20px] text-white text-black font-bold font-play">{info.Address}</h2>
-                </div>
-                <div>
-                    <p className="text-[13px] text-white">Data</p>
-                    <h2 className="text-[20px] text-white text-black font-bold font-play" >{info.date}</h2>
-                </div>
-                <div>
-                    <p className="text-[13px] text-white">Time</p>
-                    <h2 className="text-[20px] text-white text-black font-bold font-play ">{info.time}</h2>
-                </div>
-                <div className="">
-                    <p className="text-[13px] text-white">Amount paid</p>
-                    <h2 className="text-[20px] text-white text-black font-bold font-play">$7,410</h2>
-                </div>
+  return (
+    <div className="mt-[10px] shadow border p-[10px] space-y-6 ">
+      {processingOrders.length > 0 ? (
+        processingOrders.map((order, i) => {
+          return (
+            <div
+              key={i}
+              className="cardOne grid grid-cols-1 tablet:grid-cols-2 gap-8 shadow-md p-6 rounded-xl bg-black text-white">
+              <div>
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  Order
+                </h4>
+                <h1 className="text-2xl font-semibold mt-2">
+                  {order['number of bags']} Bag(s)
+                </h1>
+              </div>
+              <div>
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  Status
+                </h4>
+                <h1 className="text-2xl font-semibold mt-2">{order.status}</h1>
+              </div>
+              <div>
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  Address
+                </h4>
+                <h1 className="text-2xl font-semibold mt-2">{order.address}</h1>
+              </div>
+              <div>
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  Date
+                </h4>
+                <h1 className="text-2xl font-semibold mt-2">{order.date}</h1>
+              </div>
+              <div>
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  Time
+                </h4>
+                <h1 className="text-2xl font-semibold mt-2">{order.time}</h1>
+              </div>
+              <div>
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  Amount Paid
+                </h4>
+                <h1 className="text-2xl font-semibold mt-2">
+                  {formatPrice(order.amount)}
+                </h1>
+              </div>
             </div>
+          );
+        })
+      ) : (
+        <div className="flex flex-col justify-center items-center space-y-2">
+          <h4 className="text-lg font-semibold">No ongoing orders</h4>
+          <button
+            onClick={() => {
+              setOrder('compo1');
+              handleButtonclicked(1);
+            }}
+            className="bg-primary py-2 px-8 desktop:py-3 desktop:px-10 text-white  rounded-full hover:bg-hover">
+            Order Now
+          </button>
         </div>
-    )
+      )}
+    </div>
+  );
 }
 
 export default OngoingOrder;

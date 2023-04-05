@@ -13,8 +13,8 @@ const Sidebar = () => {
   const { handleLogout } = useAppContext();
 
   return (
-    <div className="w-20 md:w-60 h-[85vh] bg-white ">
-      <h1 className="text-2xl md:text-5xl font-extrabold text-primary font-play h-28 border-b text-center flex justify-center items-center">
+    <div className="w-20 tablet:w-60 h-[85vh] bg-white ">
+      <h1 className="text-2xl tablet:text-5xl font-extrabold text-primary font-play h-28 border-b text-center flex justify-center items-center">
         AD
       </h1>
       <div className="flex flex-col justify-between h-full px-4 py-6 font-semibold text-lg">
@@ -23,31 +23,31 @@ const Sidebar = () => {
             to="/dashboard/home"
             className={({ isActive }) =>
               isActive
-                ? 'flex justify-center md:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
-                : 'flex justify-center md:justify-start  items-center bg-white text-black px-1  py-2'
+                ? 'flex justify-center tablet:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
+                : 'flex justify-center tablet:justify-start  items-center bg-white text-black px-1  py-2'
             }>
-            <RxDashboard className=" w-6 h-6 mr-0 md:mr-3" />
-            <h4 className="hidden md:block">Overview</h4>
+            <RxDashboard className=" w-6 h-6 mr-0 tablet:mr-3" />
+            <h4 className="hidden tablet:block">Overview</h4>
           </NavLink>
           <NavLink
             to="/dashboard/orders"
             className={({ isActive }) =>
               isActive
-                ? 'flex justify-center md:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
-                : 'flex justify-center md:justify-start  items-center bg-white text-black px-1  py-2'
+                ? 'flex justify-center tablet:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
+                : 'flex justify-center tablet:justify-start  items-center bg-white text-black px-1  py-2'
             }>
-            <RxActivityLog className=" w-6 h-6 mr-0 md:mr-3" />
-            <h4 className="hidden md:flex">Orders</h4>
+            <RxActivityLog className=" w-6 h-6 mr-0 tablet:mr-3" />
+            <h4 className="hidden tablet:flex">Orders</h4>
           </NavLink>
           <NavLink
             to="/dashboard/history"
             className={({ isActive }) =>
               isActive
-                ? 'flex justify-center md:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
-                : 'flex justify-center md:justify-start  items-center bg-white text-black px-1  py-2'
+                ? 'flex justify-center tablet:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
+                : 'flex justify-center tablet:justify-start  items-center bg-white text-black px-1  py-2'
             }>
-            <RxCounterClockwiseClock className=" w-6 h-6 mr-0 md:mr-3" />
-            <h4 className="hidden md:flex">History</h4>
+            <RxCounterClockwiseClock className=" w-6 h-6 mr-0 tablet:mr-3" />
+            <h4 className="hidden tablet:flex">History</h4>
           </NavLink>
         </ul>
         <ul className="space-y-4">
@@ -55,17 +55,17 @@ const Sidebar = () => {
             to="/dashboard/settings"
             className={({ isActive }) =>
               isActive
-                ? 'flex justify-center md:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
-                : 'flex justify-center md:justify-start  items-center bg-white text-black px-1  py-2'
+                ? 'flex justify-center tablet:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
+                : 'flex justify-center tablet:justify-start  items-center bg-white text-black px-1  py-2'
             }>
-            <RxGear className=" w-6 h-6 mr-0 md:mr-3" />
-            <h4 className="hidden md:flex">Settings</h4>
+            <RxGear className=" w-6 h-6 mr-0 tablet:mr-3" />
+            <h4 className="hidden tablet:flex">Settings</h4>
           </NavLink>
           <li
             className="flex items-center bg-white text-black hover:bg-black hover:text-white px-1  py-2 rounded-lg hover:cursor-pointer"
             onClick={handleLogout}>
-            <RxExit className=" w-6 h-6 mr-0 md:mr-3 rotate-180" />
-            <h4 className="hidden md:block"> Logout</h4>
+            <RxExit className=" w-6 h-6 mr-0 tablet:mr-3 rotate-180" />
+            <h4 className="hidden tablet:block"> Logout</h4>
           </li>
         </ul>
       </div>

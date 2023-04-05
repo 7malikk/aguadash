@@ -61,10 +61,16 @@ const reducer = (state, action) => {
     const delOrders = action.payload.filter(
       (order) => order.status === 'Delivered'
     );
+    // set processing orders
+    const proOrders = action.payload.filter(
+      (order) => order.status === 'Processing' || order.status === 'In Transit'
+    );
+
     return {
       ...state,
       userOrders: [...action.payload],
       deliveredOrders: [...delOrders],
+      processingOrders: [...proOrders],
     };
   }
   if (action.type === 'PHONE_UPDATE_BEGINS') {
@@ -89,6 +95,41 @@ const reducer = (state, action) => {
       phoneUpdateError: true,
     };
   }
+  if (action.type === 'PAYMENT_BEGINS') {
+    return {
+      ...state,
+      paymentLoading: true,
+    };
+  }
+  if (action.type === 'PAYMENT_SUCCESS') {
+    return {
+      ...state,
+      paymentLoading: false,
+      paymentSuccessful: true,
+      paymentFailed: false,
+      error: 'Payment Successful',
+    };
+  }
+  if (action.type === 'PAYMENT_COMPLETE') {
+    return {
+      ...state,
+      paymentLoading: false,
+      paymentSuccessful: false,
+    };
+  }
+  if (action.type === 'PAYMENT_CANCELED') {
+    return {
+      ...state,
+      paymentLoading: false,
+    };
+  }
+  if (action.type === 'SETTINGS_SUCCESS') {
+    return {
+      ...state,
+      settings: { ...action.payload },
+    };
+  }
+  // Users Actions End
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };
