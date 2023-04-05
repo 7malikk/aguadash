@@ -257,6 +257,7 @@ export const AppProvider = ({ children }) => {
         phone: phn,
       });
       dispatch({ type: 'PHONE_UPDATE_SUCCESS', payload: 'Success' });
+      await retrieveUser(userId);
     } catch (error) {
       const str = error.message;
       const regx = /[/!@#$%^&*)(+=._-]+/g;
