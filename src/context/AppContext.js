@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useReducer } from 'react';
+import React, { useContext, createContext, useReducer, useEffect } from 'react';
 import { auth, db, googleProvider } from '../config/firebase';
 import {
   createUserWithEmailAndPassword,
@@ -38,9 +38,9 @@ export const AppProvider = ({ children }) => {
         name: data.name,
         email: data.email,
         phone: data.phone,
-        totalOrders: '',
-        totalSpent: '',
-        totalBags: '',
+        totalOrders: 0,
+        totalSpent: 0,
+        totalBags: 0,
       };
     }
 
@@ -188,9 +188,9 @@ export const AppProvider = ({ children }) => {
 
   // <--------------------------------------------User Authentication Section End------------------------------------------------------------>
 
-  // <--------------------------------------------User Data Retrieval Section Start---------------------------------------------------------->
-  // this handles a scenario where the user reloads the app
+  // <--------------------------------------------User Data and Settings Retrieval Section Start---------------------------------------------------------->
 
+  // this handles a scenario where the user reloads the app
   const retrieveUser = async (userId) => {
     if (userId) {
       const userDocRef = doc(db, 'users', userId);
@@ -207,10 +207,23 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const retrieveSettings = async () => {
+    const userDocRef = doc(db, 'admin', 'settings');
+    try {
+      const userDoc = await getDoc(userDocRef);
+      if (userDoc.exists()) {
+        const settings = userDoc.data();
+        dispatch({ type: 'SETTINGS_SUCCESS', payload: { ...settings } });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // gets orders in a users store
   const userOrders = [];
   const getOrders = async (userId) => {
-    // const userId = sessionStorage?.getItem('userId');
+    retrieveSettings();
     const userDocCollectionRef = collection(db, 'users', userId, 'orders');
     try {
       const snapShot = await getDocs(userDocCollectionRef);
@@ -224,10 +237,12 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  if (sessionStorage.getItem('userId')) {
-    const userId = sessionStorage.getItem('userId');
-    retrieveUser(userId);
-  }
+  const userId = sessionStorage.getItem('userId');
+  useEffect(() => {
+    if (userId) {
+      retrieveUser(userId);
+    }
+  }, [userId]);
 
   // <--------------------------------------------User Data Retrieval Section End---------------------------------------------------------->
 
@@ -237,7 +252,7 @@ export const AppProvider = ({ children }) => {
     const userId = auth.currentUser.uid;
     const docRef = doc(db, 'users', userId);
     try {
-      const updated = await setDoc(docRef, {
+      await setDoc(docRef, {
         ...state.userData,
         phone: phn,
       });
@@ -267,12 +282,13 @@ export const AppProvider = ({ children }) => {
       ? state.userData.totalSpent + Number(newOrder.amount)
       : Number(newOrder.amount);
     try {
-      const updated = await setDoc(docRef, {
+      await setDoc(docRef, {
         ...state.userData,
         totalBags: newTotalBags,
         totalOrders: newTotalOrders,
         totalSpent: newTotalSpent,
       });
+      await retrieveUser(userId);
     } catch (error) {
       const str = error.message;
       const regx = /[/!@#$%^&*)(+=._-]+/g;
@@ -287,29 +303,21 @@ export const AppProvider = ({ children }) => {
   // <--------------------------------------------User Data Update End ---------------------------------------------------------->
 
   // <--------------------------------------------Order Payment and Update User Orders Alongside Admin Orders Start ---------------------------------------------------------->
-  // psuedo code
-  // done ===> capture all user data and pass it into the paystack function, onSuccess, write the order data to orders with status of 'processing',
-  // done ===>  in ongoing orders component, get all orders and filter based on status of 'processing'
-  // removed ===> if user cancels or payment fails, write order data to orders with status of 'failed'
-  // removed ===>  in failed component, get all orders and filter based on status of failed
-  // also set all successfully, paid orders, to admin allOrders, with user name, number and mail,
-  // give the admin power to change each users order based on their uid
 
   // writes orders to the user
   const updateUserOrders = async (userOrder) => {
     const userId = auth.currentUser.uid;
-    const userDocCollectionRef = collection(db, 'users', userId, 'orders');
+    const userDocRef = doc(db, 'users', userId, 'orders', userOrder.id);
 
     try {
-      const update = await setDoc(doc(userDocCollectionRef), {
+      await setDoc(userDocRef, {
         ...userOrder,
-        amount: userOrder['number of bags'] * 230,
+        amount: userOrder['number of bags'] * Number(state.settings.rate),
       });
-      updateUserData({
+      await updateUserData({
         ...userOrder,
-        amount: userOrder['number of bags'] * 230,
+        amount: userOrder['number of bags'] * Number(state.settings.rate),
       });
-      await getOrders(userId);
       dispatch({
         type: 'PAYMENT_SUCCESS',
         payload: 'Success',
@@ -320,11 +328,11 @@ export const AppProvider = ({ children }) => {
   };
 
   const updateAllOrders = async (userOrder) => {
-    const docRef = doc(db, 'allOrders', userOrder.userId, 'orders');
+    const docRef = doc(db, 'admin', 'Orders', 'allOrders', userOrder.id);
     try {
       await setDoc(docRef, {
         ...userOrder,
-        amount: userOrder['number of bags'] * 230,
+        amount: userOrder['number of bags'] * Number(state.settings.rate),
       });
     } catch (error) {
       const str = error.message;
@@ -340,11 +348,11 @@ export const AppProvider = ({ children }) => {
 
   const handlePayment = (order) => {
     dispatch({ type: 'PAYMENT_BEGINS' });
-
+    const uniqueId = new Date().getTime().toString();
     const paystack = new PaystackPop();
     paystack.newTransaction({
       key: process.env.REACT_APP_PAYSTACK_KEY,
-      amount: order['number of bags'] * 230 * 100,
+      amount: order['number of bags'] * Number(state.settings.rate) * 100,
       email: auth.currentUser.email,
       onSuccess() {
         const userOrder = {
@@ -354,6 +362,7 @@ export const AppProvider = ({ children }) => {
           userId: auth.currentUser.uid,
           email: state.userData.email,
           status: 'Processing',
+          id: uniqueId,
         };
         updateUserOrders(userOrder);
         updateAllOrders(userOrder);

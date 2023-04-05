@@ -10,7 +10,7 @@ export const initialState = {
   userOrders: [],
   deliveredOrders: [],
   processingOrders: [],
-  ordersInTransit: [],
+  settings: {},
   signUpLoading: false,
   loginLoading: false,
   userId: '',

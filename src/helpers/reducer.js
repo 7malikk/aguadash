@@ -63,18 +63,14 @@ const reducer = (state, action) => {
     );
     // set processing orders
     const proOrders = action.payload.filter(
-      (order) => order.status === 'Processing'
+      (order) => order.status === 'Processing' || order.status === 'In Transit'
     );
-    // set inTransit orders
-    const inTransit = action.payload.filter(
-      (order) => order.status === 'inTransit'
-    );
+
     return {
       ...state,
       userOrders: [...action.payload],
       deliveredOrders: [...delOrders],
       processingOrders: [...proOrders],
-      ordersInTransit: [...inTransit],
     };
   }
   if (action.type === 'PHONE_UPDATE_BEGINS') {
@@ -127,6 +123,13 @@ const reducer = (state, action) => {
       paymentLoading: false,
     };
   }
+  if (action.type === 'SETTINGS_SUCCESS') {
+    return {
+      ...state,
+      settings: { ...action.payload },
+    };
+  }
+  // Users Actions End
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };

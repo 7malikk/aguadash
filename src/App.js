@@ -1,15 +1,8 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import Order from './components/order/Order';
-import {
-  Dashboard,
-  Home,
-  Login,
-  SignUp,
-  Merchant,
-  MerchantLogin,
-} from './pages';
-import { Overview, History, Settings } from './components';
+import { Dashboard, Home, Login, SignUp } from './pages';
+import { Overview, History, Settings, Order } from './components';
+
 import ProtectedRoute from './helpers/ProtectedRoute';
 
 function App() {
@@ -30,15 +23,12 @@ function App() {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/merchant" element={<Merchant />} />
-      <Route path="/merchantlogin" element={<MerchantLogin />} />
       <Route
         path="*"
         element={
           <div>
-            {' '}
             <h1>404 page not found </h1>
-            ++ <Link to="/">back home</Link>
+            <Link to="/">back home</Link>
           </div>
         }
       />

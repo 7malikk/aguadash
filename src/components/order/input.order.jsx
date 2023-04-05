@@ -5,8 +5,15 @@ import { toast, ToastContainer } from 'react-toastify';
 import { CgSpinnerAlt } from 'react-icons/cg';
 
 function InputOrder() {
-  const { handlePayment, paymentSuccessful, paymentLoading, error, dispatch } =
-    useAppContext();
+  const {
+    handlePayment,
+    paymentSuccessful,
+    paymentLoading,
+    error,
+    dispatch,
+    settings,
+    userData,
+  } = useAppContext();
 
   const [order, setOrder] = useState({
     address: '',
@@ -24,8 +31,23 @@ function InputOrder() {
 
   const handleSumbit = (e) => {
     e.preventDefault();
-    handlePayment(order);
+    if (settings.stock === 'true') {
+      toast.info('We are out of stock, try again later, Thank you!');
+    } else {
+      if (userData.phone === '') {
+        toast.info(
+          'Kindly set your phone number, for easier reach during delivery'
+        );
+      } else {
+        handlePayment(order);
+      }
+    }
   };
+  useEffect(() => {
+    if (settings.stock === 'true') {
+      toast.info('We are out of stock, try again later, Thank you!');
+    }
+  }, []);
 
   useEffect(() => {
     if (paymentSuccessful) {
@@ -105,11 +127,12 @@ function InputOrder() {
           required
           className="border-none outline-none rounded w-[80%] p-[10px] pl-1"
           name="amount"
-          value={formatPrice(order['number of bags'] * 230)}
+          value={formatPrice(order['number of bags'] * Number(settings.rate))}
           readOnly
         />
       </div>
       <button
+        disabled={settings.stock === 'true' || paymentLoading ? true : false}
         className="flex justify-center items-center h-auto desktop:h-20 text-lg desktop:text-2xl shadow p-[10px] rounded-md bg-primary text-white font-semibold w-full self-center"
         type="submit">
         {paymentLoading ? (

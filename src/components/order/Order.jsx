@@ -14,7 +14,7 @@ function Order() {
 
   return (
     <div className="bg-white m-6 p-6 rounded-2xl space-y-6 font-semibold flex flex-col justify-center">
-      <nav className=" bg-white flex justify-evenly border-black border py-2 px-4 rounded-md  text-xl desktop:text-4xl">
+      <nav className=" bg-white flex justify-evenly border-black border py-2 px-4 rounded-md  text-base tablet:text-xl desktop:text-4xl">
         <button
           className={`${
             buttonClicked === 1
@@ -44,7 +44,7 @@ function Order() {
                 order === 'compo2'
                   ? 'bg-white text-black'
                   : 'bg-black text-lightAsh'
-              } rounded-full px-3 py-1 ml-3 `}>
+              } rounded-full px-1 py-0 tablet:px-4 tablet:py-1 text-base tablet:text-2xl ml-2 tablet:ml-3`}>
               {processingOrders.length}
             </span>
           ) : null}

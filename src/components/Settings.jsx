@@ -45,7 +45,7 @@ const Settings = () => {
             required
             type="tel"
             name="phone"
-            placeholder={userData.phone}
+            placeholder={userData.phone ? userData.phone : 'Enter phone number'}
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
