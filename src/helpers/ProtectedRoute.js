@@ -14,17 +14,3 @@ const ProtectedRoute = ({ children }) => {
 };
 
 export default ProtectedRoute;
-
-const AdminProctectedRoute = ({ children }) => {
-  const navigate = useNavigate();
-  const admin = sessionStorage.getItem('admin');
-  useEffect(() => {
-    if (!admin) {
-      navigate('/merchantlogin');
-    }
-  }, []);
-
-  return children;
-};
-
-export { AdminProctectedRoute };

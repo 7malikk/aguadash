@@ -1,21 +1,9 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import {
-  Dashboard,
-  Home,
-  Login,
-  SignUp,
-  Merchant,
-  MerchantLogin,
-} from './pages';
+import { Dashboard, Home, Login, SignUp } from './pages';
 import { Overview, History, Settings, Order } from './components';
-import {
-  AdminHistory,
-  AdminOrders,
-  AdminSettings,
-  AdminOverview,
-} from './components/admin';
-import ProtectedRoute, { AdminProctectedRoute } from './helpers/ProtectedRoute';
+
+import ProtectedRoute from './helpers/ProtectedRoute';
 
 function App() {
   return (
@@ -35,22 +23,6 @@ function App() {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-
-      {/* Admin Start */}
-      <Route path="/merchantlogin" element={<MerchantLogin />} />
-      <Route
-        path="/merchant"
-        element={
-          <AdminProctectedRoute>
-            <Merchant />
-          </AdminProctectedRoute>
-        }>
-        <Route path="home" element={<AdminOverview />} />
-        <Route path="orders" exact element={<AdminOrders />} />
-        <Route path="history" exact element={<AdminHistory />} />
-        <Route path="settings" exact element={<AdminSettings />} />
-      </Route>
-      {/* Admin End */}
       <Route
         path="*"
         element={

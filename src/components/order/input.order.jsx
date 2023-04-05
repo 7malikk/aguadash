@@ -12,6 +12,7 @@ function InputOrder() {
     error,
     dispatch,
     settings,
+    userData,
   } = useAppContext();
 
   const [order, setOrder] = useState({
@@ -33,7 +34,13 @@ function InputOrder() {
     if (settings.stock === 'true') {
       toast.info('We are out of stock, try again later, Thank you!');
     } else {
-      handlePayment(order);
+      if (userData.phone === '') {
+        toast.info(
+          'Kindly set your phone number, for easier reach during delivery'
+        );
+      } else {
+        handlePayment(order);
+      }
     }
   };
   useEffect(() => {
@@ -120,7 +127,7 @@ function InputOrder() {
           required
           className="border-none outline-none rounded w-[80%] p-[10px] pl-1"
           name="amount"
-          value={formatPrice(order['number of bags'] * 230)}
+          value={formatPrice(order['number of bags'] * Number(settings.rate))}
           readOnly
         />
       </div>
