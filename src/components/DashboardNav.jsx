@@ -1,9 +1,10 @@
 import React from 'react';
 import { useAppContext } from '../context/AppContext';
 import { CgSpinnerAlt } from 'react-icons/cg';
+import { formatPrice } from '../helpers/helperFunctions';
 
 const DashboardNav = () => {
-  const { userData } = useAppContext();
+  const { userData, settings } = useAppContext();
 
   return (
     <nav className="h-28 border-b bg-white flex flex-col tablet:flex-row justify-evenly tablet:justify-between items-start tablet:items-center px-11 shadow-[0_8px_15px_-15px_rgba(0,0,0,0.3)]">
@@ -20,8 +21,9 @@ const DashboardNav = () => {
           Here's your dashboard
         </h4>
       </div>
-      <h4 className="font-semibold text-[#1C1C1C] text-base tablet:text-xl bg-[#DA910A40] px-4 py-2 rounded-3xl ">
-        Current Selling Rate: ₦230
+      <h4 className="font-semibold text-[#1C1C1C] text-base tablet:text-lg laptop:text-xl bg-[#DA910A40] px-4 py-2 rounded-3xl ">
+        Current Selling Rate:{' '}
+        {settings.rate ? formatPrice(Number(settings.rate)) : 0}
       </h4>
     </nav>
   );

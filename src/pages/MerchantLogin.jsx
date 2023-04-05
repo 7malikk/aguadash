@@ -1,89 +1,112 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import React, { useEffect, useState } from 'react';
 import { FiPhone } from 'react-icons/fi';
-import { IoIosArrowBack } from 'react-icons/io';
 import {
   BsFacebook,
   BsLinkedin,
   BsTwitter,
   BsFillEnvelopeFill,
 } from 'react-icons/bs';
+import { useAppContext } from '../context/AppContext';
+import { CgSpinnerAlt } from 'react-icons/cg';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MerchantLogin = () => {
+  const { handleAdminLogin, error, adminLoading, adminError } = useAppContext();
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setData({ ...data, [e.target.name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAdminLogin(data);
+    setData({
+      email: '',
+      password: '',
+    });
+  };
+
+  useEffect(() => {
+    if (adminError) {
+      toast.error(error);
+    }
+  }, [error, adminError]);
+
   return (
-    <div className=" w-[100%] h-[100vh]">
-      <div className="flex pl-[10px]">
-        <div className=" hidden tablet:flex bg-login-bg bg-cover bg-center flex-col w-[50%] p-5 h-screen">
-          <h2 className="text-5xl font-extrabold text-white font-play laptop:pl-[20px] laptop:py-[50px]">
+    <div className=" w-full h-[100vh]">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+      />
+      <div className="flex ">
+        <div className=" hidden tablet:flex justify-center items-start bg-login-bg bg-cover bg-center flex-col w-1/2 p-5 h-screen">
+          <h2 className="text-5xl font-extrabold text-white font-play laptop:pl-5 laptop:py-[3rem]">
             AD
           </h2>
-          <p className="w-[100%] laptop:w-[90%] text-center text-white mt-2 mb-8 font-loto text-base tablet:text-xl laptop:text-4xl">
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quis
-            ut,mmodi est ullam dicta soluta optio obcaecati, perferendis
-            voluptate eius corrupti nostrum odit asperiores aspernatur
-            necessitatibus! Amet, officiis incidun"
+          <p className="w-full laptop:w-[90%] text-center text-white mt-2 mb-8 font-loto text-base tablet:text-xl laptop:text-xl">
+            "Thirsty for hassle-free hydration? Look no more! Our water delivery
+            service brings crisp, refreshing water straight to your door step.
+            say goodbye to lugging heavy jugs from store or waiting in long
+            line. with our easy online ordering system, you can get the water
+            you need in with just a few clicks Plus, with our convenient
+            subscription serivces, you'll never have to worry about running out
+            of water again. Trust us to keep you hydrated and refreshed!!!. "
           </p>
         </div>
 
-        <div className="bg-white  w-[100%] flex flex-col  tablet:w-[65%] tablet:pl-[100px] mt-[60px]">
-          <Link to="/" className="text-[11px] pb-[20px] flex">
-            <IoIosArrowBack className="mt-[4px]" />
-            <span className="pl-[6px]">back</span>
-          </Link>
-          <div className="pl-[6px] flex flex-col">
-            <h2 className="text-center border-b pb-[20px] w-[100%]  text-black text-[20px] tablet:w-[50%] tablet:text-left">
-              Login
+        <div className="bg-white  w-full flex flex-col justify-center tablet:w-2/3 tablet:pl-[6.25rem] mt-[3.75rem]">
+          <div className="pl-2 flex flex-col ">
+            <h2 className="text-center border-b pb-5 w-full  text-black text-xl tablet:w-1/2 tablet:text-left">
+              Merchant Login
             </h2>
-            <form className="flex flex-col pt-[20px] ">
-              <label>Username</label>
+            <form onSubmit={handleSubmit} className="flex flex-col pt-5 ">
+              <label>Email</label>
               <input
+                required
+                name="email"
+                value={data.email}
+                onChange={handleChange}
                 type="email"
-                placeholder="Enter Your Username"
-                className="placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none tablet:w-[50%] rounded shadow border p-[8px] mt-[10px] mb-[6px]"
+                placeholder="Enter Your Email"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-3 outline-none tablet:w-[50%] rounded shadow border p-3 mt-3 mb-2"
               />
 
               <label>Password</label>
               <input
-                type="email"
+                required
+                value={data.password}
+                onChange={handleChange}
+                name="password"
+                type="password"
                 placeholder="Enter Your Password"
-                className="placeholder-[#334155] w-[100%] text-black-900 text-[12px] pl-[10px] outline-none tablet:w-[50%] rounded shadow border p-[8px] mt-[10px] mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-3 outline-none tablet:w-[50%] rounded shadow border p-3 mt-3 mb-2"
               />
+              <button
+                disabled={adminLoading}
+                type="submit"
+                className="w-full rounded-full text-white p-2 mt-5 tablet:w-[50%] bg-[#0e7490] flex justify-center items-center">
+                {adminLoading ? (
+                  <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
+                ) : (
+                  'Login'
+                )}
+              </button>
             </form>
-
-            <button className="w-[100%] border rounded-[20px] p-[4px] mt-[20px] tablet:w-[50%] bg-[#0e7490] ">
-              Login
-            </button>
-            <span className="text-[14px] tablet:w-[50%] text-center tablet:text-right">
-              Forgot Password? <button className="text-blue-500">Reset</button>
-            </span>
-            <div className="flex items-center py-[10px] tablet:w-[50%]">
-              <div className="flex-grow bg bg-[#334155] h-0.5"></div>
-              <div className="flex-grow-0 mx-5 text dark:text-white">or</div>
-              <div className="flex-grow bg bg-[#334155] h-0.5"></div>
-            </div>
-            <br />
-            <button className="w-[97%] ml-[0]  border-2 rounded p-[4px] tablet:w-[50%] flex justify-between   hover:bg-blue-700 hover:text-white">
-              <img
-                className="ml-[10px]"
-                src={logo}
-                alt="logo"
-                width={20}
-                height={30}
-              />
-              <span className=" mr-[120px] tablet:mr-[40px]">
-                Login With Google
-              </span>
-            </button>
-            <h3 className="text-[14px]  tablet:text-[12px] text-center tablet:text-right tablet:w-[50%]">
-              Don't have a registerd Account? <Link to="/signup">Signup</Link>{' '}
-            </h3>
           </div>
 
           {/* for moblile */}
           <footer
             id="footer"
-            className="bg-black text-white  px-5 tablet:hidden tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-8 desktop:gap-14 pb-14">
+            className="bg-black text-white mt-[1.8rem] px-5 tablet:hidden tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14 pb-14">
             <div className="company w-96 space-y-5 mt-9 ">
               <h4 className="font-play text-3xl tablet:text-6xl font-bold">
                 AGUADASH
@@ -100,6 +123,7 @@ const MerchantLogin = () => {
                 </div>
               </div>
             </div>
+
             <div className="links space-y-5 mt-9 ml-0 laptop:mt-14 laptop:ml-56">
               <h6 className="text-3xl font-play font-bold">Links</h6>
               <ul className="text-xl">
@@ -108,7 +132,7 @@ const MerchantLogin = () => {
                 <li className=" hover:cursor-pointer">Serivces</li>
               </ul>
             </div>
-            <div className="contactUs space-y-5  mt-9 ml-0 laptop:mt-14  desktop:ml-56 flex flex-col justify-start items-start">
+            <div className="contactUs space-y-5  mt-9 ml-0 laptop:mt-14  xl:ml-56 flex flex-col justify-start items-start">
               <h6 className="text-3xl font-play font-bold">Contact Us</h6>
               <div className="flex flex-col justify-start items-start space-y-2">
                 <h1 className="flex justify-center items-center">
@@ -129,16 +153,3 @@ const MerchantLogin = () => {
 };
 
 export default MerchantLogin;
-/**<button className=' mobile:w-[40%] border mobile:ml-[100px] rounded-[20px] p-[4px]  tablet:w-[60%] bg-blue-900 '>Register Account</button>
-          <h4>or</h4>
-          <button className='w-[100%] border flex flex-row justify-between p-[4px] rounded shadow tablet:w-[60%] tablet:ml-[100px]'>
-            <img
-            className='ml-[10px]'
-            src={logo}
-            alt='logo'
-            width={20}
-            height={30}
-             />
-            <span className='mr-[100px] tablet:mr-[160px] '>Register With Google</span>
-          </button>
-          <h3 className='text-[15px] ml-[20px] tablet:ml-[32%] tablet:text-[15px]'>Don't have a registered account? <a className='text-blue-800'>Sign Up</a></h3> */

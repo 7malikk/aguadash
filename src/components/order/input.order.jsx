@@ -5,8 +5,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import { CgSpinnerAlt } from 'react-icons/cg';
 
 function InputOrder() {
-  const { handlePayment, paymentSuccessful, paymentLoading, error, dispatch } =
-    useAppContext();
+  const {
+    handlePayment,
+    paymentSuccessful,
+    paymentLoading,
+    error,
+    dispatch,
+    settings,
+  } = useAppContext();
 
   const [order, setOrder] = useState({
     address: '',
@@ -24,8 +30,17 @@ function InputOrder() {
 
   const handleSumbit = (e) => {
     e.preventDefault();
-    handlePayment(order);
+    if (settings.stock === 'true') {
+      toast.info('We are out of stock, try again later, Thank you!');
+    } else {
+      handlePayment(order);
+    }
   };
+  useEffect(() => {
+    if (settings.stock === 'true') {
+      toast.info('We are out of stock, try again later, Thank you!');
+    }
+  }, []);
 
   useEffect(() => {
     if (paymentSuccessful) {
@@ -110,6 +125,7 @@ function InputOrder() {
         />
       </div>
       <button
+        disabled={settings.stock === 'true' || paymentLoading ? true : false}
         className="flex justify-center items-center h-auto desktop:h-20 text-lg desktop:text-2xl shadow p-[10px] rounded-md bg-primary text-white font-semibold w-full self-center"
         type="submit">
         {paymentLoading ? (

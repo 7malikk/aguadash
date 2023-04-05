@@ -21,6 +21,8 @@ module.exports = {
         lightAsh: '#F7F9F9',
         skyBlue: '#E6F0F3',
         darkAsh: '#6D6D6D',
+        processing: '#A86D0248',
+        inTransit: '#139A0748',
       },
       fontFamily: {
         play: ['Playfair Display', 'serif'],

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import Order from './components/order/Order';
 import {
   Dashboard,
   Home,
@@ -9,8 +8,14 @@ import {
   Merchant,
   MerchantLogin,
 } from './pages';
-import { Overview, History, Settings } from './components';
-import ProtectedRoute from './helpers/ProtectedRoute';
+import { Overview, History, Settings, Order } from './components';
+import {
+  AdminHistory,
+  AdminOrders,
+  AdminSettings,
+  AdminOverview,
+} from './components/admin';
+import ProtectedRoute, { AdminProctectedRoute } from './helpers/ProtectedRoute';
 
 function App() {
   return (
@@ -30,15 +35,28 @@ function App() {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/merchant" element={<Merchant />} />
+
+      {/* Admin Start */}
       <Route path="/merchantlogin" element={<MerchantLogin />} />
+      <Route
+        path="/merchant"
+        element={
+          <AdminProctectedRoute>
+            <Merchant />
+          </AdminProctectedRoute>
+        }>
+        <Route path="home" element={<AdminOverview />} />
+        <Route path="orders" exact element={<AdminOrders />} />
+        <Route path="history" exact element={<AdminHistory />} />
+        <Route path="settings" exact element={<AdminSettings />} />
+      </Route>
+      {/* Admin End */}
       <Route
         path="*"
         element={
           <div>
-            {' '}
             <h1>404 page not found </h1>
-            ++ <Link to="/">back home</Link>
+            <Link to="/">back home</Link>
           </div>
         }
       />
