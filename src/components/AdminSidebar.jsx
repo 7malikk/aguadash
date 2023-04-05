@@ -9,9 +9,8 @@ import {
   RxExit,
 } from 'react-icons/rx';
 
-const Sidebar = () => {
-  const { handleLogout } = useAppContext();
-
+const AdminSidebar = () => {
+  const { handleAdminLogout } = useAppContext();
   return (
     <div className="w-20 tablet:w-60 h-[85vh] bg-white ">
       <h1 className="text-2xl tablet:text-5xl font-extrabold text-primary font-play h-28 border-b text-center flex justify-center items-center">
@@ -20,7 +19,7 @@ const Sidebar = () => {
       <div className="flex flex-col justify-between h-full px-4 py-6 font-semibold text-lg">
         <ul className="space-y-4">
           <NavLink
-            to="/dashboard/home"
+            to="/merchant/home"
             className={({ isActive }) =>
               isActive
                 ? 'flex justify-center tablet:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
@@ -30,7 +29,7 @@ const Sidebar = () => {
             <h4 className="hidden tablet:block">Overview</h4>
           </NavLink>
           <NavLink
-            to="/dashboard/orders"
+            to="/merchant/orders"
             className={({ isActive }) =>
               isActive
                 ? 'flex justify-center tablet:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
@@ -40,7 +39,7 @@ const Sidebar = () => {
             <h4 className="hidden tablet:flex">Orders</h4>
           </NavLink>
           <NavLink
-            to="/dashboard/history"
+            to="/merchant/history"
             className={({ isActive }) =>
               isActive
                 ? 'flex justify-center tablet:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
@@ -52,7 +51,7 @@ const Sidebar = () => {
         </ul>
         <ul className="space-y-4">
           <NavLink
-            to="/dashboard/settings"
+            to="/merchant/settings"
             className={({ isActive }) =>
               isActive
                 ? 'flex justify-center tablet:justify-start items-center bg-black text-white px-1  py-2 rounded-lg'
@@ -63,7 +62,7 @@ const Sidebar = () => {
           </NavLink>
           <li
             className="flex items-center bg-white text-black hover:bg-black hover:text-white px-1  py-2 rounded-lg hover:cursor-pointer"
-            onClick={handleLogout}>
+            onClick={handleAdminLogout}>
             <RxExit className=" w-6 h-6 mr-0 tablet:mr-3 rotate-180" />
             <h4 className="hidden tablet:block"> Logout</h4>
           </li>
@@ -73,4 +72,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default AdminSidebar;

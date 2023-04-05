@@ -1,8 +1,15 @@
-import Sidebar from './Sidebar';
-import Overview from './Overview';
-import DashboardNav from './DashboardNav';
-import History from './History';
-import Settings from './Settings';
-import Order from './order/Order';
+import AdminHistory from './AdminHistory';
+import AdminOverview from './AdminOverview';
+import AdminOrders from './AdminOrders/AdminOrders';
+import AdminSettings from './AdminSettings';
+import AdminNav from './AdminNav';
+import AdminSidebar from './AdminSidebar';
 
-export { Sidebar, Overview, DashboardNav, History, Settings, Order };
+export {
+  AdminHistory,
+  AdminOrders,
+  AdminSettings,
+  AdminOverview,
+  AdminNav,
+  AdminSidebar,
+};

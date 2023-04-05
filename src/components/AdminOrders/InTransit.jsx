@@ -1,14 +1,23 @@
 import React from 'react';
-import { useAppContext } from '../../context/AppContext';
 import { formatPrice } from '../../helpers/helperFunctions';
+import { useAppContext } from '../../context/AppContext';
 
-function OngoingOrder({ setOrder, handleButtonclicked }) {
-  const { processingOrders } = useAppContext();
+const InTransit = ({ inTransit }) => {
+  const { allOrders, handleUpdatedOrder } = useAppContext();
+
+  const handleChange = (e, orderUpdate) => {
+    const value = e.target.value;
+    const getOrderToBeUpdated = allOrders.filter(
+      (order) => order.id === orderUpdate.id
+    );
+    const updatedOrder = { ...getOrderToBeUpdated[0], status: value };
+    handleUpdatedOrder(updatedOrder);
+  };
 
   return (
     <div className="mt-[10px] shadow border p-[10px] space-y-6 ">
-      {processingOrders.length > 0 ? (
-        processingOrders.map((order, i) => {
+      {inTransit.length > 0 ? (
+        inTransit.map((order, i) => {
           return (
             <div
               key={i}
@@ -23,16 +32,29 @@ function OngoingOrder({ setOrder, handleButtonclicked }) {
               </div>
               <div>
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
-                  Status
+                  User Phone number
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.status}</h1>
+                <h1 className="text-2xl font-semibold mt-2">{order.phone} </h1>
               </div>
               <div>
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
-                  Address
+                  User name
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.address}</h1>
+                <h1 className="text-2xl font-semibold mt-2">{order.name} </h1>
               </div>
+              <div>
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  Status
+                </h4>
+                <select
+                  onChange={(e) => handleChange(e, order)}
+                  className="text-2xl font-semibold text-black  mt-2 outline-none border-none">
+                  <option value={order.status}>{order.status}</option>
+                  <option value="Processing">Processing</option>
+                  <option value="Delivered">Delivered</option>
+                </select>
+              </div>
+
               <div>
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                   Date
@@ -53,24 +75,28 @@ function OngoingOrder({ setOrder, handleButtonclicked }) {
                   {formatPrice(order.amount)}
                 </h1>
               </div>
+              <div>
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  User email
+                </h4>
+                <h1 className="text-2xl font-semibold mt-2">{order.email}</h1>
+              </div>
+              <div className="cols-span-1 tablet:col-span-2">
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                  Address
+                </h4>
+                <h1 className="text-2xl font-semibold mt-2">{order.address}</h1>
+              </div>
             </div>
           );
         })
       ) : (
         <div className="flex flex-col justify-center items-center space-y-2">
-          <h4 className="text-lg font-semibold">No ongoing orders</h4>
-          <button
-            onClick={() => {
-              setOrder('compo1');
-              handleButtonclicked(1);
-            }}
-            className="bg-primary py-2 px-8 desktop:py-3 desktop:px-10 text-white  rounded-full hover:bg-hover">
-            Order Now
-          </button>
+          <h4 className="text-lg font-semibold">No orders in transit</h4>
         </div>
       )}
     </div>
   );
-}
+};
 
-export default OngoingOrder;
+export default InTransit;

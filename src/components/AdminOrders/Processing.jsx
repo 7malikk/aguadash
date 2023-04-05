@@ -1,6 +1,6 @@
 import React from 'react';
-import { formatPrice } from '../../../helpers/helperFunctions';
-import { useAppContext } from '../../../context/AppContext';
+import { formatPrice } from '../../helpers/helperFunctions';
+import { useAppContext } from '../../context/AppContext';
 
 const Processing = ({ processing }) => {
   const { allOrders, handleUpdatedOrder } = useAppContext();

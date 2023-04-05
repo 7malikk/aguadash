@@ -1,7 +1,7 @@
 import React from 'react';
-import { formatPrice } from '../../helpers/helperFunctions';
-import { useAppContext } from '../../context/AppContext';
-import { empty } from '../../assets';
+import { empty } from '../assets';
+import { formatPrice } from '../helpers/helperFunctions';
+import { useAppContext } from '../context/AppContext';
 
 const AdminHistory = () => {
   const { allOrders } = useAppContext();
