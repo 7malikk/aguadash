@@ -14,6 +14,7 @@ function Order() {
 
   return (
     <div className="bg-white m-6 p-6 rounded-2xl space-y-6 font-semibold flex flex-col justify-center">
+    
       <nav className=" bg-white flex justify-evenly border-black border py-2 px-4 rounded-md  text-base tablet:text-xl desktop:text-4xl">
         <button
           className={`${
