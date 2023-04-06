@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+					INTRODUCTION
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aguadash  is a water delivery e-commerce   platform that allows customers to order and receive water at their doorstep and also allow mechent to see the orders been placed by customers. Aguadash  was developed using React JS, Firebase for authentication, and Paystack for payment processing, GitHub for version control, and Netlify for hosting. This documentation will outline the features, architecture, and deployment of the website.
 
-## Available Scripts
+Features:
 
-In the project directory, you can run:
+1.User registration and authentication using Firebase Authentication.
+2.Ability for users to order water of different sizes and quantities.
+3.A shopping cart that shows the items in the user's order and the total cost.
+4.Integration with Paystack for secure and convenient payment processing.
+5.Order history page that displays the user's previous orders.
+6.Admin dashboard for managing orders and inventory.
+7.Automated email notifications for order updates and delivery status.
 
-### `npm start`
+Architecture:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Aguadash was developed using the React JS framework, which is a popular frontend library for building user interfaces. Aguadash has a client-server architecture, with the client being the React app that runs in the user's browser, and the server being Firebase, which provides authentication and real-time database services.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Aguadash has several components, including the authentication component, the order component, the shopping cart component, and the payment component. Each component has its logic and is responsible for its functionality. The components communicate with each other through a centralized state management system provided by the React framework.
 
-### `npm test`
+Aguadash also uses the Paystack API to handle payments. Paystack is a payment gateway that allows businesses to accept payments from customers. The integration with Paystack is done through an API, which allows the website to initiate payments, monitor transaction status, and handle failed transactions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+.
 
-### `npm run build`
+Version Control and Hosting:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aguadash code is version-controlled using Git and hosted on GitHub. GitHub provides a platform for collaborative software development, allowing multiple developers to work on the same codebase simultaneously. Aguadash source code is stored on GitHub, and changes are tracked using Git, which provides version control and allows developers to manage changes to the codebase.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Aguadash is deployed on Netlify, which is a hosting platform that provides automated deployment, continuous integration, and continuous delivery. Netlify integrates with GitHub, allowing developers to automatically deploy changes to the website's codebase. Netlify also provides a secure and scalable platform for hosting the website.
