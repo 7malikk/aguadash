@@ -49,7 +49,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="relative">
+    <main aria-label="homepage" className="relative">
       <aside
         className={` ${
           showSidebar ? 'translate-x-0 ' : 'translate-x-full  '

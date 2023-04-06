@@ -47,6 +47,7 @@ function InputOrder() {
     if (settings.stock === 'true') {
       toast.info('We are out of stock, try again later, Thank you!');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -61,6 +62,7 @@ function InputOrder() {
       });
       dispatch({ type: 'PAYMENT_COMPLETE' });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paymentSuccessful, error]);
 
   return (
@@ -74,8 +76,8 @@ function InputOrder() {
         newestOnTop={true}
         closeOnClick
       />
-      <div className="shadow p-1 border-black  flex items-center rounded-md">
-        <label className="text-lg desktop:text-2xl ml-2">Address:</label>
+      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border-black  flex items-center rounded-md">
+        Address:
         <input
           type="text"
           required
@@ -84,9 +86,10 @@ function InputOrder() {
           value={order?.address}
           onChange={handleChange}
         />
-      </div>
-      <div className="shadow p-1 border  flex items-center rounded-md">
-        <label className="text-lg desktop:text-2xl ml-2">Time:</label>
+      </label>
+
+      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
+        Time:
         <input
           type="time"
           required
@@ -95,10 +98,10 @@ function InputOrder() {
           value={order?.time}
           onChange={handleChange}
         />
-      </div>
+      </label>
 
-      <div className="shadow p-1 border  flex items-center rounded-md">
-        <label className="text-lg desktop:text-2xl ml-2">Date:</label>
+      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
+        Date:
         <input
           type="date"
           className="border-none outline-none rounded w-full p-[10px] pl-1"
@@ -107,10 +110,10 @@ function InputOrder() {
           value={order?.date}
           onChange={handleChange}
         />
-      </div>
+      </label>
 
-      <div className="shadow p-1 border  flex items-center rounded-md">
-        <label className="text-lg desktop:text-2xl ml-2">Bags:</label>
+      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
+        Bags:
         <input
           type="number"
           className="border-none outline-none rounded w-[80%] p-[10px] pl-1"
@@ -118,10 +121,10 @@ function InputOrder() {
           value={order['number of bags']}
           onChange={handleChange}
         />
-      </div>
+      </label>
 
-      <div className="shadow p-1 border  flex items-center rounded-md">
-        <label className="text-lg desktop:text-2xl ml-2">Total Cost:</label>
+      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
+        Total Cost:
         <input
           type="text"
           required
@@ -130,9 +133,10 @@ function InputOrder() {
           value={formatPrice(order['number of bags'] * Number(settings.rate))}
           readOnly
         />
-      </div>
+      </label>
       <button
         disabled={settings.stock === 'true' || paymentLoading ? true : false}
+        role="tooltip"
         className="flex justify-center items-center h-auto desktop:h-20 text-lg desktop:text-2xl shadow p-[10px] rounded-md bg-primary text-white font-semibold w-full self-center"
         type="submit">
         {paymentLoading ? (

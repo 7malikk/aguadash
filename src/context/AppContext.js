@@ -12,7 +12,7 @@ import reducer from '../helpers/reducer';
 import PaystackPop from '@paystack/inline-js';
 import { initialState } from '../helpers/helperFunctions';
 
-const AppContext = createContext();
+export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const navigate = useNavigate();
