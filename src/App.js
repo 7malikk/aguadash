@@ -1,7 +1,15 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import { Dashboard, Home, Login, SignUp } from './pages';
+// import Dashboard from './pages';
+// import Home from './pages';
+// import Login from './pages';
+// import SignUp from './pages';
 import { Overview, History, Settings, Order } from './components';
+// import Overview from './components';
+// import History from './components';
+// import Settings from './components';
+// import Order from './components';
 
 import ProtectedRoute from './helpers/ProtectedRoute';
 
