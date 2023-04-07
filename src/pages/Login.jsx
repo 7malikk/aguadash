@@ -49,7 +49,7 @@ const Login = () => {
   }, [error, loginError, noAcct]);
 
   return (
-    <div className=" w-full h-[100vh]">
+    <div className=" w-full ">
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -78,7 +78,7 @@ const Login = () => {
             <IoIosArrowBack className="w-6 h-6" />
             <span className="pl-2">Back</span>
           </Link>
-          <div className="pl-2 flex flex-col">
+          <div className="p-5 flex flex-col">
             <h2 className="text-center border-b pb-5 w-full  text-black text-xl tablet:w-1/2 tablet:text-left">
               Login
             </h2>
@@ -116,10 +116,10 @@ const Login = () => {
               </button>
             </form>
 
-            <span className="text-sm tablet:w-[50%] text-center tablet:text-right">
+            {/* <span className="text-sm tablet:w-[50%] text-center tablet:text-right">
               Forgot Password?
               <button className="text-blue-500">Reset</button>
-            </span>
+            </span> */}
             <div className="flex items-center py-3 tablet:w-[50%]">
               <div className="flex-grow bg bg-[#334155] h-0.5"></div>
               <div className="flex-grow-0 mx-5 text dark:text-white">OR</div>
@@ -137,7 +137,7 @@ const Login = () => {
                 height={30}
               />
               <span className="text-sm mr-[30%] tablet:mr-[3.75rem]">
-                Register With Google
+                Login With Google
               </span>
             </button>
             <h3 className="text-sm  tablet:text-xs text-center tablet:text-right tablet:w-[50%]">

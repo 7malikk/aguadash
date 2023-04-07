@@ -24,7 +24,7 @@ const Settings = () => {
   }, [error, phoneUpdateError]);
 
   return (
-    <main className="bg-white m-6 p-6 rounded-2xl space-y-6  ">
+    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-6  ">
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -41,7 +41,7 @@ const Settings = () => {
             Phone Number
           </label>
           <input
-            className="w-full tablet:w-[32rem] h-20 pl-4 text-2xl"
+            className="w-full tablet:w-[32rem] h-14 tablet:h-20 pl-4 text-2xl"
             required
             type="tel"
             name="phone"
