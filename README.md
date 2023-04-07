@@ -2,17 +2,17 @@
 
 ## INTRODUCTION
 
-Aguadash is a water delivery e-commerce platform that allows customers to order and receive water at their doorstep and also allow merchant to see the orders been placed by customers. Aguadash  was developed using React JS, Firebase for authentication, and Paystack for payment processing, GitHub for version control, and Netlify for hosting. This documentation will outline the features, architecture, and deployment of the website.
+Aguadash is a water delivery e-commerce platform that allows customers to order and receive water at their doorstep and also allow merchant to see the orders been placed by customers . Aguadash  was developed using React JS, Firebase for authentication, and Paystack for payment processing, GitHub for version control, and Netlify for hosting. This documentation will outline the features, architecture, and deployment of the website. Visit [Aguadash](https://admin-aguadash.netlify.app/)
+
 
 ## Features
 
 1. User registration and authentication using Firebase Authentication.
 2. Ability for users to order water of different sizes and quantities.
-3. A shopping cart that shows the items in the user's order and the total cost.
-4. Integration with Paystack for secure and convenient payment processing.
-5. Order history page that displays the user's previous orders.
-6. Admin dashboard for managing orders and inventory.
-7. Automated email notifications for order updates and delivery status.
+3. Integration with Paystack for secure and convenient payment processing.
+4. Order history page that displays the user's previous orders.
+5. Admin dashboard for managing orders and inventory.
+
 
 ## Architecture
 
@@ -27,3 +27,9 @@ Aguadash also uses the Paystack API to handle payments. Paystack is a payment ga
 Aguadash code is version-controlled using Git and hosted on GitHub. GitHub provides a platform for collaborative software development, allowing multiple developers to work on the same codebase simultaneously. Aguadash source code is stored on GitHub, and changes are tracked using Git, which provides version control and allows developers to manage changes to the codebase.
 
 Aguadash is deployed on Netlify, which is a hosting platform that provides automated deployment, continuous integration, and continuous delivery. Netlify integrates with GitHub, allowing developers to automatically deploy changes to the website's codebase. Netlify also provides a secure and scalable platform for hosting the website.
+
+## Contributors
+
+[James](https://github.com/JamesVictor-O)
+
+[Malikk](https://github.com/7malikk)
