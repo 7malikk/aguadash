@@ -36,7 +36,7 @@ const AdminSettings = () => {
   }, [adminSettingsError, error]);
 
   return (
-    <main className="bg-white m-6 p-6 rounded-2xl space-y-6  ">
+    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-6  ">
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -48,7 +48,7 @@ const AdminSettings = () => {
       <section className="flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="bg-lightAsh flex flex-col justify-center items-center space-y-6 p-9 w-full tablet:w-[32rem] h-full shadow-xl py-4 rounded-xl">
+          className="bg-lightAsh flex flex-col justify-center items-center space-y-6 p-2 tablet:p-6 w-full tablet:w-[32rem] h-full shadow-xl py-4 rounded-xl">
           <label className=" w-full text-2xl font-semibold space-y-2">
             <h4>Rate</h4>
             <input

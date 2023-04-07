@@ -12,7 +12,7 @@ const AdminOverview = () => {
   );
 
   return (
-    <main className="bg-white m-6 p-6 rounded-2xl space-y-6  ">
+    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-6  ">
       <h1 className="font-semibold text-4xl">Overview</h1>
       <section className="cards grid grid-cols-1 tablet:grid-cols-2 gap-8">
         <div className="cardThree shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
