@@ -7,7 +7,7 @@ describe('order', () => {
     cy.findByRole('textbox', { placeholder: /Enter your email/i }).type(
       'malikk@gmail.com'
     );
-    cy.findByPlaceholderText(/enter your password/i).type('malikkIsKing');
+    cy.findByPlaceholderText(/enter your password/i).type('yourPassword');
     cy.findByRole('button', { name: /login/i }).click();
     // click on orders
     cy.findByRole('link', { name: /orders/i }).click();
