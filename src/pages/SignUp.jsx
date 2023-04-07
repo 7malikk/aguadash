@@ -67,7 +67,7 @@ const SignUp = () => {
         closeOnClick
       />
       <div className=" flex flex-col tablet:flex-row">
-        <div className=" hidden  bg-login-bg tablet:flex  bg-cover bg-center  flex-col p-4 w-4/12 h-screen">
+        <div className=" hidden  bg-login-bg laptop:flex  bg-cover bg-center  flex-col p-4 w-4/12 h-screen">
           <h2 className="text-5xl font-extrabold text-white font-play laptop:pl-[20px] laptop:py-[50px]">
             AD
           </h2>
