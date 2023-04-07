@@ -58,7 +58,7 @@ const Login = () => {
         closeOnClick
       />
       <div className="flex ">
-        <div className=" hidden tablet:flex bg-login-bg bg-cover bg-center flex-col w-1/2 p-5 h-screen">
+        <div className=" hidden laptop:flex bg-login-bg bg-cover bg-center flex-col w-1/2 p-5 h-screen">
           <h2 className="text-5xl font-extrabold text-white font-play laptop:pl-5 laptop:py-[3rem]">
             AD
           </h2>
