@@ -242,6 +242,7 @@ export const AppProvider = ({ children }) => {
     if (userId) {
       retrieveUser(userId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
   // <--------------------------------------------User Data Retrieval Section End---------------------------------------------------------->
