@@ -1,8 +1,18 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { screen, render } from '@testing-library/react';
+import { Home } from './pages';
+import { BrowserRouter } from 'react-router-dom';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/home/i);
-  expect(linkElement).toBeInTheDocument();
+it('renders homepage', () => {
+  // Arrange
+  render(
+    <BrowserRouter>
+      <Home />
+    </BrowserRouter>
+  );
+
+  // Act
+  const hompage = screen.queryByLabelText(/homepage/i);
+
+  // Assert
+  expect(hompage).toBeInTheDocument();
 });

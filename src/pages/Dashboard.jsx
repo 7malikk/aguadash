@@ -1,7 +1,18 @@
 import React from 'react';
+import { Outlet } from 'react-router';
+import Sidebar from '../components/Sidebar';
+import DashboardNav from '../components/DashboardNav';
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <main className="flex h-screen tablet:h-full overflow-hidden">
+      <Sidebar />
+      <section className="w-full h-screen max-h-screen overflow-y-scroll bg-lightAsh">
+        <DashboardNav />
+        <Outlet />
+      </section>
+    </main>
+  );
 };
 
 export default Dashboard;
