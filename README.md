@@ -2,7 +2,7 @@
 
 ## INTRODUCTION
 
-Aguadash is a water delivery e-commerce platform that allows customers to order and receive water at their doorstep and also allow merchant to see the orders been placed by customers . Aguadash  was developed using React JS, Firebase for authentication, and Paystack for payment processing, GitHub for version control, and Netlify for hosting. This documentation will outline the features, architecture, and deployment of the website. Visit [Aguadash](https://admin-aguadash.netlify.app/)
+Aguadash is a water delivery e-commerce platform that allows customers to order and receive water at their doorstep and also allow merchant to see the orders been placed by customers . Aguadash  was developed using React JS, Firebase for authentication, and Paystack for payment processing, GitHub for version control, and Netlify for hosting. This documentation will outline the features, architecture, and deployment of the website. Visit [Aguadash](https://aguadash.netlify.app/)
 
 
 ## Features
