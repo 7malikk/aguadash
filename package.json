@@ -5,7 +5,6 @@
   "dependencies": {
     "@paystack/inline-js": "^2.12.6",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.18.0",
     "paystack": "^2.0.1",
@@ -49,6 +48,7 @@
     "autoprefixer": "^10.4.14",
     "cypress": "^12.9.0",
     "postcss": "^8.4.21",
+    "react-test-renderer": "^18.2.0",
     "tailwindcss": "^3.2.7"
   }
 }
