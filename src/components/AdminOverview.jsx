@@ -20,7 +20,7 @@ const AdminOverview = () => {
             Total Orders Delivered
             <img src={totalBags} alt="total bags" className="w-12 h-12" />
           </h4>
-          <h1 className="text-4xl font-bold mt-2">
+          <h1 data-testid="allDelivered" className="text-4xl font-bold mt-2">
             {delivered.length ? delivered.length : 0}
           </h1>
         </div>
@@ -29,7 +29,7 @@ const AdminOverview = () => {
             Number Of Users
             <img src={people} alt="total amount spent" className="w-12 h-11" />
           </h4>
-          <h1 className="text-4xl font-bold mt-2">
+          <h1 data-testid="allUsers" className="text-4xl font-bold mt-2">
             {allUsers?.length ? allUsers?.length : 0}
           </h1>
         </div>
@@ -55,16 +55,29 @@ const AdminOverview = () => {
                 <div
                   key={i}
                   className=" bg-lightAsh grid grid-cols-5 text-base text-center laptop:text-left laptop:text-lg rounded-md ">
-                  <h5 className="m-2 laptop:mx-6 laptop:my-4">
+                  <h5
+                    data-testid="bags"
+                    className="m-2 laptop:mx-6 laptop:my-4">
                     {order['number of bags']} Bag(s)
                   </h5>
-                  <h5 className="m-2 laptop:mx-6 laptop:my-4 ">{order.date}</h5>
-                  <h5 className="m-2 laptop:mx-6 laptop:my-4 ">{order.time}</h5>
-                  <h5 className="m-2 laptop:mx-6 laptop:my-4 ">
+                  <h5
+                    data-testid="date"
+                    className="m-2 laptop:mx-6 laptop:my-4 ">
+                    {order.date}
+                  </h5>
+                  <h5
+                    data-testid="time"
+                    className="m-2 laptop:mx-6 laptop:my-4 ">
+                    {order.time}
+                  </h5>
+                  <h5
+                    data-testid="amount"
+                    className="m-2 laptop:mx-6 laptop:my-4 ">
                     {formatPrice(order.amount)}
                   </h5>
 
                   <h5
+                    data-testid="status"
                     className={`${
                       order.status === 'Processing'
                         ? 'bg-processing '

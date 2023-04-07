@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 import reducer from '../helpers/reducer';
 import { initialState } from '../helpers/helperFunctions';
 
-const AppContext = createContext();
+export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const navigate = useNavigate();

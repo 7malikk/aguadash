@@ -32,6 +32,7 @@ const AdminSettings = () => {
       toast.success(error);
     }
     dispatch({ type: 'SETTINGS_COMPLETE' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminSettingsError, error]);
 
   return (
