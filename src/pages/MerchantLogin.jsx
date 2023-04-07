@@ -39,7 +39,7 @@ const MerchantLogin = () => {
   }, [error, adminError]);
 
   return (
-    <div className=" w-full h-[100vh]">
+    <div className=" w-full">
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -64,7 +64,7 @@ const MerchantLogin = () => {
         </div>
 
         <div className="bg-white  w-full flex flex-col justify-center tablet:w-2/3 tablet:pl-[6.25rem] mt-[3.75rem]">
-          <div className="pl-2 flex flex-col ">
+          <div className="p-5 flex flex-col ">
             <h2 className="text-center border-b pb-5 w-full  text-black text-xl tablet:w-1/2 tablet:text-left">
               Merchant Login
             </h2>

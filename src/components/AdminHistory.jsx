@@ -9,7 +9,7 @@ const AdminHistory = () => {
     (order) => order.status === 'Delivered'
   );
   return (
-    <main className="bg-white m-6 p-6 rounded-2xl space-y-6  ">
+    <main className="bg-white  m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-6  ">
       <h1 className="font-semibold text-4xl">History</h1>
       <div className="cards  grid grid-cols-1 gap-8">
         {deliveredOrders.length > 0 ? (
@@ -75,7 +75,7 @@ const AdminHistory = () => {
                   </h4>
                   <h1 className="text-2xl font-semibold mt-2">{order.email}</h1>
                 </div>
-                <div className="col-span-2">
+                <div className="cols-span-1 tablet:col-span-2">
                   <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                     Address
                   </h4>
