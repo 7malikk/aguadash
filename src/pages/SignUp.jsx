@@ -58,7 +58,7 @@ const SignUp = () => {
     }
   }, [error, signUpError, userError]);
   return (
-    <div className="flex flex-col   bg-white w-full h-[90%]">
+    <div className="flex flex-col   bg-white w-full ">
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -82,12 +82,12 @@ const SignUp = () => {
           </p>
         </div>
 
-        <div className="bg-white  flex-col w-full pl-[6px] p-5 tablet:flex tablet:flex-col  tablet:w-[65%]  tablet:pl-[80px]">
+        <div className="bg-white  flex-col w-full tablet:flex tablet:flex-col  tablet:w-[65%]  tablet:pl-[80px]">
           <Link to="/" className="text-base pb-5 flex items-centers">
             <IoIosArrowBack className="w-6 h-6" />
             <span className="pl-2">Back</span>
           </Link>
-          <div className="bg-white h-[600px] w-full tablet:w-[50%] tablet:h-[90%] pl-5">
+          <div className="bg-white  w-full tablet:w-[50%] tablet:h-[90%] p-5">
             <h2 className="text-center border-b pb-5 w-full font-2xl  text-black text-xl tablet:w-[90%] tablet:text-left">
               Register Your Account
             </h2>
@@ -155,7 +155,7 @@ const SignUp = () => {
                   I agree with{' '}
                   <Link to="/signup" className="text-[#0e7490]">
                     terms
-                  </Link>
+                  </Link>{' '}
                   &{' '}
                   <Link to="/signup" className="text-[#0e7490]">
                     Condition
@@ -171,7 +171,7 @@ const SignUp = () => {
                   '  Register Account'
                 )}
               </button>
-              <div className="flex items-center py-5 tablet:w-[90%]">
+              <div className="flex items-center py-2 tablet:w-[90%]">
                 <div className="flex-grow bg bg-[#334155] h-0.5"></div>
                 <div className="flex-grow-0 mx-5  dark:text-white">OR</div>
                 <div className="flex-grow bg bg-[#334155] h-0.5"></div>

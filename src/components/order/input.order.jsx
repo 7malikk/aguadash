@@ -68,7 +68,7 @@ function InputOrder() {
   return (
     <form
       onSubmit={handleSumbit}
-      className="mt-[10px] shadow border p-6 flex flex-col space-y-3 rounded-md w-full ">
+      className="mt-1 tablet:mt-3 shadow border p-2 tablet:p-6 flex flex-col space-y-3 rounded-md w-full ">
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -81,7 +81,7 @@ function InputOrder() {
         <input
           type="text"
           required
-          className="border-none outline-none rounded w-full p-[10px] pl-1"
+          className="border-none outline-none rounded w-full p-3 pl-1"
           name="address"
           value={order?.address}
           onChange={handleChange}
