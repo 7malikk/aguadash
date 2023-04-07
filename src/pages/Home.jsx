@@ -49,7 +49,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="relative">
+    <main aria-label="homepage" className="relative">
       <aside
         className={` ${
           showSidebar ? 'translate-x-0 ' : 'translate-x-full  '
@@ -161,7 +161,7 @@ const Home = () => {
           id="hero"
           className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-evenly items-center px-5 tablet:px-11 pt-4 tablet:pt-10 pb-11 space-y-2">
           <div className="flex flex-col justify-between items-center ">
-            <h1 className="text-6xl  laptop:text-8xl desktop:text-8xl  font-extrabold font-play text-center w-full tablet:w-11/12">
+            <h1 className="text-6xl  laptop:text-7xl desktop:text-8xl  font-extrabold font-play text-center w-full tablet:w-11/12">
               The water source you trust the most and rely on.
             </h1>
             <h3 className=" w-full tablet:w-9/12 laptop:w-[37rem] desktop:w-[47rem] text-center mt-2 mb-8 text-base tablet:text-2xl laptop:text-2xl desktop:text-4xl">
@@ -224,7 +224,7 @@ const Home = () => {
           <h4 className="font-play text-5xl font-bold text-primary">
             Services
           </h4>
-          <div className=" grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-2 desktop:grid-cols-3 gap-8 laptop:gap-14">
+          <div className=" grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-8 laptop:gap-14">
             <div className="card flex flex-col justify-center items-center relative bg-white w-[21rem]  px-10 pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={delivery}
@@ -259,7 +259,7 @@ const Home = () => {
                 Read More
               </button>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-white  w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl">
+            <div className="card col-start-auto col-end-auto mx-0   tablet:col-start-1  tablet:col-end-3 tablet:mx-auto desktop:col-start-auto desktop:col-end-auto desktop:mx-0 flex flex-col justify-center items-center relative bg-white  w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={ontime}
                 alt="ontime"
@@ -290,7 +290,7 @@ const Home = () => {
               />
               <div className="flex flex-col justify-center items-center mt-6">
                 <h4 className="font-play font-bold text-2xl">Step 1.</h4>
-                <p className="font-semibold text-center w-72">
+                <p className="font-semibold text-center w-64">
                   User signs up with email and password.
                 </p>
               </div>
@@ -321,7 +321,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0 mt-16 rounded-3xl ">
+            <div className="card col-start-auto laptop:col-start-2 desktop:col-start-auto flex flex-col justify-center items-center relative bg-white py-2 px-0 mt-16 rounded-3xl ">
               <img
                 src={stepFour}
                 alt="step4"

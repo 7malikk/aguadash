@@ -7,7 +7,7 @@ import { formatPrice } from '../helpers/helperFunctions';
 const Overview = () => {
   const { userData, deliveredOrders } = useAppContext();
   return (
-    <main className="bg-white m-6 p-6 rounded-2xl space-y-6  ">
+    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-6  ">
       <h1 className="font-semibold text-4xl">Overview</h1>
       <section className="cards grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8">
         <div className="cardOne shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
@@ -30,7 +30,7 @@ const Overview = () => {
             {userData.totalOrders ? userData.totalOrders : 0}
           </h1>
         </div>
-        <div className="cardThree shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
+        <div className="cardThree col-start-auto tablet:card-start-1 laptop:card-start-auto shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
           <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-base">
             Total Amount Of Bags
             <img src={totalBags} alt="total bags" />
@@ -49,7 +49,7 @@ const Overview = () => {
         </div>
         {deliveredOrders.length > 0 ? (
           <section className="space-y-4 mt-4">
-            <div className="grid grid-cols-4 gap-8 px-6 py-4 text-left bg-lightAsh text-lg font-semibold  text-darkAsh  rounded-xl">
+            <div className="grid grid-cols-4 gap-8 px-6 py-4 text-left bg-lightAsh text:base laptop:text-lg font-semibold  text-darkAsh  rounded-xl">
               <h3>NO. OF BAGS</h3>
               <h3>DATE</h3>
               <h3>TIME</h3>
@@ -59,7 +59,7 @@ const Overview = () => {
               return (
                 <div
                   key={i}
-                  className="border  border-darkAsh grid grid-cols-4 text-lg  text-left rounded-xl">
+                  className="border  border-darkAsh grid grid-cols-4 text:base laptop:text-lg text-left rounded-xl">
                   <h5 className="px-6 py-4">
                     {order['number of bags']} Bag(s)
                   </h5>

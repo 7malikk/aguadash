@@ -12,7 +12,7 @@ import reducer from '../helpers/reducer';
 import PaystackPop from '@paystack/inline-js';
 import { initialState } from '../helpers/helperFunctions';
 
-const AppContext = createContext();
+export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -242,6 +242,7 @@ export const AppProvider = ({ children }) => {
     if (userId) {
       retrieveUser(userId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
   // <--------------------------------------------User Data Retrieval Section End---------------------------------------------------------->

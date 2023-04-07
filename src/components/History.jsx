@@ -8,7 +8,7 @@ const History = () => {
   const { deliveredOrders } = useAppContext();
 
   return (
-    <main className="bg-white m-6 p-6 rounded-2xl space-y-6  ">
+    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6rounded-2xl space-y-6  ">
       <h1 className="font-semibold text-4xl">History</h1>
       <div className="cards  grid grid-cols-1 gap-8">
         {deliveredOrders.length > 0 ? (
