@@ -45,6 +45,7 @@ const Processing = ({ processing }) => {
                   Status
                 </h4>
                 <select
+                  data-testid="select"
                   onChange={(e) => handleChange(e, order)}
                   className="text-2xl font-semibold text-black  mt-2 outline-none border-none">
                   <option value={order.status}>{order.status}</option>

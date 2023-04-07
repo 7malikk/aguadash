@@ -8,6 +8,7 @@ const AdminProctectedRoute = ({ children }) => {
     if (!admin) {
       navigate('/merchantlogin');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return children;
