@@ -122,7 +122,7 @@ const Home = () => {
           <BsTwitter className="w-6 h-6 hover:cursor-pointer" />
         </div>
       </div>
-      <nav className=" px-5 tablet:px-11 flex justify-between bg-white  h-14 tablet:h-20 laptop:h-24 desktop:h-28 items-center">
+      <nav className="sticky top-0 z-40 px-5 tablet:px-11 flex justify-between bg-white  h-14 tablet:h-20 laptop:h-24 desktop:h-28 items-center">
         <h1 className="text-5xl font-extrabold text-primary font-play">AD</h1>
         <button
           className="block tablet:hidden"
@@ -199,8 +199,8 @@ const Home = () => {
                 className="absolute hidden tablet:block top-24 tablet:top-36 laptop:top-24  left-56 tablet:left-80 laptop:left-60  h-44 tablet:h-auto laptop:h-52 desktop:h-auto rounded-l-2xl"
               />
             </div>
-            <div className="text-div w-11/12 laptop:w-1/2">
-              <div className="flex flex-col justify-evenly items-center text-lg space-y-4 tablet:text-2xl h-60 mt-8">
+            <div className="text-div w-11/12 laptop:w-1/2 flex flex-col">
+              <div className="flex flex-col justify-evenly items-center text-lg space-y-1 tablet:space-y-4 tablet:text-2xl h-60 mt-8">
                 <p>
                   Here at Aguadash we give our customers the best services they
                   need, which makes us a reliable company to work with.
@@ -211,7 +211,7 @@ const Home = () => {
                   absorption, and transportation of nutrients.
                 </p>
               </div>
-              <button className="bg-primary py-5 px-14 text-white  rounded-full hover:bg-hover mt-16">
+              <button className="bg-primary py-5 px-14 text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
                 Read More
               </button>
             </div>
@@ -224,7 +224,7 @@ const Home = () => {
           <h4 className="font-play text-5xl font-bold text-primary">
             Services
           </h4>
-          <div className=" grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-8 laptop:gap-14">
+          <div className=" grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3  gap-4 tablet:gap-8 laptop:gap-12 desktop:gap-14">
             <div className="card flex flex-col justify-center items-center relative bg-white w-[21rem]  px-10 pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={delivery}
@@ -281,8 +281,8 @@ const Home = () => {
           <h4 className="font-play text-5xl font-bold text-white">
             How it works
           </h4>
-          <div className=" grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3  desktop:grid-cols-4 gap-8 desktop:gap-14">
-            <div className="card flex flex-col justify-between items-center relative bg-white py-2 px-2 mt-16 rounded-3xl ">
+          <div className=" grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3  desktop:grid-cols-4 gap-6 tablet:gap-8 laptop:gap-12 desktop:gap-14 mt-6 laptop:mt-16">
+            <div className="card flex flex-col justify-between items-center relative bg-white py-2 px-2  rounded-3xl ">
               <img
                 src={stepOne}
                 alt="step one"
@@ -295,7 +295,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0 mt-16 rounded-3xl ">
+            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0  rounded-3xl ">
               <img
                 src={stepTwo}
                 alt="step 2"
@@ -308,7 +308,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0 mt-16 rounded-3xl ">
+            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0  rounded-3xl ">
               <img
                 src={stepThree}
                 alt="step 3"
@@ -321,7 +321,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="card col-start-auto laptop:col-start-2 desktop:col-start-auto flex flex-col justify-center items-center relative bg-white py-2 px-0 mt-16 rounded-3xl ">
+            <div className="card col-start-auto laptop:col-start-2 desktop:col-start-auto flex flex-col justify-center items-center relative bg-white py-2 px-0  rounded-3xl ">
               <img
                 src={stepFour}
                 alt="step4"
@@ -336,7 +336,7 @@ const Home = () => {
             </div>
           </div>
           <Link to="/login">
-            <button className="bg-white py-5 px-14 text-black mb-9 mt-16 rounded-full hover:bg-lightAsh  font-semibold">
+            <button className="bg-white py-5 px-14 text-black mb-9 mt-6 laptop:mt-16 rounded-full hover:bg-lightAsh  font-semibold">
               Order Now
             </button>
           </Link>
@@ -344,7 +344,7 @@ const Home = () => {
       </section>
       <footer
         id="footer"
-        className="bg-black text-white  px-5 tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-8 desktop:gap-14 pb-14">
+        className="bg-black text-white  px-5 tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-2 tablet:gap-8 laptop:gap-12 desktop:gap-14  pb-14">
         <div className="company w-96 space-y-5 mt-9 ">
           <h4 className="font-play text-3xl tablet:text-6xl font-bold">
             AGUADASH
