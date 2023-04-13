@@ -6,7 +6,7 @@ const Merchant = () => {
   return (
     <main className="flex h-screen tablet:h-full overflow-hidden">
       <AdminSidebar />
-      <section className="w-full h-screen max-h-screen overflow-y-scroll bg-lightAsh">
+      <section className="w-full h-screen max-h-screen overflow-y-scroll  overflow-x-clip bg-lightAsh">
         <AdminNav />
         <Outlet />
       </section>
