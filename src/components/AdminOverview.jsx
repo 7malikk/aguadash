@@ -34,15 +34,17 @@ const AdminOverview = () => {
           </h1>
         </div>
       </section>
-      <section className="history hidden tablet:block">
+      <section className="history block tablet:block ">
         <div className="flex justify-between items-baseline">
-          <h1 className="font-semibold text-4xl">Ongoing Orders</h1>
+          <h1 className="font-semibold text-2xl tablet:text-4xl">
+            Ongoing Orders
+          </h1>
           <Link to="/merchant/orders">
             <h6 className="text-xl">See all</h6>
           </Link>
         </div>
-        {ongoingOrders.length > 0 ? (
-          <section className="space-y-4 mt-4">
+        <section className="overflow-x-auto">
+          <section className="space-y-4 mt-4 w-max tablet:w-auto ">
             <div className="grid grid-cols-5 gap-4 laptop:gap-8 px-6 py-4 text-left bg-black text-base laptop:text-lg  font-semibold  text-white  rounded-md">
               <h3>NO. OF BAGS</h3>
               <h3>DATE</h3>
@@ -54,7 +56,7 @@ const AdminOverview = () => {
               return (
                 <div
                   key={i}
-                  className=" bg-lightAsh grid grid-cols-5 text-base text-center laptop:text-left laptop:text-lg rounded-md ">
+                  className=" bg-lightAsh grid grid-cols-5 text-base text-left laptop:text-lg rounded-md ">
                   <h5
                     data-testid="bags"
                     className="m-2 laptop:mx-6 laptop:my-4">
@@ -67,12 +69,12 @@ const AdminOverview = () => {
                   </h5>
                   <h5
                     data-testid="time"
-                    className="m-2 laptop:mx-6 laptop:my-4 ">
+                    className="m-2 laptop:mx-6 laptop:my-4">
                     {order.time}
                   </h5>
                   <h5
                     data-testid="amount"
-                    className="m-2 laptop:mx-6 laptop:my-4 ">
+                    className="m-2 laptop:mx-6 laptop:my-4">
                     {formatPrice(order.amount)}
                   </h5>
 
@@ -91,12 +93,7 @@ const AdminOverview = () => {
               );
             })}
           </section>
-        ) : (
-          <div className="flex flex-col justify-center items-center space-y-2">
-            <img src={empty} alt="empty" />
-            <h4 className="text-lg font-semibold">No ongoin orders for now</h4>
-          </div>
-        )}
+        </section>
       </section>
     </main>
   );

@@ -93,7 +93,7 @@ const MerchantLogin = () => {
               <button
                 disabled={adminLoading}
                 type="submit"
-                className="w-full rounded-full text-white p-2 mt-5 tablet:w-[50%] bg-[#0e7490] flex justify-center items-center">
+                className="w-full rounded-full text-white p-2 mt-5 tablet:w-1/2 bg-[#0e7490] flex justify-center items-center">
                 {adminLoading ? (
                   <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
                 ) : (

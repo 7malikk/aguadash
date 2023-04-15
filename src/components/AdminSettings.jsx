@@ -59,6 +59,7 @@ const AdminSettings = () => {
               placeholder={settings.rate}
               value={settings.rate}
               onChange={handleChange}
+              min="0"
             />
           </label>
           <div className="w-full flex flex-col tablet:flex-row items-start  tablet:items-center justify-between tablet:justify-between text-2xl font-semibold">
@@ -89,7 +90,7 @@ const AdminSettings = () => {
           <button
             disabled={adminSettingsLoading}
             type="submit"
-            className="flex justify-center items-center w-full text-xl font-semibold bg-primary py-4 px-10 desktop:py-5 desktop:px-14 text-white  rounded-xl hover:bg-hover">
+            className="flex justify-center items-center w-1/2 text-lg tablet:text-xl font-semibold bg-primary py-2 tablet:py-4 px-10 desktop:py-5 desktop:px-14 text-white  rounded-xl hover:bg-hover">
             {adminSettingsLoading ? (
               <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
             ) : (

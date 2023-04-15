@@ -17,7 +17,7 @@ const AdminOrders = () => {
     setButtonclicked(number);
   };
   return (
-    <div className="bg-white  m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6  rounded-2xl space-y-6 font-semibold flex flex-col justify-center">
+    <div className="bg-white  m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 space-y-6  rounded-2xl  font-semibold flex flex-col justify-center">
       <nav className=" bg-white flex justify-evenly border-black border p-2 rounded-md  text-base tablet:text-xl desktop:text-4xl">
         <button
           className={`${
@@ -35,7 +35,7 @@ const AdminOrders = () => {
               className={`${
                 order === 'compo2'
                   ? 'bg-primary text-white'
-                  : 'bg-black text-lightAsh'
+                  : 'bg-white text-black'
               } rounded-full px-1 py-0 laptop:px-4 laptop:py-1 text-base laptop:text-2xl ml-2 laptop:ml-3`}>
               {processing.length}
             </span>
@@ -44,8 +44,8 @@ const AdminOrders = () => {
         <button
           className={`${
             buttonClicked === 2
-              ? 'bg-black text-white '
-              : 'bg-white text-darkAsh'
+              ? 'bg-primary text-white '
+              : 'bg-white text-black'
           } w-1/2 rounded px-3 py-2`}
           onClick={() => {
             setOrder('compo2');
@@ -55,9 +55,9 @@ const AdminOrders = () => {
           {inTransit.length ? (
             <span
               className={`${
-                order === 'compo2'
-                  ? 'bg-white text-black'
-                  : 'bg-black text-lightAsh'
+                order === 'compo1'
+                  ? 'bg-primary text-white'
+                  : 'bg-white text-black'
               } rounded-full px-1 py-0 laptop:px-4 laptop:py-1 text-base laptop:text-2xl ml-2 laptop:ml-3`}>
               {inTransit.length}
             </span>

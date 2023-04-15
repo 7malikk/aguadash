@@ -19,7 +19,7 @@ const Processing = ({ processing }) => {
           return (
             <div
               key={i}
-              className="cardOne grid grid-cols-1 tablet:grid-cols-2 gap-8 shadow-md p-6 rounded-xl bg-black text-white">
+              className="cardOne grid grid-cols-1 tablet:grid-cols-2 gap-8 shadow-md p-6 rounded-xl bg-lightAsh text-black">
               <div>
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                   Order
@@ -47,7 +47,7 @@ const Processing = ({ processing }) => {
                 <select
                   data-testid="select"
                   onChange={(e) => handleChange(e, order)}
-                  className="text-2xl font-semibold text-black  mt-2 outline-none border-none">
+                  className="text-2xl font-semibold text-black mt-2 outline-none border-none">
                   <option value={order.status}>{order.status}</option>
                   <option value="In Transit">In Tranist</option>
                 </select>
