@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { totalBags, people, empty } from '../assets';
+import { totalBags, people } from '../assets';
 import { formatPrice } from '../helpers/helperFunctions';
 import { useAppContext } from '../context/AppContext';
 

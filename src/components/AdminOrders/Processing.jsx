@@ -77,13 +77,17 @@ const Processing = ({ processing }) => {
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                   User email
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.email}</h1>
+                <h1 className="text-2xl font-semibold mt-2 break-words">
+                  {order.email}
+                </h1>
               </div>
               <div className="cols-span-1 tablet:col-span-2">
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                   Address
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.address}</h1>
+                <h1 className="text-2xl font-semibold mt-2 break-words">
+                  {order.address}
+                </h1>
               </div>
             </div>
           );
