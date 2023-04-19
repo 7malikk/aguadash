@@ -30,8 +30,8 @@ function Order() {
         <button
           className={`${
             buttonClicked === 2
-              ? 'bg-black text-white '
-              : 'bg-white text-darkAsh'
+              ? 'bg-primary text-white '
+              : 'bg-white text-black'
           } w-1/2 rounded px-3 py-2`}
           onClick={() => {
             setOrder('compo2');

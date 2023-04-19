@@ -78,11 +78,13 @@ const Login = () => {
             <IoIosArrowBack className="w-6 h-6" />
             <span className="pl-2">Back</span>
           </Link>
-          <div className="p-5 w-full">
+          <div className="p-5 w-full  flex flex-col ">
             <h2 className="text-center border-b pb-5 w-full   text-black text-xl  tablet:text-left">
               Login
             </h2>
-            <form onSubmit={handleSubmit} className="flex flex-col pt-5 ">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col pt-5  w-2/3 self-center ">
               <label>Email</label>
               <input
                 required
@@ -91,7 +93,7 @@ const Login = () => {
                 onChange={handleChange}
                 type="email"
                 placeholder="Enter Your Email"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-3 outline-none  rounded shadow border p-3 mt-3 mb-2"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-3 outline-none  rounded shadow border p-2 mt-1 mb-2"
               />
 
               <label>Password</label>
@@ -102,46 +104,37 @@ const Login = () => {
                 name="password"
                 type="password"
                 placeholder="Enter Your Password"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-3 outline-none  rounded shadow border p-3 mt-3 mb-2"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-3 outline-none  rounded shadow border p-2 mt-1 mb-2"
               />
               <button
                 disabled={loginLoading}
                 type="submit"
-                className="w-full rounded-full text-white p-2 mt-5 self-auto tablet:self-center tablet:w-1/2  bg-[#0e7490] flex justify-center items-center">
+                className="w-full rounded-full text-white p-2 mt-5 self-auto tablet:self-center tablet:w-1/2 laptop:w-2/3  bg-[#0e7490] flex justify-center items-center">
                 {loginLoading ? (
                   <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
                 ) : (
                   'Login'
                 )}
               </button>
+              <div className="flex items-center py-3 w-full  ">
+                <div className="flex-grow bg bg-[#334155] h-0.5"></div>
+                <div className="flex-grow-0 mx-5 text-dark">OR</div>
+                <div className="flex-grow bg bg-[#334155] h-0.5"></div>
+              </div>
+              <br />
+              <button
+                onClick={handleGoogleLogin}
+                className="w-full border flex flex-row justify-center items-center p-2 rounded shadow  ">
+                <img src={logo} alt="logo" width={20} height={30} />
+                <span>Login With Google</span>
+              </button>
+              <h3 className="text-sm tablet:text-xs text-center tablet:text-right w-full ">
+                Don't have a registerd Account?{' '}
+                <Link to="/signup" className="text-[#0e7490]">
+                  Signup
+                </Link>{' '}
+              </h3>
             </form>
-
-            <div className="flex items-center py-3 w-full  ">
-              <div className="flex-grow bg bg-[#334155] h-0.5"></div>
-              <div className="flex-grow-0 mx-5 text-dark">OR</div>
-              <div className="flex-grow bg bg-[#334155] h-0.5"></div>
-            </div>
-            <br />
-            <button
-              onClick={handleGoogleLogin}
-              className="w-full border flex flex-row justify-center p-2 rounded shadow w-full  ">
-              <img
-                className="ml-3"
-                src={logo}
-                alt="logo"
-                width={20}
-                height={30}
-              />
-              <span className="text-sm mr-[30%] tablet:mr-[3.75rem]">
-                Login With Google
-              </span>
-            </button>
-            <h3 className="text-sm tablet:text-xs text-center tablet:text-right w-full ">
-              Don't have a registerd Account?{' '}
-              <Link to="/signup" className="text-[#0e7490]">
-                Signup
-              </Link>{' '}
-            </h3>
           </div>
 
           {/* for moblile */}

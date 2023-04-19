@@ -81,7 +81,7 @@ function InputOrder() {
         <input
           type="text"
           required
-          className="border-none outline-none rounded w-full p-3 pl-1"
+          className="border-none outline-none rounded w-full p-2 pl-1"
           name="address"
           value={order?.address}
           onChange={handleChange}
@@ -93,7 +93,7 @@ function InputOrder() {
         <input
           type="time"
           required
-          className="border-none outline-none rounded w-full p-[10px] pl-1"
+          className="border-none outline-none rounded w-full p-2 pl-1"
           name="time"
           value={order?.time}
           onChange={handleChange}
@@ -104,7 +104,7 @@ function InputOrder() {
         Date:
         <input
           type="date"
-          className="border-none outline-none rounded w-full p-[10px] pl-1"
+          className="border-none outline-none rounded w-full p-2 pl-1"
           name="date"
           required
           value={order?.date}
@@ -116,10 +116,11 @@ function InputOrder() {
         Bags:
         <input
           type="number"
-          className="border-none outline-none rounded w-[80%] p-[10px] pl-1"
+          className="border-none outline-none rounded w-[80%] p-2 pl-1"
           name="number of bags"
           value={order['number of bags']}
           onChange={handleChange}
+          min={0}
         />
       </label>
 
@@ -128,7 +129,7 @@ function InputOrder() {
         <input
           type="text"
           required
-          className="border-none outline-none rounded w-[80%] p-[10px] pl-1"
+          className="border-none outline-none rounded w-[80%] p-2 pl-1"
           name="amount"
           value={formatPrice(order['number of bags'] * Number(settings.rate))}
           readOnly
@@ -137,7 +138,7 @@ function InputOrder() {
       <button
         disabled={settings.stock === 'true' || paymentLoading ? true : false}
         role="tooltip"
-        className="flex justify-center items-center h-auto desktop:h-20 text-lg desktop:text-2xl shadow p-[10px] rounded-md bg-primary text-white font-semibold w-full self-center"
+        className="flex justify-center items-center h-auto desktop:h-20 text-lg desktop:text-2xl shadow p-2 rounded-md bg-primary text-white font-semibold w-1/2 laptop:w-1/3 self-center"
         type="submit">
         {paymentLoading ? (
           <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
