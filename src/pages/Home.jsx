@@ -29,7 +29,6 @@ const Home = () => {
   const hero = useRef(null);
   const about = useRef(null);
   const services = useRef(null);
-  const top = useRef(null);
 
   const handleScroll = (section) => {
     const targetElement = section;
@@ -43,6 +42,7 @@ const Home = () => {
       window.scrollY > 300 ? setShow(true) : setShow(false);
     };
     window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -100,36 +100,37 @@ const Home = () => {
           </Link>
         </ul>
       </aside>
-
-      <div
-        ref={top}
-        className="bg-black  px-5 tablet:px-11 py-2 text-white flex justify-between  h-7 tablet:h-12 ">
-        <div className="flex w-[28rem]">
-          <h1 className="flex justify-center items-center">
-            <BsFillEnvelopeFill className="w-6 h-6" />{' '}
-            <span className="ml-2 hidden tablet:inline">ad@gmail.com</span>
-          </h1>
-          <h1 className="flex justify-center items-center ml-4 tablet:ml-8">
-            <FiPhone className="w-6 h-6" />{' '}
-            <span className="ml-2 hidden tablet:inline">
-              +(234) 903 3223 232
-            </span>
-          </h1>
-        </div>
-        <div className="flex space-x-2 items-center w-[10rem] justify-end">
-          <BsFacebook className="w-6 h-6 hover:cursor-pointer" />{' '}
-          <BsLinkedin className="w-6 h-6 hover:cursor-pointer" />{' '}
-          <BsTwitter className="w-6 h-6 hover:cursor-pointer" />
-        </div>
-      </div>
-      <nav className=" px-5 tablet:px-11 flex justify-between bg-white  h-14 tablet:h-20 laptop:h-24 desktop:h-28 items-center">
-        <h1 className="text-5xl font-extrabold text-primary font-play">AD</h1>
+      <nav
+        className={`${
+          window.scrollY < 300
+            ? 'bg-white '
+            : window.scrollY > 60
+            ? 'bg-primary '
+            : null
+        }  w-full sticky transition-all duration-150 ease-in-out  top-0 z-40 px-5 tablet:px-11 flex justify-between  h-14 tablet:h-20 laptop:h-24 desktop:h-28 items-center`}>
+        <h1
+          className={` ${
+            window.scrollY < 300
+              ? 'text-primary '
+              : window.scrollY > 60
+              ? 'text-white '
+              : null
+          }  text-5xl font-extrabold  font-play`}>
+          AD
+        </h1>
         <button
           className="block tablet:hidden"
           onClick={() => setShowSidebar(true)}>
           <GoThreeBars className="w-7 h-7" />
         </button>
-        <ul className=" items-center space-x-6 laptop:space-x-10 text-lg laptop:text-xl desktop:text-2xl hidden tablet:flex">
+        <ul
+          className={` ${
+            window.scrollY < 300
+              ? 'text-black '
+              : window.scrollY > 60
+              ? 'text-white '
+              : null
+          }  items-center space-x-6 laptop:space-x-10 text-lg laptop:text-xl desktop:text-2xl hidden tablet:flex`}>
           <li
             className="hover:text-hover py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
             onClick={() => handleScroll(hero)}>
@@ -146,10 +147,26 @@ const Home = () => {
             Serivces
           </li>
           <Link to="/login">
-            <li className="hover:text-hover ">Login</li>
+            <li
+              className={`  ${
+                window.scrollY < 300
+                  ? 'hover:text-hover'
+                  : window.scrollY > 60
+                  ? 'hover:text-black'
+                  : null
+              }  `}>
+              Login
+            </li>
           </Link>
           <Link to="/signup">
-            <li className="bg-primary py-3 px-8 tablet:py-1 tablet:px-5 laptop:py-3 laptop:px-8 desktop:py-5 desktop:px-14 text-white  rounded-full hover:bg-hover">
+            <li
+              className={`  ${
+                window.scrollY < 300
+                  ? 'bg-primary text-white  '
+                  : window.scrollY > 60
+                  ? 'bg-white text-black hover:text-white '
+                  : null
+              }  py-3 px-8 tablet:py-1 tablet:px-5 laptop:py-3 laptop:px-8 desktop:py-5 desktop:px-14  rounded-full hover:bg-hover`}>
               Signup
             </li>
           </Link>
@@ -161,7 +178,7 @@ const Home = () => {
           id="hero"
           className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-evenly items-center px-5 tablet:px-11 pt-4 tablet:pt-10 pb-11 space-y-2">
           <div className="flex flex-col justify-between items-center ">
-            <h1 className="text-6xl  laptop:text-7xl desktop:text-8xl  font-extrabold font-play text-center w-full tablet:w-11/12">
+            <h1 className="text-6xl  laptop:text-8xl desktop:text-9xl  font-extrabold font-play text-center w-full tablet:w-11/12">
               The water source you trust the most and rely on.
             </h1>
             <h3 className=" w-full tablet:w-9/12 laptop:w-[37rem] desktop:w-[47rem] text-center mt-2 mb-8 text-base tablet:text-2xl laptop:text-2xl desktop:text-4xl">
@@ -183,11 +200,11 @@ const Home = () => {
           ref={about}
           id="about"
           className="flex justify-center items-center flex-col">
-          <h4 className="font-play text-5xl  tablet:text-6xl font-bold text-primary  mt-10">
+          <h4 className="font-play text-5xl  tablet:text-6xl font-bold text-primary mt-6  laptop:mt-10">
             About Us
           </h4>
           <div className=" p-5 tablet:p-11 bg-white flex flex-col laptop:flex-row justify-between items-center">
-            <div className="image-div relative mt-10 tablet:mt-6 self-center laptop:mt-0">
+            <div className="image-div relative mt-2 tablet:mt-6 self-center laptop:mt-0">
               <img
                 src={mainAboutImg}
                 alt="about us"
@@ -199,8 +216,8 @@ const Home = () => {
                 className="absolute hidden tablet:block top-24 tablet:top-36 laptop:top-24  left-56 tablet:left-80 laptop:left-60  h-44 tablet:h-auto laptop:h-52 desktop:h-auto rounded-l-2xl"
               />
             </div>
-            <div className="text-div w-11/12 laptop:w-1/2">
-              <div className="flex flex-col justify-evenly items-center text-lg space-y-4 tablet:text-2xl h-60 mt-8">
+            <div className="text-div w-11/12 laptop:w-1/2 flex flex-col">
+              <div className="flex flex-col justify-evenly items-center text-lg space-y-1 tablet:space-y-4 tablet:text-2xl h-60 mt-8">
                 <p>
                   Here at Aguadash we give our customers the best services they
                   need, which makes us a reliable company to work with.
@@ -211,7 +228,7 @@ const Home = () => {
                   absorption, and transportation of nutrients.
                 </p>
               </div>
-              <button className="bg-primary py-5 px-14 text-white  rounded-full hover:bg-hover mt-16">
+              <button className="bg-primary py-5 px-14 text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
                 Read More
               </button>
             </div>
@@ -224,7 +241,7 @@ const Home = () => {
           <h4 className="font-play text-5xl font-bold text-primary">
             Services
           </h4>
-          <div className=" grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-8 laptop:gap-14">
+          <div className=" grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3  gap-4 tablet:gap-8 laptop:gap-12 desktop:gap-14">
             <div className="card flex flex-col justify-center items-center relative bg-white w-[21rem]  px-10 pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={delivery}
@@ -281,8 +298,8 @@ const Home = () => {
           <h4 className="font-play text-5xl font-bold text-white">
             How it works
           </h4>
-          <div className=" grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3  desktop:grid-cols-4 gap-8 desktop:gap-14">
-            <div className="card flex flex-col justify-between items-center relative bg-white py-2 px-2 mt-16 rounded-3xl ">
+          <div className=" grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3  desktop:grid-cols-4 gap-6 tablet:gap-8 laptop:gap-12 desktop:gap-14 mt-6 laptop:mt-16">
+            <div className="card flex flex-col justify-between items-center relative bg-white py-2 px-2  rounded-3xl ">
               <img
                 src={stepOne}
                 alt="step one"
@@ -295,7 +312,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0 mt-16 rounded-3xl ">
+            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0  rounded-3xl ">
               <img
                 src={stepTwo}
                 alt="step 2"
@@ -308,7 +325,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0 mt-16 rounded-3xl ">
+            <div className="card flex flex-col justify-center items-center relative bg-white py-2 px-0  rounded-3xl ">
               <img
                 src={stepThree}
                 alt="step 3"
@@ -321,7 +338,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="card col-start-auto laptop:col-start-2 desktop:col-start-auto flex flex-col justify-center items-center relative bg-white py-2 px-0 mt-16 rounded-3xl ">
+            <div className="card col-start-auto laptop:col-start-2 desktop:col-start-auto flex flex-col justify-center items-center relative bg-white py-2 px-0  rounded-3xl ">
               <img
                 src={stepFour}
                 alt="step4"
@@ -336,7 +353,7 @@ const Home = () => {
             </div>
           </div>
           <Link to="/login">
-            <button className="bg-white py-5 px-14 text-black mb-9 mt-16 rounded-full hover:bg-lightAsh  font-semibold">
+            <button className="bg-white py-5 px-14 text-black mb-9 mt-6 laptop:mt-16 rounded-full hover:bg-lightAsh  font-semibold">
               Order Now
             </button>
           </Link>
@@ -344,7 +361,7 @@ const Home = () => {
       </section>
       <footer
         id="footer"
-        className="bg-black text-white  px-5 tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-8 desktop:gap-14 pb-14">
+        className="bg-black text-white  px-5 tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-2 tablet:gap-8 laptop:gap-12 desktop:gap-14  pb-14">
         <div className="company w-96 space-y-5 mt-9 ">
           <h4 className="font-play text-3xl tablet:text-6xl font-bold">
             AGUADASH
@@ -400,7 +417,7 @@ const Home = () => {
       </div>
       {show && (
         <button
-          onClick={() => handleScroll(top)}
+          onClick={() => handleScroll(hero)}
           className=" bg-primary border border-transparent hover:border-white rounded-full p-4 fixed z-40 bottom-14 right-14 sm:right-10 laptop:right-14 hover:bg-hover hover:text-white">
           <BsArrowUp className="w-6 h-6" />
         </button>

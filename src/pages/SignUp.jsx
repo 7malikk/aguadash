@@ -15,7 +15,6 @@ import {
 } from 'react-icons/bs';
 
 const SignUp = () => {
-  console.log(process.env.REACT_APP_FIREBASE_APIKEY)
   const {
     handleEmailSignUp,
     handleGoogleSignUp,
@@ -48,7 +47,6 @@ const SignUp = () => {
         email: '',
       });
     } else {
-      //toast passwords must match
       toast.info('Passwords must match');
     }
   };
@@ -68,7 +66,7 @@ const SignUp = () => {
         closeOnClick
       />
       <div className=" flex flex-col tablet:flex-row">
-        <div className=" hidden  bg-login-bg laptop:flex  bg-cover bg-center  flex-col p-4 w-4/12 h-screen">
+        <div className=" hidden  bg-login-bg laptop:flex  justify-center bg-cover bg-center  flex-col p-4  w-1/2 ">
           <h2 className="text-5xl font-extrabold text-white font-play laptop:pl-[20px] laptop:py-[50px]">
             AD
           </h2>
@@ -83,17 +81,21 @@ const SignUp = () => {
           </p>
         </div>
 
-        <div className="bg-white  flex-col w-full tablet:flex tablet:flex-col  tablet:w-[65%]  tablet:pl-[80px]">
-          <Link to="/" className="text-base pb-5 flex items-centers">
+        <div className="bg-white  w-full flex flex-col items-center  laptop:w-2/3 tablet:px-[6.25rem] laptop:pl-[6.25rem] mt-[3.75rem]">
+          <Link to="/" className="text-base pb-5 flex items-center self-start">
             <IoIosArrowBack className="w-6 h-6" />
             <span className="pl-2">Back</span>
           </Link>
-          <div className="bg-white  w-full tablet:w-[50%] tablet:h-[90%] p-5">
-            <h2 className="text-center border-b pb-5 w-full font-2xl  text-black text-xl tablet:w-[90%] tablet:text-left">
+          <div className="bg-white  w-full tablet:h-full p-5 flex flex-col">
+            <h2 className="text-center border-b pb-5 w-full  font-2xl  text-black text-xl tablet:w-[90%] tablet:text-left">
               Register Your Account
             </h2>
-            <form onSubmit={handleSignUp} className="flex flex-col mt-[15px]">
-              <label>Name</label>
+            <form
+              onSubmit={handleSignUp}
+              className="flex flex-col mt-4 w-2/3 self-center ">
+              <label>
+                Name <span className="text-red-500">*</span>
+              </label>
               <input
                 required
                 type="text"
@@ -101,11 +103,11 @@ const SignUp = () => {
                 value={data.name}
                 onChange={handleChange}
                 placeholder="Enter Your Name"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
               <label className="text-[15px] font-[90px] text-[#1e293b]">
-                Phone number
+                Phone number <span className="text-red-500">*</span>
               </label>
               <input
                 required
@@ -114,10 +116,12 @@ const SignUp = () => {
                 value={data.phone}
                 onChange={handleChange}
                 placeholder="Enter Your Phone Number"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
-              <label>Email Address</label>
+              <label>
+                Email Address <span className="text-red-500">*</span>
+              </label>
               <input
                 required
                 type="email"
@@ -125,10 +129,12 @@ const SignUp = () => {
                 value={data.email}
                 onChange={handleChange}
                 placeholder="Enter Your Email Address"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
-              <label>Create Password</label>
+              <label>
+                Create Password <span className="text-red-500">*</span>
+              </label>
               <input
                 required
                 type="password"
@@ -136,10 +142,12 @@ const SignUp = () => {
                 value={data.password}
                 onChange={handleChange}
                 placeholder="Enter Your Password"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
-              <label>Confirm Password</label>
+              <label>
+                Confirm Password <span className="text-red-500">*</span>
+              </label>
               <input
                 required
                 name="confirmPwd"
@@ -147,7 +155,7 @@ const SignUp = () => {
                 onChange={handleChange}
                 type="password"
                 placeholder="Re-Enter Your Password"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none tablet:w-[90%] rounded shadow border p-2 mt-5 mb-[6px]"
+                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none  rounded shadow border p-2 mt-1 mb-4"
               />
 
               <label className="pb-5 flex items-center">
@@ -161,37 +169,30 @@ const SignUp = () => {
                   <Link to="/signup" className="text-[#0e7490]">
                     Condition
                   </Link>
-                </span>
+                </span>{' '}
+                <span className="text-red-500">*</span>
               </label>
               <button
                 disabled={signUpLoading}
-                className="w-full border rounded-full text-white p-1  tablet:w-[90%] bg-[#0e7490] flex justify-center items-center">
+                className="w-full rounded-full text-white p-2 self-auto tablet:self-center tablet:w-1/2 laptop:w-2/3  bg-[#0e7490] flex justify-center">
                 {signUpLoading ? (
                   <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
                 ) : (
-                  '  Register Account'
+                  'Register Account'
                 )}
               </button>
-              <div className="flex items-center py-2 tablet:w-[90%]">
+              <div className="flex items-center py-2 w-full ">
                 <div className="flex-grow bg bg-[#334155] h-0.5"></div>
-                <div className="flex-grow-0 mx-5  dark:text-white">OR</div>
+                <div className="flex-grow-0 mx-5  text-dark">OR</div>
                 <div className="flex-grow bg bg-[#334155] h-0.5"></div>
               </div>
               <button
                 onClick={handleGoogleSignUp}
-                className="w-full border flex flex-row justify-between p-1 rounded shadow tablet:w-[90%]">
-                <img
-                  className="ml-5"
-                  src={logo}
-                  alt="logo"
-                  width={20}
-                  height={30}
-                />
-                <span className="text-sm mr-[30%] tablet:mr-[4rem]">
-                  Register With Google
-                </span>
+                className="w-full border flex flex-row justify-center items-start p-1 rounded shadow">
+                <img src={logo} alt="logo" width={20} height={30} />
+                <span className="text-sm">Register With Google</span>
               </button>
-              <h3 className="text-xs text-center  tablet:w-[90%] tablet:text-end">
+              <h3 className="text-xs text-center  tablet:text-end">
                 Already a registerd user?{' '}
                 <Link to="/login" className="text-blue-600">
                   Login

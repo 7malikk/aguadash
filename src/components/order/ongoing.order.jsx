@@ -12,7 +12,7 @@ function OngoingOrder({ setOrder, handleButtonclicked }) {
           return (
             <div
               key={i}
-              className="cardOne grid grid-cols-1 tablet:grid-cols-2 gap-8 shadow-md p-6 rounded-xl bg-black text-white">
+              className="cardOne grid grid-cols-1 tablet:grid-cols-2 gap-8 shadow-md p-6 rounded-xl bg-lightAsh text-black">
               <div>
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                   Order
@@ -31,7 +31,9 @@ function OngoingOrder({ setOrder, handleButtonclicked }) {
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
                   Address
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.address}</h1>
+                <h1 className="text-2xl font-semibold mt-2 break-words">
+                  {order.address}
+                </h1>
               </div>
               <div>
                 <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">

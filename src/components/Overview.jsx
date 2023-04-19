@@ -40,7 +40,7 @@ const Overview = () => {
           </h1>
         </div>
       </section>
-      <section className="history hidden tablet:block">
+      <section className="history">
         <div className="flex justify-between items-baseline">
           <h1 className="font-semibold text-4xl">History</h1>
           <Link to="/dashboard/history">
@@ -48,27 +48,44 @@ const Overview = () => {
           </Link>
         </div>
         {deliveredOrders.length > 0 ? (
-          <section className="space-y-4 mt-4">
-            <div className="grid grid-cols-4 gap-8 px-6 py-4 text-left bg-lightAsh text:base laptop:text-lg font-semibold  text-darkAsh  rounded-xl">
-              <h3>NO. OF BAGS</h3>
-              <h3>DATE</h3>
-              <h3>TIME</h3>
-              <h3>AMOUNT</h3>
-            </div>
-            {deliveredOrders.map((order, i) => {
-              return (
-                <div
-                  key={i}
-                  className="border  border-darkAsh grid grid-cols-4 text:base laptop:text-lg text-left rounded-xl">
-                  <h5 className="px-6 py-4">
-                    {order['number of bags']} Bag(s)
-                  </h5>
-                  <h5 className="px-6 py-4">{order.date}</h5>
-                  <h5 className="px-6 py-4">{order.time}</h5>
-                  <h5 className="px-6 py-4">{formatPrice(order.amount)}</h5>
-                </div>
-              );
-            })}
+          <section className="overflow-x-auto">
+            <section className="space-y-4 mt-4 w-max tablet:w-auto ">
+              <div className="grid grid-cols-4 gap-4 laptop:gap-8 px-6 py-4 text-center bg-black text-base laptop:text-lg  font-semibold  text-white  rounded-md">
+                <h3>NO. OF BAGS</h3>
+                <h3>DATE</h3>
+                <h3>TIME</h3>
+                <h3>AMOUNT</h3>
+              </div>
+              {deliveredOrders.map((order, i) => {
+                return (
+                  <div
+                    key={i}
+                    className=" bg-lightAsh grid grid-cols-4 text-base text-center laptop:text-lg rounded-md ">
+                    <h5
+                      data-testid="bags"
+                      className="m-2 laptop:mx-6 laptop:my-4">
+                      {order['number of bags']} Bag(s)
+                    </h5>
+                    <h5
+                      data-testid="date"
+                      className="m-2 laptop:mx-6 laptop:my-4 ">
+                      {order.date}
+                    </h5>
+                    <h5
+                      data-testid="status"
+                      className={' m-2 laptop:mx-6 laptop:my-4'}>
+                      {order.time}
+                    </h5>
+
+                    <h5
+                      data-testid="amount"
+                      className="m-2 laptop:mx-6 laptop:my-4">
+                      {formatPrice(order.amount)}
+                    </h5>
+                  </div>
+                );
+              })}
+            </section>
           </section>
         ) : (
           <div className="flex flex-col justify-center items-center space-y-2">
