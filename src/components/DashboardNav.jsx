@@ -13,7 +13,7 @@ const DashboardNav = () => {
         onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}
         className="block tablet:hidden w-6 h-6 border border-darkAsh rounded-full mr-2 cursor-pointer"
       />
-      <div className=" flex flex-col tablet:flex-row justify-evenly tablet:justify-between items-start tablet:items-center">
+      <div className=" flex flex-col tablet:flex-row justify-evenly tablet:justify-between items-start tablet:items-center w-full">
         <div>
           <h1 className="font-semibold text-xl tablet:text-4xl flex justify-start  tablet:justify-center items-center">
             Hello,{' '}
@@ -28,7 +28,7 @@ const DashboardNav = () => {
           </h4>
         </div>
         <h4 className="font-semibold text-[#1C1C1C] text-base tablet:text-lg laptop:text-xl tablet:bg-[#DA910A40]  tablet:px-4  tablet:py-2 rounded-3xl ">
-          <span className="hidden tablet:inline"> Current Selling </span> Rate:{' '}
+          <span className="hidden laptop:inline"> Current Selling </span> Rate:{' '}
           {settings.rate ? formatPrice(Number(settings.rate)) : 0}
         </h4>
       </div>
