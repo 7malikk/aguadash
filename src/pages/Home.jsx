@@ -49,7 +49,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main aria-label="homepage" className="relative">
+    <main aria-label="homepage" className="relative overflow-x-clip">
       <aside
         className={` ${
           showSidebar ? 'translate-x-0 ' : 'translate-x-full  '
@@ -228,7 +228,7 @@ const Home = () => {
                   absorption, and transportation of nutrients.
                 </p>
               </div>
-              <button className="bg-primary py-5 px-14 text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
+              <button className="bg-primary py-4 px-10 mt-6 tablet:mt-0 tablet:py-5  tablet:px-14  text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
                 Read More
               </button>
             </div>
@@ -242,13 +242,13 @@ const Home = () => {
             Services
           </h4>
           <div className=" grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3  gap-4 tablet:gap-8 laptop:gap-12 desktop:gap-14">
-            <div className="card flex flex-col justify-center items-center relative bg-white w-[21rem]  px-10 pt-16 pb-6 mt-20 rounded-3xl">
+            <div className="card flex flex-col justify-center items-center relative bg-white  tablet:w-[21rem]  px-10 pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={delivery}
                 alt="worldwide delivery"
                 className="bg-skyBlue rounded-full border-8  border-white absolute  -top-12 w-24 h-24 "
               />
-              <h4 className="font-play font-bold text-2xl">
+              <h4 className="font-play font-bold text-xl tablet:text-2xl">
                 Worldwide Delivery
               </h4>
               <h6 className="text-center text-lg mt-4 mb-12">
@@ -256,39 +256,43 @@ const Home = () => {
                 and offices. You can place an order online or over the phone,
                 and we will promptly deliver the desired quantity of water...
               </h6>
-              <button className="bg-lightAsh py-5 px-14 text-black border   rounded-full hover:bg-hover hover:text-white text-lg font-semibold ">
+              <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  tablet:px-14  text-black border   rounded-full hover:bg-hover hover:text-white text-lg font-semibold ">
                 Read More
               </button>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-hover  w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl text-white">
+            <div className="card flex flex-col justify-center items-center relative bg-hover tablet:w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl text-white">
               <img
                 src={payments}
                 alt="payments"
                 className="bg-skyBlue rounded-full border-8  border-white absolute   -top-12 w-24 h-24 "
               />
-              <h4 className="font-play font-bold text-2xl">Seamless payment</h4>
+              <h4 className="font-play font-bold text-xl tablet:text-2xl">
+                Seamless payment
+              </h4>
               <h6 className="text-center text-lg mt-4 mb-12">
                 We offer a seamless payment system that allows customers to pay
                 for their water deliveries quickly and easily. You can choose to
                 pay online using your preferred payment methods...
               </h6>
-              <button className="bg-lightAsh py-5 px-14 text-black hover:text-white  rounded-full hover:bg-primary text-lg font-semibold ">
+              <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  text-black hover:text-white  rounded-full hover:bg-primary text-lg font-semibold ">
                 Read More
               </button>
             </div>
-            <div className="card col-start-auto col-end-auto mx-0   tablet:col-start-1  tablet:col-end-3 tablet:mx-auto desktop:col-start-auto desktop:col-end-auto desktop:mx-0 flex flex-col justify-center items-center relative bg-white  w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl">
+            <div className="card col-start-auto col-end-auto mx-0   tablet:col-start-1  tablet:col-end-3 tablet:mx-auto desktop:col-start-auto desktop:col-end-auto desktop:mx-0 flex flex-col justify-center items-center relative bg-white tablet:w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={ontime}
                 alt="ontime"
                 className="bg-skyBlue rounded-full border-8  border-white absolute   -top-12 w-24 h-24  "
               />
-              <h4 className="font-play font-bold text-2xl">On-time delivery</h4>
+              <h4 className="font-play font-bold text-xl tablet:text-2xl">
+                On-time delivery
+              </h4>
               <h6 className="text-center text-lg mt-4 mb-12">
                 We take pride in delivering water to you on time, every time. In
                 the event of unexpected delays or changes, we will inform
                 customers promptly. The company's delivery personnel...
               </h6>
-              <button className="bg-lightAsh py-5 px-14 text-black border hover:text-white  rounded-full hover:bg-hover text-lg font-semibold ">
+              <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  text-black border hover:text-white  rounded-full hover:bg-hover text-lg font-semibold ">
                 Read More
               </button>
             </div>

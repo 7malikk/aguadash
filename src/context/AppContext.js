@@ -48,13 +48,12 @@ export const AppProvider = ({ children }) => {
       await setDoc(docRef, userData);
       console.log('User created');
       sessionStorage.setItem('userId', user.uid);
-      //toast account created
       getOrders(user.uid);
       dispatch({ type: 'SIGNUP_SUCCESS', payload: { ...userData } });
 
       navigate('/dashboard/home');
+      dispatch({ type: 'CLEAR_SIGNUP' });
     } catch (error) {
-      // toast there was
       const str = error.message;
       const regx = /[/!@#$%^&*)(+=._-]+/g;
       const convertErrMsg = str
@@ -130,9 +129,8 @@ export const AppProvider = ({ children }) => {
         sessionStorage.setItem('userId', user.uid);
 
         navigate('/dashboard/home');
+        dispatch({ type: 'CLEAR_LOGIN' });
       } else {
-        // No such document
-        console.log('no such doc');
         dispatch({ type: 'NO_ACCT', payload: 'Account does not exist' });
       }
     } catch (error) {

@@ -22,6 +22,8 @@ const Login = () => {
     loginError,
     error,
     noAcct,
+    dispatch,
+    clearLogin,
   } = useAppContext();
   const [data, setData] = useState({
     email: '',
@@ -33,19 +35,23 @@ const Login = () => {
     setData({ ...data, [e.target.name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleEmailLogin(data);
-    setData({
-      email: '',
-      password: '',
-    });
+    await handleEmailLogin(data);
+    if (clearLogin) {
+      setData({
+        email: '',
+        password: '',
+      });
+    }
   };
 
   useEffect(() => {
     if (loginError || noAcct) {
       toast.error(error);
+      dispatch({ type: 'LOGIN_ISSUE_COMPLETE' });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error, loginError, noAcct]);
 
   return (
@@ -141,7 +147,7 @@ const Login = () => {
           <footer
             id="footer"
             className="bg-black text-white mt-[1.8rem] px-5 tablet:hidden tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-14 pb-14">
-            <div className="company w-96 space-y-5 mt-9 ">
+            <div className="company  tablet:w-96 space-y-5 mt-9 ">
               <h4 className="font-play text-3xl tablet:text-6xl font-bold">
                 AGUADASH
               </h4>

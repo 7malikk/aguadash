@@ -24,4 +24,7 @@ export const initialState = {
   paymentLoading: false,
   paymentFailed: false,
   paymentSuccessful: false,
+  clearLogin: false,
+  clearSignup: false,
+  sidebarOpen: false,
 };

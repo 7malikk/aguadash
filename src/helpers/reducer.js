@@ -26,6 +26,18 @@ const reducer = (state, action) => {
       userData: { ...action.payload },
     };
   }
+  if (action.type === 'CLEAR_SIGNUP') {
+    return { ...state, clearSignup: true };
+  }
+  if (action.type === 'SIGNUP_ISSUE_COMPLETE') {
+    return {
+      ...state,
+      noAcct: false,
+      signUpError: false,
+      error: '',
+      clearSignup: false,
+    };
+  }
   if (action.type === 'LOGIN_BEGIN') {
     return { ...state, loginLoading: true };
   }
@@ -34,6 +46,7 @@ const reducer = (state, action) => {
       ...state,
       loginError: true,
       loginLoading: false,
+      clearLogin: false,
       error: action.payload,
     };
   }
@@ -42,6 +55,7 @@ const reducer = (state, action) => {
       ...state,
       noAcct: true,
       loginLoading: false,
+      clearLogin: true,
       error: action.payload,
     };
   }
@@ -50,7 +64,21 @@ const reducer = (state, action) => {
       ...state,
       loginLoading: false,
       loginError: false,
+      clearLogin: false,
       userData: { ...action.payload },
+    };
+  }
+  if (action.type === 'CLEAR_LOGIN') {
+    return { ...state, clearLogin: true };
+  }
+
+  if (action.type === 'LOGIN_ISSUE_COMPLETE') {
+    return {
+      ...state,
+      noAcct: false,
+      loginError: false,
+      error: '',
+      clearLogin: false,
     };
   }
   if (action.type === 'RELOAD') {
@@ -129,7 +157,20 @@ const reducer = (state, action) => {
       settings: { ...action.payload },
     };
   }
-  // Users Actions End
+  if (action.type === 'TOGGLE_SIDEBAR') {
+    if (action.payload === undefined) {
+      return {
+        ...state,
+        sidebarOpen: !state.sidebarOpen,
+      };
+    }
+    if (action.payload === false) {
+      return {
+        ...state,
+        sidebarOpen: action.payload,
+      };
+    }
+  }
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };
