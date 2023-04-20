@@ -5,46 +5,60 @@ import { useAppContext } from '../context/AppContext';
 import { formatPrice } from '../helpers/helperFunctions';
 
 const Overview = () => {
-  const { userData, deliveredOrders } = useAppContext();
+  const { userData, deliveredOrders, dispatch } = useAppContext();
   return (
-    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-6  ">
-      <h1 className="font-semibold text-4xl">Overview</h1>
-      <section className="cards grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8">
+    <main
+      onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}
+      className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-2 tablet:space-y-6  ">
+      <h1 className="font-semibold text-xl  tablet:text-4xl">Overview</h1>
+      <section className="cards grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-2 tablet:gap-8">
         <div className="cardOne shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
-          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-base">
+          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-sm tablet:text-base">
             Total Amount Spent
-            <img src={totalAmount} alt="total amount spent" />
+            <img
+              src={totalAmount}
+              alt="total amount spent"
+              className="w-6 h-6 tablet:w-auto tablet:h-auto"
+            />
           </h4>
-          <h1 className="text-4xl font-bold mt-2">
+          <h1 className=" text-xl tablet:text-4xl font-bold tablet:mt-2">
             {userData?.totalSpent
               ? formatPrice(userData.totalSpent)
               : formatPrice(0)}
           </h1>
         </div>
         <div className="cardTwo shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
-          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-base">
+          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-sm tablet:text-base">
             Total Amount Of Orders
-            <img src={amountOfOrders} alt="amount of orders" />
+            <img
+              src={amountOfOrders}
+              alt="amount of orders"
+              className="w-6 h-6 tablet:w-auto tablet:h-auto"
+            />
           </h4>
-          <h1 className="text-4xl font-bold mt-2">
+          <h1 className="text-xl tablet:text-4xl font-bold tablet:mt-2">
             {userData.totalOrders ? userData.totalOrders : 0}
           </h1>
         </div>
         <div className="cardThree col-start-auto tablet:card-start-1 laptop:card-start-auto shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
-          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-base">
+          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-sm tablet:text-base">
             Total Amount Of Bags
-            <img src={totalBags} alt="total bags" />
+            <img
+              src={totalBags}
+              alt="total bags"
+              className="w-6 h-6 tablet:w-auto tablet:h-auto"
+            />
           </h4>
-          <h1 className="text-4xl font-bold mt-2">
+          <h1 className="text-xl tablet:text-4xl font-bold tablet:mt-2">
             {userData.totalBags ? userData.totalBags : 0}
           </h1>
         </div>
       </section>
       <section className="history">
         <div className="flex justify-between items-baseline">
-          <h1 className="font-semibold text-4xl">History</h1>
+          <h1 className="font-semibold text-xl  tablet:text-4xl">History</h1>
           <Link to="/dashboard/history">
-            <h6 className="text-xl">See all</h6>
+            <h6 className="text-base tablet:text-xl">See all</h6>
           </Link>
         </div>
         {deliveredOrders.length > 0 ? (

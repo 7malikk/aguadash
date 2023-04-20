@@ -22,6 +22,8 @@ const SignUp = () => {
     error,
     userError,
     signUpLoading,
+    dispatch,
+    clearSignup,
   } = useAppContext();
   const [data, setData] = useState({
     name: '',
@@ -35,17 +37,19 @@ const SignUp = () => {
     const value = e.target.value;
     setData({ ...data, [e.target.name]: value });
   };
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     if (data.password === data.confirmPwd) {
-      handleEmailSignUp(data);
-      setData({
-        name: '',
-        password: '',
-        phone: '',
-        confirmPwd: '',
-        email: '',
-      });
+      await handleEmailSignUp(data);
+      if (clearSignup) {
+        setData({
+          name: '',
+          password: '',
+          phone: '',
+          confirmPwd: '',
+          email: '',
+        });
+      }
     } else {
       toast.info('Passwords must match');
     }
@@ -54,7 +58,9 @@ const SignUp = () => {
   useEffect(() => {
     if (signUpError || userError) {
       toast.error(error);
+      dispatch({ type: 'SIGNUP_ISSUE_COMPLETE' });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error, signUpError, userError]);
   return (
     <div className="flex flex-col   bg-white w-full ">
@@ -206,7 +212,7 @@ const SignUp = () => {
           <footer
             id="footer"
             className="bg-black text-white  px-5 tablet:hidden tablet:px-11 mt-[60px] grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-8 desktop:gap-14 pb-14">
-            <div className="company w-96 space-y-5 mt-9 ">
+            <div className="company tablet:w-96 space-y-5 mt-9 ">
               <h4 className="font-play text-3xl tablet:text-6xl font-bold">
                 AGUADASH
               </h4>

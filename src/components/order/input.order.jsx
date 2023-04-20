@@ -116,6 +116,7 @@ function InputOrder() {
         Bags:
         <input
           type="number"
+          required
           className="border-none outline-none rounded w-[80%] p-2 pl-1"
           name="number of bags"
           value={order['number of bags']}
