@@ -228,7 +228,7 @@ const Home = () => {
                   absorption, and transportation of nutrients.
                 </p>
               </div>
-              <button className="bg-primary py-4 px-10 mt-6 tablet:mt-0 tablet:py-5  tablet:px-14  text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
+              <button className="bg-primary py-4 px-10  tablet:mt-0 tablet:py-5  tablet:px-14  text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
                 Read More
               </button>
             </div>

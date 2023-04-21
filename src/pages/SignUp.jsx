@@ -12,6 +12,8 @@ import {
   BsLinkedin,
   BsTwitter,
   BsFillEnvelopeFill,
+  BsEyeSlash,
+  BsEye,
 } from 'react-icons/bs';
 
 const SignUp = () => {
@@ -32,6 +34,8 @@ const SignUp = () => {
     confirmPwd: '',
     email: '',
   });
+  const [pwdEye, setPwdEye] = useState(false);
+  const [confirmEye, setConfirmEye] = useState(false);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -112,19 +116,18 @@ const SignUp = () => {
                 className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
-              <label className="text-[15px] font-[90px] text-[#1e293b]">
+              <label className="  text-[#1e293b] text-sm font-semibold">
                 Phone number <span className="text-red-500">*</span>
+                <input
+                  required
+                  type="tel"
+                  name="phone"
+                  value={data.phone}
+                  onChange={handleChange}
+                  placeholder="Enter Your Phone Number"
+                  className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none font-normal  rounded shadow border p-2 mt-1 mb-4"
+                />
               </label>
-              <input
-                required
-                type="tel"
-                name="phone"
-                value={data.phone}
-                onChange={handleChange}
-                placeholder="Enter Your Phone Number"
-                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
-              />
-
               <label className="text-sm font-semibold">
                 Email Address <span className="text-red-500">*</span>
               </label>
@@ -138,31 +141,53 @@ const SignUp = () => {
                 className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
-              <label className="text-sm font-semibold">
+              <label className="text-sm font-semibold relative">
                 Create Password <span className="text-red-500">*</span>
+                <input
+                  required
+                  type={pwdEye ? 'text' : 'password'}
+                  name="password"
+                  value={data.password}
+                  onChange={handleChange}
+                  placeholder="Enter Your Password"
+                  className="placeholder-[#334155] w-full text-black text-base pl-5 outline-none font-normal  rounded shadow border p-2 mt-1 mb-4"
+                />{' '}
+                {pwdEye ? (
+                  <BsEyeSlash
+                    className="absolute top-9 right-3 w-4 h-4 hover:cursor-pointer"
+                    onClick={() => setPwdEye(!pwdEye)}
+                  />
+                ) : (
+                  <BsEye
+                    className="absolute top-9 right-3 w-4 h-4 hover:cursor-pointer"
+                    onClick={() => setPwdEye(!pwdEye)}
+                  />
+                )}
               </label>
-              <input
-                required
-                type="password"
-                name="password"
-                value={data.password}
-                onChange={handleChange}
-                placeholder="Enter Your Password"
-                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
-              />
 
-              <label className="text-sm font-semibold">
+              <label className="text-sm font-semibold relative">
                 Confirm Password <span className="text-red-500">*</span>
+                <input
+                  required
+                  name="confirmPwd"
+                  value={data.confirmPwd}
+                  onChange={handleChange}
+                  type={confirmEye ? 'text' : 'password'}
+                  placeholder="Re-Enter Your Password"
+                  className="placeholder-[#334155] w-full text-black text-base pl-5 outline-none font-normal  rounded shadow border p-2 mt-1 mb-4"
+                />{' '}
+                {confirmEye ? (
+                  <BsEyeSlash
+                    className="absolute top-9 right-3 w-4 h-4 hover:cursor-pointer"
+                    onClick={() => setConfirmEye(!confirmEye)}
+                  />
+                ) : (
+                  <BsEye
+                    className="absolute top-9 right-3 w-4 h-4 hover:cursor-pointer"
+                    onClick={() => setConfirmEye(!confirmEye)}
+                  />
+                )}
               </label>
-              <input
-                required
-                name="confirmPwd"
-                value={data.confirmPwd}
-                onChange={handleChange}
-                type="password"
-                placeholder="Re-Enter Your Password"
-                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none  rounded shadow border p-2 mt-1 mb-4"
-              />
 
               <label className="pb-5 flex items-center">
                 <input required type="checkbox" className="h-5" />
