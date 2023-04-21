@@ -181,7 +181,7 @@ const Home = () => {
             <h1 className="text-6xl  laptop:text-8xl desktop:text-9xl  font-extrabold font-play text-center w-full tablet:w-11/12">
               The water source you trust the most and rely on.
             </h1>
-            <h3 className=" w-full tablet:w-9/12 laptop:w-[37rem] desktop:w-[47rem] text-center mt-2 mb-8 text-base tablet:text-2xl laptop:text-2xl desktop:text-4xl">
+            <h3 className=" w-full tablet:w-9/12 laptop:w-[37rem] desktop:w-[47rem] text-center mt-2 mb-8 text-sm tablet:text-2xl laptop:text-2xl desktop:text-4xl">
               Water is the softest thing, yet it can penetrate mountains and
               earth. This shows clearly the principle of softness overcoming
               hardness.
@@ -216,8 +216,8 @@ const Home = () => {
                 className="absolute hidden tablet:block top-24 tablet:top-36 laptop:top-24  left-56 tablet:left-80 laptop:left-60  h-44 tablet:h-auto laptop:h-52 desktop:h-auto rounded-l-2xl"
               />
             </div>
-            <div className="text-div w-11/12 laptop:w-1/2 flex flex-col">
-              <div className="flex flex-col justify-evenly items-center text-lg space-y-1 tablet:space-y-4 tablet:text-2xl h-60 mt-8">
+            <div className="text-div w-full laptop:w-1/2 flex flex-col">
+              <div className="flex flex-col justify-evenly items-center text-justify text-base space-y-2 tablet:space-y-4 tablet:text-2xl h-60 mt-8">
                 <p>
                   Here at Aguadash we give our customers the best services they
                   need, which makes us a reliable company to work with.
@@ -242,7 +242,7 @@ const Home = () => {
             Services
           </h4>
           <div className=" grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3  gap-4 tablet:gap-8 laptop:gap-12 desktop:gap-14">
-            <div className="card flex flex-col justify-center items-center relative bg-white  tablet:w-[21rem]  px-10 pt-16 pb-6 mt-20 rounded-3xl">
+            <div className="card flex flex-col justify-center items-center relative bg-white  tablet:w-[21rem]  px-5 tablet:px-10  pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={delivery}
                 alt="worldwide delivery"
@@ -251,7 +251,7 @@ const Home = () => {
               <h4 className="font-play font-bold text-xl tablet:text-2xl">
                 Worldwide Delivery
               </h4>
-              <h6 className="text-center text-lg mt-4 mb-12">
+              <h6 className="text-center text-sm tablet:text-lg mt-4  mb-6 tablet:mb-12">
                 We offer fast and reliable delivery services to customers' homes
                 and offices. You can place an order online or over the phone,
                 and we will promptly deliver the desired quantity of water...
@@ -260,7 +260,7 @@ const Home = () => {
                 Read More
               </button>
             </div>
-            <div className="card flex flex-col justify-center items-center relative bg-hover tablet:w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl text-white">
+            <div className="card flex flex-col justify-center items-center relative bg-hover tablet:w-[21rem]  px-5 tablet:px-10 pt-16 pb-6 mt-20 rounded-3xl text-white">
               <img
                 src={payments}
                 alt="payments"
@@ -269,7 +269,7 @@ const Home = () => {
               <h4 className="font-play font-bold text-xl tablet:text-2xl">
                 Seamless payment
               </h4>
-              <h6 className="text-center text-lg mt-4 mb-12">
+              <h6 className="text-center  text-sm tablet:text-lg mt-4  mb-6 tablet:mb-12">
                 We offer a seamless payment system that allows customers to pay
                 for their water deliveries quickly and easily. You can choose to
                 pay online using your preferred payment methods...
@@ -278,7 +278,7 @@ const Home = () => {
                 Read More
               </button>
             </div>
-            <div className="card col-start-auto col-end-auto mx-0   tablet:col-start-1  tablet:col-end-3 tablet:mx-auto desktop:col-start-auto desktop:col-end-auto desktop:mx-0 flex flex-col justify-center items-center relative bg-white tablet:w-[21rem]  px-10  pt-16 pb-6 mt-20 rounded-3xl">
+            <div className="card col-start-auto col-end-auto mx-0   tablet:col-start-1  tablet:col-end-3 tablet:mx-auto desktop:col-start-auto desktop:col-end-auto desktop:mx-0 flex flex-col justify-center items-center relative bg-white tablet:w-[21rem] px-5 tablet:px-10  pt-16 pb-6 mt-20 rounded-3xl">
               <img
                 src={ontime}
                 alt="ontime"
@@ -287,7 +287,7 @@ const Home = () => {
               <h4 className="font-play font-bold text-xl tablet:text-2xl">
                 On-time delivery
               </h4>
-              <h6 className="text-center text-lg mt-4 mb-12">
+              <h6 className="text-center  text-sm tablet:text-lg mt-4 mb-6 tablet:mb-12">
                 We take pride in delivering water to you on time, every time. In
                 the event of unexpected delays or changes, we will inform
                 customers promptly. The company's delivery personnel...

@@ -16,8 +16,10 @@ const Sidebar = () => {
   return (
     <div
       className={`${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full  '
-      } w-30 tablet:w-60 h-[95vh] tablet:h-[85vh] bg-white z-55 fixed tablet:relative tablet:translate-x-0  transition ease-in-out duration-300 delay-150`}>
+        sidebarOpen
+          ? 'translate-x-0 transition ease-in-out duration-300 delay-150'
+          : '-translate-x-full transition ease-in-out duration-300 delay-150 '
+      } w-30 tablet:w-60 h-[92vh] tablet:h-[85vh] bg-white z-55 fixed tablet:relative tablet:translate-x-0  transition ease-in-out duration-300 delay-150`}>
       <h1 className=" text-base tablet:text-5xl font-extrabold text-primary font-play h-14 tablet:h-28 border-b text-center flex justify-between tablet:justify-center p-3 tablet:p-0 items-center">
         <span className="hidden tablet:inline">AD</span>
         <span className="inline tablet:hidden">Aguadash</span>
@@ -65,7 +67,7 @@ const Sidebar = () => {
             <h4 className=" tablet:flex">History</h4>
           </NavLink>
         </ul>
-        <ul className="space-y-4 ">
+        <ul className="space-y-2 tablet:space-y-4 mb-10 ">
           <NavLink
             to="/dashboard/settings"
             onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}
