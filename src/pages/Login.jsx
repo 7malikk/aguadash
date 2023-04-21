@@ -90,8 +90,8 @@ const Login = () => {
             </h2>
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col pt-5  w-2/3 self-center ">
-              <label>Email</label>
+              className="flex flex-col pt-5  w-full self-center ">
+              <label className="text-sm font-semibold">Email</label>
               <input
                 required
                 name="email"
@@ -99,10 +99,10 @@ const Login = () => {
                 onChange={handleChange}
                 type="email"
                 placeholder="Enter Your Email"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-3 outline-none  rounded shadow border p-2 mt-1 mb-2"
+                className="placeholder-[#334155] w-full text-black-900 text-base pl-3 outline-none  rounded shadow border p-2 mt-1 mb-2"
               />
 
-              <label>Password</label>
+              <label className="text-sm font-semibold">Password</label>
               <input
                 required
                 value={data.password}
@@ -110,7 +110,7 @@ const Login = () => {
                 name="password"
                 type="password"
                 placeholder="Enter Your Password"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-3 outline-none  rounded shadow border p-2 mt-1 mb-2"
+                className="placeholder-[#334155] w-full text-black-900 text-base pl-3 outline-none  rounded shadow border p-2 mt-1 mb-2"
               />
               <button
                 disabled={loginLoading}

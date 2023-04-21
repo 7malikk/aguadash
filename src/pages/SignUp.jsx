@@ -98,8 +98,8 @@ const SignUp = () => {
             </h2>
             <form
               onSubmit={handleSignUp}
-              className="flex flex-col mt-4 w-2/3 self-center ">
-              <label>
+              className="flex flex-col mt-4 w-full self-center ">
+              <label className="text-sm font-semibold">
                 Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -109,7 +109,7 @@ const SignUp = () => {
                 value={data.name}
                 onChange={handleChange}
                 placeholder="Enter Your Name"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
+                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
               <label className="text-[15px] font-[90px] text-[#1e293b]">
@@ -122,10 +122,10 @@ const SignUp = () => {
                 value={data.phone}
                 onChange={handleChange}
                 placeholder="Enter Your Phone Number"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
+                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
-              <label>
+              <label className="text-sm font-semibold">
                 Email Address <span className="text-red-500">*</span>
               </label>
               <input
@@ -135,10 +135,10 @@ const SignUp = () => {
                 value={data.email}
                 onChange={handleChange}
                 placeholder="Enter Your Email Address"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
+                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
-              <label>
+              <label className="text-sm font-semibold">
                 Create Password <span className="text-red-500">*</span>
               </label>
               <input
@@ -148,10 +148,10 @@ const SignUp = () => {
                 value={data.password}
                 onChange={handleChange}
                 placeholder="Enter Your Password"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
+                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
-              <label>
+              <label className="text-sm font-semibold">
                 Confirm Password <span className="text-red-500">*</span>
               </label>
               <input
@@ -161,7 +161,7 @@ const SignUp = () => {
                 onChange={handleChange}
                 type="password"
                 placeholder="Re-Enter Your Password"
-                className="placeholder-[#334155] w-full text-black-900 text-xs pl-5 outline-none  rounded shadow border p-2 mt-1 mb-4"
+                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none  rounded shadow border p-2 mt-1 mb-4"
               />
 
               <label className="pb-5 flex items-center">

@@ -19,7 +19,6 @@ function InputOrder() {
     address: '',
     amount: '',
     date: '',
-    'number of bags': 0,
     time: '',
   });
 
@@ -93,7 +92,7 @@ function InputOrder() {
         <input
           type="time"
           required
-          className="border-none outline-none rounded w-full p-2 pl-1"
+          className="border-none outline-none rounded w-full  ml-1 p-2 pl-1"
           name="time"
           value={order?.time}
           onChange={handleChange}
@@ -104,7 +103,7 @@ function InputOrder() {
         Date:
         <input
           type="date"
-          className="border-none outline-none rounded w-full p-2 pl-1"
+          className="border-none outline-none rounded w-full  ml-1 p-2 pl-1"
           name="date"
           required
           value={order?.date}
@@ -132,7 +131,11 @@ function InputOrder() {
           required
           className="border-none outline-none rounded w-[80%] p-2 pl-1"
           name="amount"
-          value={formatPrice(order['number of bags'] * Number(settings.rate))}
+          value={formatPrice(
+            order['number of bags'] === undefined
+              ? 0 * Number(settings.rate)
+              : order['number of bags'] * Number(settings.rate)
+          )}
           readOnly
         />
       </label>
