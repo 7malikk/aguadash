@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAppContext } from '../context/AppContext';
 import { NavLink } from 'react-router-dom';
 import {
