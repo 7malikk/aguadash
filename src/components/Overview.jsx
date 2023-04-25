@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { totalAmount, totalBags, amountOfOrders, empty } from '../assets';
 import { useAppContext } from '../context/AppContext';
 import { formatPrice } from '../helpers/helperFunctions';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Overview = () => {
   const { userData, deliveredOrders, dispatch } = useAppContext();
+
+  useEffect(() => {
+    if (userData.phone === '') {
+      toast.info(
+        'Navigate to the settings page and set your phone number, for easier reach during delivery'
+      );
+      dispatch({ type: 'TOGGLE_SIDEBAR', payload: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <main
       onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}
-      className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-2 tablet:space-y-6  ">
+      className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-2 tablet:space-y-6">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+      />
       <h1 className="font-semibold text-xl  tablet:text-4xl">Overview</h1>
       <section className="cards grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-2 tablet:gap-8">
         <div className="cardOne shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">

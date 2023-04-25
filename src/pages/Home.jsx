@@ -176,7 +176,7 @@ const Home = () => {
         <div
           ref={hero}
           id="hero"
-          className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-evenly items-center px-5 tablet:px-11 pt-4 tablet:pt-10 pb-11 space-y-2">
+          className="bg-hero-bg h-screen bg-no-repeat bg-center bg-cover text-white flex flex-col justify-evenly items-center px-5 tablet:px-11 pt-10 tablet:pt-10 pb-11 space-y-2">
           <div className="flex flex-col justify-between items-center ">
             <h1 className="text-6xl  laptop:text-8xl desktop:text-9xl  font-extrabold font-play text-center w-full tablet:w-11/12">
               The water source you trust the most and rely on.
@@ -228,9 +228,9 @@ const Home = () => {
                   absorption, and transportation of nutrients.
                 </p>
               </div>
-              <button className="bg-primary py-4 px-10  tablet:mt-0 tablet:py-5  tablet:px-14  text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
+              {/* <button className="bg-primary py-4 px-10  tablet:mt-0 tablet:py-5  tablet:px-14  text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
                 Read More
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -254,11 +254,11 @@ const Home = () => {
               <h6 className="text-center text-sm tablet:text-lg mt-4  mb-6 tablet:mb-12">
                 We offer fast and reliable delivery services to customers' homes
                 and offices. You can place an order online or over the phone,
-                and we will promptly deliver the desired quantity of water...
+                and we will promptly deliver the desired quantity of water.
               </h6>
-              <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  tablet:px-14  text-black border   rounded-full hover:bg-hover hover:text-white text-lg font-semibold ">
+              {/* <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  tablet:px-14  text-black border   rounded-full hover:bg-hover hover:text-white text-lg font-semibold ">
                 Read More
-              </button>
+              </button> */}
             </div>
             <div className="card flex flex-col justify-center items-center relative bg-hover tablet:w-[21rem]  px-5 tablet:px-10 pt-16 pb-6 mt-20 rounded-3xl text-white">
               <img
@@ -272,11 +272,11 @@ const Home = () => {
               <h6 className="text-center  text-sm tablet:text-lg mt-4  mb-6 tablet:mb-12">
                 We offer a seamless payment system that allows customers to pay
                 for their water deliveries quickly and easily. You can choose to
-                pay online using your preferred payment methods...
+                pay online using your preferred payment methods.
               </h6>
-              <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  text-black hover:text-white  rounded-full hover:bg-primary text-lg font-semibold ">
+              {/* <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  text-black hover:text-white  rounded-full hover:bg-primary text-lg font-semibold ">
                 Read More
-              </button>
+              </button> */}
             </div>
             <div className="card col-start-auto col-end-auto mx-0   tablet:col-start-1  tablet:col-end-3 tablet:mx-auto desktop:col-start-auto desktop:col-end-auto desktop:mx-0 flex flex-col justify-center items-center relative bg-white tablet:w-[21rem] px-5 tablet:px-10  pt-16 pb-6 mt-20 rounded-3xl">
               <img
@@ -290,11 +290,11 @@ const Home = () => {
               <h6 className="text-center  text-sm tablet:text-lg mt-4 mb-6 tablet:mb-12">
                 We take pride in delivering water to you on time, every time. In
                 the event of unexpected delays or changes, we will inform
-                customers promptly. The company's delivery personnel...
+                customers promptly.
               </h6>
-              <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  text-black border hover:text-white  rounded-full hover:bg-hover text-lg font-semibold ">
+              {/* <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  text-black border hover:text-white  rounded-full hover:bg-hover text-lg font-semibold ">
                 Read More
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
