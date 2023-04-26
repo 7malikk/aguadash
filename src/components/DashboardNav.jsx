@@ -13,7 +13,7 @@ const DashboardNav = () => {
         onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}
         className="block tablet:hidden w-6 h-6 border border-darkAsh rounded-full mr-2 cursor-pointer"
       />
-      <div className=" flex flex-col tablet:flex-row justify-evenly tablet:justify-between items-center w-full">
+      <div className=" flex flex-col tablet:flex-row justify-evenly tablet:justify-between items-start w-full">
         <div>
           <h1 className=" capitalize font-semibold text-base tablet:text-4xl flex justify-start  tablet:justify-center items-center">
             Hello,{' '}

@@ -158,7 +158,7 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === 'TOGGLE_SIDEBAR') {
-    if (action.payload) {
+    if (action.payload !== undefined) {
       return {
         ...state,
         sidebarOpen: action.payload,
