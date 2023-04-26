@@ -5,7 +5,7 @@ import { useAppContext } from '../context/AppContext';
 import HistoryModal from './Modals/HistoryModal';
 
 const AdminHistory = () => {
-  const { allOrders } = useAppContext();
+  const { allOrders, dispatch } = useAppContext();
   const deliveredOrders = allOrders?.filter(
     (order) => order.status === 'Delivered'
   );
@@ -19,8 +19,10 @@ const AdminHistory = () => {
 
   return (
     <>
-      <main className="bg-white  m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-3 laptop:space-y-6  ">
-        <h1 className="font-semibold text-4xl">History</h1>
+      <main
+        onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}
+        className="bg-white  m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-2 tablet:space-y-6 ">
+        <h1 className="font-semibold text-xl  tablet:text-4xl">History</h1>
         {deliveredOrders.length > 0 ? (
           <section className="overflow-x-auto">
             <section className="space-y-4 mt-4 w-max tablet:w-auto ">

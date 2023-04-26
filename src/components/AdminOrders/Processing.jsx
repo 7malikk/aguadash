@@ -13,79 +13,87 @@ const Processing = ({ processing }) => {
     handleUpdatedOrder(updatedOrder);
   };
   return (
-    <div className="mt-[10px] shadow border p-[10px] space-y-6 ">
+    <div className="mt-[10px] shadow border p-[10px] space-y-3 tablet:space-y-6 ">
       {processing.length > 0 ? (
         processing.map((order, i) => {
           return (
             <div
               key={i}
-              className="cardOne grid grid-cols-1 tablet:grid-cols-2 gap-8 shadow-md p-6 rounded-xl bg-lightAsh text-black">
+              className="cardOne grid grid-cols-2 gap-2 tablet:gap-8 shadow-md p-3 tablet:p-6  rounded-xl bg-lightAsh text-black">
               <div>
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
                   Order
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">
+                <h1 className="text-base tablet:text-2xl font-semibold tablet:mt-2">
                   {order['number of bags']} Bag(s)
                 </h1>
               </div>
               <div>
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
-                  User Phone number
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
+                  User Phone
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.phone} </h1>
+                <h1 className="text-base tablet:text-2xl font-semibold tablet:mt-2">
+                  {order.phone}{' '}
+                </h1>
               </div>
               <div>
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
-                  User name
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
+                  Username
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.name} </h1>
+                <h1 className="text-base tablet:text-2xl font-semibold tablet:mt-2">
+                  {order.name}{' '}
+                </h1>
               </div>
               <div>
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
                   Status
                 </h4>
                 <select
                   data-testid="select"
                   onChange={(e) => handleChange(e, order)}
-                  className="text-2xl font-semibold text-black mt-2 outline-none border-none">
+                  className="text-base tablet:text-2xl font-semibold text-black tablet:mt-2 outline-none border-none">
                   <option value={order.status}>{order.status}</option>
                   <option value="In Transit">In Tranist</option>
                 </select>
               </div>
 
               <div>
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
                   Date
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.date}</h1>
+                <h1 className="text-base tablet:text-2xl font-semibold tablet:mt-2">
+                  {order.date}
+                </h1>
               </div>
               <div>
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
                   Time
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">{order.time}</h1>
+                <h1 className="text-base tablet:text-2xl font-semibold tablet:mt-2">
+                  {order.time}
+                </h1>
               </div>
               <div>
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
                   Amount Paid
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2">
+                <h1 className="text-base tablet:text-2xl font-semibold tablet:mt-2">
                   {formatPrice(order.amount)}
                 </h1>
               </div>
               <div>
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
                   User email
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2 break-words">
+                <h1 className="text-base tablet:text-2xl font-semibold tablet:mt-2 break-words">
                   {order.email}
                 </h1>
               </div>
-              <div className="cols-span-1 tablet:col-span-2">
-                <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-xl">
+              <div className="col-span-2 ">
+                <h4 className="flex justify-between items-center  text-darkAsh font-semibold  text-sm tablet:text-xl">
                   Address
                 </h4>
-                <h1 className="text-2xl font-semibold mt-2 break-words">
+                <h1 className="text-base tablet:text-2xl font-semibold tablet:mt-2 break-words">
                   {order.address}
                 </h1>
               </div>

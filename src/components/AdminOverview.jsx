@@ -5,42 +5,56 @@ import { formatPrice } from '../helpers/helperFunctions';
 import { useAppContext } from '../context/AppContext';
 
 const AdminOverview = () => {
-  const { allUsers, allOrders } = useAppContext();
+  const { allUsers, allOrders, dispatch } = useAppContext();
   const delivered = allOrders?.filter((order) => order.status === 'Delivered');
   const ongoingOrders = allOrders?.filter(
     (order) => order.status !== 'Delivered'
   );
 
   return (
-    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-6  ">
-      <h1 className="font-semibold text-4xl">Overview</h1>
-      <section className="cards grid grid-cols-1 tablet:grid-cols-2 gap-8">
+    <main
+      onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}
+      className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-2 tablet:space-y-6 ">
+      <h1 className="font-semibold text-xl  tablet:text-4xl">Overview</h1>
+      <section className="cards grid grid-cols-1 tablet:grid-cols-2  gap-2 tablet:gap-8">
         <div className="cardThree shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
-          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-base">
+          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-sm tablet:text-base">
             Total Orders Delivered
-            <img src={totalBags} alt="total bags" className="w-12 h-12" />
+            <img
+              src={totalBags}
+              alt="total bags"
+              className="w-6 h-6 tablet:w-12 tablet:h-12"
+            />
           </h4>
-          <h1 data-testid="allDelivered" className="text-4xl font-bold mt-2">
+          <h1
+            data-testid="allDelivered"
+            className="text-xl tablet:text-4xl font-bold tablet:mt-2">
             {delivered.length ? delivered.length : 0}
           </h1>
         </div>
         <div className="cardOne shadow-[8px_8px_15px_-15px_rgba(0,0,0,0.3)] px-3 py-4 rounded-xl">
-          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-base">
+          <h4 className="flex justify-between items-center  text-darkAsh font-semibold text-sm tablet:text-base">
             Number Of Users
-            <img src={people} alt="total amount spent" className="w-12 h-11" />
+            <img
+              src={people}
+              alt="total amount spent"
+              className="w-5 h-6 tablet:w-12 tablet:h-11"
+            />
           </h4>
-          <h1 data-testid="allUsers" className="text-4xl font-bold mt-2">
+          <h1
+            data-testid="allUsers"
+            className="text-xl tablet:text-4xl font-bold tablet:mt-2">
             {allUsers?.length ? allUsers?.length : 0}
           </h1>
         </div>
       </section>
-      <section className="history block tablet:block ">
+      <section className="history ">
         <div className="flex justify-between items-baseline">
-          <h1 className="font-semibold text-2xl tablet:text-4xl">
+          <h1 className="font-semibold text-xl tablet:text-4xl">
             Ongoing Orders
           </h1>
           <Link to="/merchant/orders">
-            <h6 className="text-xl">See all</h6>
+            <h6 className="text-base tablet:text-xl">See all</h6>
           </Link>
         </div>
         <section className="overflow-x-auto">

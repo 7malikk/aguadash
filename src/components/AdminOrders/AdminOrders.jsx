@@ -6,7 +6,7 @@ import InTransit from './InTransit';
 const AdminOrders = () => {
   const [buttonClicked, setButtonclicked] = useState(1);
   const [order, setOrder] = useState('compo1');
-  const { allOrders } = useAppContext();
+  const { allOrders, dispatch } = useAppContext();
 
   const inTransit = allOrders?.filter((order) => order.status === 'In Transit');
   const processing = allOrders?.filter(
@@ -17,8 +17,11 @@ const AdminOrders = () => {
     setButtonclicked(number);
   };
   return (
-    <div className="bg-white  m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 space-y-6  rounded-2xl  font-semibold flex flex-col justify-center">
-      <nav className=" bg-white flex justify-evenly border-black border p-2 rounded-md  text-base tablet:text-xl desktop:text-4xl">
+    <div
+      onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}
+      className="bg-white  m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 space-y-6  rounded-2xl  font-semibold flex flex-col justify-center">
+      <nav className=" bg-white flex justify-evenly border-black border p-2 rounded-md  text-sm tablet:text-xl desktop:text-4xl">
+        {/* processing */}
         <button
           className={`${
             buttonClicked === 1
@@ -41,12 +44,14 @@ const AdminOrders = () => {
             </span>
           ) : null}
         </button>
+
+        {/* in transit */}
         <button
           className={`${
             buttonClicked === 2
               ? 'bg-primary text-white '
               : 'bg-white text-black'
-          } w-1/2 rounded px-3 py-2`}
+          } w-1/2 rounded py-1 tablet:px-3 tablet:py-2`}
           onClick={() => {
             setOrder('compo2');
             handleButtonclicked(2);

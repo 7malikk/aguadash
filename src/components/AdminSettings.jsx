@@ -36,7 +36,9 @@ const AdminSettings = () => {
   }, [adminSettingsError, error]);
 
   return (
-    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-6  ">
+    <main
+      className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-3 tablet:space-y-6"
+      onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -44,15 +46,15 @@ const AdminSettings = () => {
         newestOnTop={true}
         closeOnClick
       />
-      <h1 className="font-semibold text-4xl">Settings</h1>
+      <h1 className="font-semibold text-xl tablet:text-4xl">Settings</h1>
       <section className="flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="bg-lightAsh flex flex-col justify-center items-center space-y-6 p-2 tablet:p-6 w-full tablet:w-[32rem] h-full shadow-xl py-4 rounded-xl">
-          <label className=" w-full text-2xl font-semibold space-y-2">
+          className="bg-lightAsh flex flex-col justify-center items-center space-y-4 p-4 w-full tablet:w-[25rem] shadow-xl py-4 rounded-xl">
+          <label className=" w-full text-lg tablet:text-2xl font-semibold space-y-2">
             <h4>Rate</h4>
             <input
-              className="  w-full h-14 pl-4 text-2xl"
+              className="  w-full  p-1 text-base tablet:text-xl"
               required
               type="number"
               name="rate"
@@ -63,8 +65,8 @@ const AdminSettings = () => {
             />
           </label>
           <div className="w-full flex flex-col tablet:flex-row items-start  tablet:items-center justify-between tablet:justify-between text-2xl font-semibold">
-            <h4>Out of Stock</h4>
-            <label className=" text-2xl font-semibold">
+            <h4 className=" text-lg tablet:text-2xl">Out of Stock</h4>
+            <label className="  text-lg tablet:text-2xl font-semibold">
               <input
                 required
                 type="radio"
@@ -75,7 +77,7 @@ const AdminSettings = () => {
               />
               Yes
             </label>
-            <label className=" text-2xl font-semibold">
+            <label className="  text-lg tablet:text-2xl font-semibold">
               <input
                 required
                 type="radio"
@@ -90,7 +92,7 @@ const AdminSettings = () => {
           <button
             disabled={adminSettingsLoading}
             type="submit"
-            className="flex justify-center items-center w-1/2 text-lg tablet:text-xl font-semibold bg-primary py-2 tablet:py-4 px-10 desktop:py-5 desktop:px-14 text-white  rounded-xl hover:bg-hover">
+            className="flex justify-center items-center w-1/2  laptop:w-1/3 text-base tablet:text-xl font-semibold bg-primary py-2 px-10 desktop:py-3 desktop:px-6 text-white  rounded-xl hover:bg-hover">
             {adminSettingsLoading ? (
               <CgSpinnerAlt className="w-6 h-6 text-white animate-spin ml-4" />
             ) : (

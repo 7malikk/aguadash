@@ -14,4 +14,5 @@ export const initialState = {
   adminError: false,
   adminSettingsLoading: false,
   adminSettingsError: false,
+  sidebarOpen: false,
 };
