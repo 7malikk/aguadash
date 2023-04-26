@@ -35,7 +35,7 @@ function InputOrder() {
     } else {
       if (userData.phone === '') {
         toast.info(
-          'Kindly set your phone number, for easier reach during delivery'
+          'Navigate to the settings page and set your phone number, for easier reach during delivery'
         );
       } else {
         handlePayment(order);

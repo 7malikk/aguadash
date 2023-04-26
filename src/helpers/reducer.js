@@ -158,18 +158,16 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === 'TOGGLE_SIDEBAR') {
-    if (action.payload === undefined) {
-      return {
-        ...state,
-        sidebarOpen: !state.sidebarOpen,
-      };
-    }
-    if (action.payload === false) {
+    if (action.payload) {
       return {
         ...state,
         sidebarOpen: action.payload,
       };
     }
+    return {
+      ...state,
+      sidebarOpen: !state.sidebarOpen,
+    };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);

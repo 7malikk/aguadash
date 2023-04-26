@@ -46,7 +46,6 @@ export const AppProvider = ({ children }) => {
 
     try {
       await setDoc(docRef, userData);
-      console.log('User created');
       sessionStorage.setItem('userId', user.uid);
       getOrders(user.uid);
       dispatch({ type: 'SIGNUP_SUCCESS', payload: { ...userData } });
