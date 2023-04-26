@@ -5,8 +5,14 @@ import { CgSpinnerAlt } from 'react-icons/cg';
 
 const Settings = () => {
   const [phone, setPhone] = useState('');
-  const { userData, error, phoneUpdateloading, phoneUpdateError, updatePhone } =
-    useAppContext();
+  const {
+    userData,
+    error,
+    phoneUpdateloading,
+    phoneUpdateError,
+    updatePhone,
+    dispatch,
+  } = useAppContext();
 
   const handlePhoneUpdate = (e) => {
     e.preventDefault();
@@ -24,7 +30,9 @@ const Settings = () => {
   }, [error, phoneUpdateError]);
 
   return (
-    <main className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-3 tablet:space-y-6  ">
+    <main
+      onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}
+      className="bg-white m-2 p-2 tablet:m-4 tablet:p-4 laptop:m-6 laptop:p-6 rounded-2xl space-y-3 tablet:space-y-6  ">
       <ToastContainer
         position="top-center"
         autoClose={5000}
