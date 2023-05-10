@@ -3,8 +3,8 @@ describe('admin core functionalities', () => {
   it('admin can update order status', () => {
     cy.visit('/');
     // login
-    cy.findByPlaceholderText(/enter your email/i).type('admin@ad.com');
-    cy.findByPlaceholderText(/enter your password/i).type('adminPassword');
+    cy.findByPlaceholderText(/enter your email/i).type('$admin-email');
+    cy.findByPlaceholderText(/enter your password/i).type('$admin-password');
     cy.findByRole('button', {
       name: /login/i,
     }).click();
@@ -16,7 +16,7 @@ describe('admin core functionalities', () => {
     cy.findByRole('button', {
       name: /in transit/i,
     }).click();
-    cy.findAllByTestId(['select']).first().select('Delievered');
+    cy.findAllByTestId(['select']).first().select('Delivered');
     //click on history
     cy.findByRole('link', { name: /history/i }).click();
     //click on settings
