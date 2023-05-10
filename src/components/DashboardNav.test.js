@@ -18,15 +18,11 @@ it('renders username and current rate', () => {
 
   // Act
   const username = screen.getByRole('heading', {
-    name: `Hello, ${mockData.userData.name}`,
+    name: `Hello, ${mockData.userData.name}.`,
   });
-  const rate = screen.getByRole('heading', {
-    name: `Current Selling Rate: ${formatPrice(mockData.settings.rate)}`,
-  });
+  const rate = screen.getByTestId('rate');
 
   //Assert
-  expect(username.innerHTML).toEqual(`Hello, ${mockData.userData.name}`);
-  expect(rate.innerHTML).toEqual(
-    `Current Selling Rate: ${formatPrice(mockData.settings.rate)}`
-  );
+  expect(username.innerHTML).toEqual(`Hello, ${mockData.userData.name}.`);
+  expect(rate.innerHTML).toEqual(formatPrice(mockData.settings.rate));
 });
