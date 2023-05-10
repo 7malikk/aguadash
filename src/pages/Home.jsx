@@ -228,9 +228,6 @@ const Home = () => {
                   absorption, and transportation of nutrients.
                 </p>
               </div>
-              {/* <button className="bg-primary py-4 px-10  tablet:mt-0 tablet:py-5  tablet:px-14  text-white  self-center laptop:self-start rounded-full hover:bg-hover mt-4 laptop:mt-16">
-                Read More
-              </button> */}
             </div>
           </div>
         </div>
@@ -256,9 +253,6 @@ const Home = () => {
                 and offices. You can place an order online or over the phone,
                 and we will promptly deliver the desired quantity of water.
               </h6>
-              {/* <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  tablet:px-14  text-black border   rounded-full hover:bg-hover hover:text-white text-lg font-semibold ">
-                Read More
-              </button> */}
             </div>
             <div className="card flex flex-col justify-center items-center relative bg-hover tablet:w-[21rem]  px-5 tablet:px-10 pt-16 pb-6 mt-20 rounded-3xl text-white">
               <img
@@ -274,9 +268,6 @@ const Home = () => {
                 for their water deliveries quickly and easily. You can choose to
                 pay online using your preferred payment methods.
               </h6>
-              {/* <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  text-black hover:text-white  rounded-full hover:bg-primary text-lg font-semibold ">
-                Read More
-              </button> */}
             </div>
             <div className="card col-start-auto col-end-auto mx-0   tablet:col-start-1  tablet:col-end-3 tablet:mx-auto desktop:col-start-auto desktop:col-end-auto desktop:mx-0 flex flex-col justify-center items-center relative bg-white tablet:w-[21rem] px-5 tablet:px-10  pt-16 pb-6 mt-20 rounded-3xl">
               <img
@@ -292,9 +283,6 @@ const Home = () => {
                 the event of unexpected delays or changes, we will inform
                 customers promptly.
               </h6>
-              {/* <button className="bg-lightAsh py-4 px-10 tablet:mt-0 tablet:py-5  text-black border hover:text-white  rounded-full hover:bg-hover text-lg font-semibold ">
-                Read More
-              </button> */}
             </div>
           </div>
         </div>

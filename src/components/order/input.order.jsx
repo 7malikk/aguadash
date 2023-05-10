@@ -134,7 +134,6 @@ function InputOrder() {
         Total Cost:
         <input
           type="text"
-          required
           className="border-none outline-none rounded w-[80%] p-2 pl-1"
           name="amount"
           value={formatPrice(

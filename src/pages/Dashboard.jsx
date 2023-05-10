@@ -5,9 +5,9 @@ import DashboardNav from '../components/DashboardNav';
 
 const Dashboard = () => {
   return (
-    <main className="flex h-screen tablet:h-full  relative">
+    <main className="flex h-screen tablet:max-h-full overflow-y-clip  relative">
       <Sidebar />
-      <section className="w-full h-screen max-h-screen overflow-y-scroll bg-lightAsh">
+      <section className="w-full h-screen max-h-full overflow-y-scroll bg-lightAsh">
         <DashboardNav />
         <Outlet />
       </section>
