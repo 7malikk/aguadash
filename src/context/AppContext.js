@@ -130,17 +130,13 @@ export const AppProvider = ({ children }) => {
         navigate('/dashboard/home');
         dispatch({ type: 'CLEAR_LOGIN' });
       } else {
-        dispatch({ type: 'NO_ACCT', payload: 'Account does not exist' });
+        dispatch({ type: 'NO_ACCT', payload: 'Incorrect username/password' });
       }
     } catch (error) {
-      const str = error.message;
-      const regx = /[/!@#$%^&*)(+=._-]+/g;
-      const convertErrMsg = str
-        .replace('Firebase: Error (auth/', '')
-        .replace(regx, ' ');
-      const errorMessage =
-        convertErrMsg.charAt(0).toUpperCase() + convertErrMsg.slice(1);
-      dispatch({ type: 'LOGIN_ERROR', payload: errorMessage });
+      dispatch({
+        type: 'LOGIN_ERROR',
+        payload: 'Incorrect username/password',
+      });
     }
   };
 
@@ -160,19 +156,13 @@ export const AppProvider = ({ children }) => {
 
         navigate('/dashboard/home');
       } else {
-        // No such document
-        console.log('no such doc');
-        dispatch({ type: 'NO_ACCT', payload: 'Account does not exist' });
+        dispatch({ type: 'NO_ACCT', payload: 'Incorrect username/password' });
       }
     } catch (error) {
-      const str = error.message;
-      const regx = /[/!@#$%^&*)(+=._-]+/g;
-      const convertErrMsg = str
-        .replace('Firebase: Error (auth/', '')
-        .replace(regx, ' ');
-      const errorMessage =
-        convertErrMsg.charAt(0).toUpperCase() + convertErrMsg.slice(1);
-      dispatch({ type: 'LOGIN_ERROR', payload: errorMessage });
+      dispatch({
+        type: 'LOGIN_ERROR',
+        payload: 'Incorrect username/password',
+      });
     }
   };
 
@@ -199,7 +189,7 @@ export const AppProvider = ({ children }) => {
           dispatch({ type: 'RELOAD', payload: { ...userData } });
         }
       } catch (error) {
-        console.log(error.message);
+        // error
       }
     }
   };
@@ -213,7 +203,7 @@ export const AppProvider = ({ children }) => {
         dispatch({ type: 'SETTINGS_SUCCESS', payload: { ...settings } });
       }
     } catch (error) {
-      console.log(error);
+      // error
     }
   };
 
@@ -230,7 +220,7 @@ export const AppProvider = ({ children }) => {
       });
       dispatch({ type: 'USER_ORDERS_SUCCESS', payload: [...userOrders] });
     } catch (error) {
-      console.log(error);
+      // error
     }
   };
 
@@ -289,14 +279,7 @@ export const AppProvider = ({ children }) => {
       });
       await retrieveUser(userId);
     } catch (error) {
-      const str = error.message;
-      const regx = /[/!@#$%^&*)(+=._-]+/g;
-      const convertErrMsg = str
-        .replace('Firebase: Error (auth/', '')
-        .replace(regx, ' ');
-      const errorMessage =
-        convertErrMsg.charAt(0).toUpperCase() + convertErrMsg.slice(1);
-      console.log(errorMessage);
+      //error
     }
   };
   // <--------------------------------------------User Data Update End ---------------------------------------------------------->
@@ -322,7 +305,7 @@ export const AppProvider = ({ children }) => {
         payload: 'Success',
       });
     } catch (error) {
-      console.log('error');
+      //error
     }
   };
 
@@ -334,14 +317,7 @@ export const AppProvider = ({ children }) => {
         amount: userOrder['number of bags'] * Number(state.settings.rate),
       });
     } catch (error) {
-      const str = error.message;
-      const regx = /[/!@#$%^&*)(+=._-]+/g;
-      const convertErrMsg = str
-        .replace('Firebase: Error (auth/', '')
-        .replace(regx, ' ');
-      const errorMessage =
-        convertErrMsg.charAt(0).toUpperCase() + convertErrMsg.slice(1);
-      console.log(errorMessage);
+      // error
     }
   };
 
