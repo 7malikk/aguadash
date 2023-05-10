@@ -40,10 +40,10 @@ Run `npm test` in the project directory
 
 #### Run End-To-End Tests
 
-*Note*: You need to have an admin credentials 
+*Note*: You need to have admin credentials 
 
 - Navigate to `cypress/e2e/updateOrder.spec.cy.js` 
-- On lines 6 and 7 replace `$admin-email` and `$admin-password` with an admin credentials respectively and save.
+- On lines 6 and 7 replace `$admin-email` and `$admin-password` with admin credentials respectively and save.
 - Run `npx cypress open` in the project directory 
 
 - Select E2E Testing
