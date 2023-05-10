@@ -113,7 +113,7 @@ const SignUp = () => {
                 value={data.name}
                 onChange={handleChange}
                 placeholder="Enter Your Name"
-                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
+                className="placeholder-[#334155] w-full text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
               <label className="  text-[#1e293b] text-sm font-semibold">
@@ -125,7 +125,7 @@ const SignUp = () => {
                   value={data.phone}
                   onChange={handleChange}
                   placeholder="Enter Your Phone Number"
-                  className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none font-normal  rounded shadow border p-2 mt-1 mb-4"
+                  className="placeholder-[#334155] w-full text-base pl-5 outline-none font-normal  rounded shadow border p-2 mt-1 mb-4"
                 />
               </label>
               <label className="text-sm font-semibold">
@@ -138,7 +138,7 @@ const SignUp = () => {
                 value={data.email}
                 onChange={handleChange}
                 placeholder="Enter Your Email Address"
-                className="placeholder-[#334155] w-full text-lightAsh text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
+                className="placeholder-[#334155] w-full text-base pl-5 outline-none   rounded shadow border p-2 mt-1 mb-4"
               />
 
               <label className="text-sm font-semibold relative">
