@@ -12,7 +12,9 @@ const AdminSettings = () => {
     adminSettings,
     dispatch,
   } = useAppContext();
-  const [settings, setSettings] = useState(adminSettings);
+  const [settings, setSettings] = useState({
+    ...adminSettings,
+  });
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -21,8 +23,16 @@ const AdminSettings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSettingsUpdate(settings);
+    if (adminSettings.rate > 0) {
+      handleSettingsUpdate(settings);
+    } else {
+      toast.info('Rate cannot be 0');
+    }
   };
+
+  useEffect(() => {
+    setSettings({ ...adminSettings });
+  }, [adminSettings]);
 
   useEffect(() => {
     if (adminSettingsError) {
@@ -52,14 +62,12 @@ const AdminSettings = () => {
           onSubmit={handleSubmit}
           className="bg-lightAsh flex flex-col justify-center items-center space-y-4 p-4 w-full tablet:w-[25rem] shadow-xl py-4 rounded-xl">
           <label className=" w-full text-lg tablet:text-2xl font-semibold space-y-2">
-            <h4>Rate</h4>
+            <h4>Rate (₦)</h4>
             <input
               className="  w-full  p-1 text-base tablet:text-xl"
-              required
               type="number"
               name="rate"
               placeholder={settings.rate}
-              value={settings.rate}
               onChange={handleChange}
               min="0"
             />
