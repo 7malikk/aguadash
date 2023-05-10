@@ -87,23 +87,29 @@ function InputOrder() {
         />
       </label>
 
-      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
+      <label
+        title="Click the clock icon"
+        className="text-lg desktop:text-2xl ml-2 shadow p-1 border   flex items-center rounded-md">
         Time:
         <input
           type="time"
           required
-          className="border-none outline-none rounded w-full  ml-1 p-2 pl-1"
+          className="border-none outline-none rounded  ml-1 p-2 pl-1"
           name="time"
           value={order?.time}
           onChange={handleChange}
+          min="08:00"
+          max="16:00"
         />
       </label>
 
-      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
+      <label
+        title="Click the calender icon"
+        className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
         Date:
         <input
           type="date"
-          className="border-none outline-none rounded w-full  ml-1 p-2 pl-1"
+          className="border-none outline-none rounded  ml-1 p-2 pl-1"
           name="date"
           required
           value={order?.date}
