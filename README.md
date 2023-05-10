@@ -1,35 +1,70 @@
-# AGUADASH
+# Aguadash
 
-## INTRODUCTION
+Aguadash is an e-commerce platform that allows customers to order and receive water at their doorstep and also permits a merchant to manage and update orders placed by customers.
 
-Aguadash is a water delivery e-commerce platform that allows customers to order and receive water at their doorstep and also allow merchant to see the orders been placed by customers . Aguadash  was developed using React JS, Firebase for authentication, and Paystack for payment processing, GitHub for version control, and Netlify for hosting. This documentation will outline the features, architecture, and deployment of the website. Visit [Aguadash](https://aguadash.netlify.app/)
+Visit Aguadash [here](https://aguadash.netlify.app/)
 
 
 ## Features
 
-1. User registration and authentication using Firebase Authentication.
-2. Ability for users to order water of different sizes and quantities.
-3. Integration with Paystack for secure and convenient payment processing.
-4. Order history page that displays the user's previous orders.
-5. Admin dashboard for managing orders and inventory.
+- User registration using Firebase Authentication.
+- Ability for users to order water in different quantities(bags).
+- Secured payment process with Paystack payment gateway. 
+- Order history that displays the user's previous orders.
+- Merchant dashboard for managing orders and inventory.
 
+Visit Aguadash Merchant Dashboard [here](https://github.com/7malikk/aguadash/tree/admin)
 
-## Architecture
+## Installation
 
-Aguadash was developed using the React JS framework, which is a popular frontend library for building user interfaces. Aguadash has a client-server architecture, with the client being the React app that runs in the user's browser, and the server being Firebase, which provides authentication and real-time database services.
+### Requirements
+- npm found in [NodeJS](https://nodejs.org/en)
+- API Keys - contact the contributors
 
-Aguadash has several components, including the authentication component, the order component, the shopping cart component, and the payment component. Each component has its logic and is responsible for its functionality. The components communicate with each other through a centralized state management system provided by the React framework.
+### Steps
+1. Clone the repo
+2. Run `npm install` in the project directory using your preferred CLI
+3. Run `npm start` in the project directory using your preferred CLI
 
-Aguadash also uses the Paystack API to handle payments. Paystack is a payment gateway that allows businesses to accept payments from customers. The integration with Paystack is done through an API, which allows the website to initiate payments, monitor transaction status, and handle failed transactions.
+Enjoy!
 
-## Version Control and Hosting:
+## Run Tests
 
-Aguadash code is version-controlled using Git and hosted on GitHub. GitHub provides a platform for collaborative software development, allowing multiple developers to work on the same codebase simultaneously. Aguadash source code is stored on GitHub, and changes are tracked using Git, which provides version control and allows developers to manage changes to the codebase.
+Aguadash has a couple of tests, using react testing library, jest, and Cypress
 
-Aguadash is deployed on Netlify, which is a hosting platform that provides automated deployment, continuous integration, and continuous delivery. Netlify integrates with GitHub, allowing developers to automatically deploy changes to the website's codebase. Netlify also provides a secure and scalable platform for hosting the website.
+Note: The following should be done after Step 2 in the Installation Section
+
+#### Integration Tests
+
+Run `npm test` in the project directory 
+
+#### End-To-End Tests
+
+*Note*: You need to have a registered user credentials 
+
+- Navigate to `cypress/e2e/order_spec.cy.js` 
+- On lines 8 and 10 replace `$username` and `$password` with your credentials respectively and save.
+- Run `npx cypress open` in the project directory 
+
+- Select E2E Testing
+
+![image](https://github.com/7malikk/aguadash/assets/75104021/818d34ec-74a7-45b2-ad10-86a2b378cb7a)
+
+- Select preferred browser for testing
+
+![image](https://github.com/7malikk/aguadash/assets/75104021/50dd23b3-5015-49ff-9b91-a42b498dff3e)
+
+- Select `order_spec.cy.js` 
+
+![image](https://github.com/7malikk/aguadash/assets/75104021/baddc18f-622e-486d-b87c-04ac4b1e8536)
+
 
 ## Contributors
 
 [James](https://github.com/JamesVictor-O)
 
 [Malikk](https://github.com/7malikk)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
