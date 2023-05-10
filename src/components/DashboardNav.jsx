@@ -29,7 +29,7 @@ const DashboardNav = () => {
         </div>
         <h4 className="font-semibold text-[#1C1C1C] text-sm tablet:text-lg laptop:text-xl tablet:bg-[#DA910A40]  tablet:px-4  tablet:py-2 rounded-3xl ">
           <span className="hidden laptop:inline"> Current Selling </span> Rate:{' '}
-          {settings.rate ? formatPrice(Number(settings.rate)) : 0}
+          {settings.rate ? formatPrice(Number(settings.rate)) : 0} per bag
         </h4>
       </div>
     </nav>

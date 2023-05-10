@@ -19,8 +19,6 @@ export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // <--------------------------------------------User Authentication Section Start------------------------------------------------------------>
-
-  //  this function stores user data in database
   const storeUserData = async (user, providerId = false, data) => {
     const docRef = doc(db, 'users', user.uid);
     let userData;
@@ -49,7 +47,6 @@ export const AppProvider = ({ children }) => {
       sessionStorage.setItem('userId', user.uid);
       getOrders(user.uid);
       dispatch({ type: 'SIGNUP_SUCCESS', payload: { ...userData } });
-
       navigate('/dashboard/home');
       dispatch({ type: 'CLEAR_SIGNUP' });
     } catch (error) {
@@ -64,7 +61,6 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // Sign up with email and password
   const handleEmailSignUp = async (data) => {
     dispatch({ type: 'SIGNUP_BEGIN' });
     try {
@@ -76,7 +72,6 @@ export const AppProvider = ({ children }) => {
       const user = userCredential?.user;
       storeUserData(user, false, data);
     } catch (error) {
-      // toast an error
       const str = error.message;
       const regx = /[/!@#$%^&*)(+=._-]+/g;
       const convertErrMsg = str
@@ -88,7 +83,6 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // Sign up with google
   const handleGoogleSignUp = async () => {
     dispatch({ type: 'SIGNUP_BEGIN' });
     try {
@@ -109,7 +103,6 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // sign in with email and password
   const handleEmailLogin = async (data) => {
     dispatch({ type: 'LOGIN_BEGIN' });
     try {
@@ -140,7 +133,6 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // sign in with google
   const handleGoogleLogin = async () => {
     dispatch({ type: 'LOGIN_BEGIN' });
     try {
@@ -153,7 +145,6 @@ export const AppProvider = ({ children }) => {
         dispatch({ type: 'LOGIN_SUCCESS', payload: { ...userData } });
         getOrders(user.uid);
         sessionStorage.setItem('userId', user.uid);
-
         navigate('/dashboard/home');
       } else {
         dispatch({ type: 'NO_ACCT', payload: 'Incorrect username/password' });
@@ -166,7 +157,6 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // this function logsout the user
   const handleLogout = () => {
     navigate('/');
     signOut(auth);
@@ -177,7 +167,6 @@ export const AppProvider = ({ children }) => {
 
   // <--------------------------------------------User Data and Settings Retrieval Section Start---------------------------------------------------------->
 
-  // this handles a scenario where the user reloads the app
   const retrieveUser = async (userId) => {
     if (userId) {
       const userDocRef = doc(db, 'users', userId);
@@ -207,7 +196,6 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // gets orders in a users store
   const userOrders = [];
   const getOrders = async (userId) => {
     retrieveSettings();
@@ -286,7 +274,6 @@ export const AppProvider = ({ children }) => {
 
   // <--------------------------------------------Order Payment and Update User Orders Alongside Admin Orders Start ---------------------------------------------------------->
 
-  // writes orders to the user
   const updateUserOrders = async (userOrder) => {
     const userId = auth.currentUser.uid;
     const userDocRef = doc(db, 'users', userId, 'orders', userOrder.id);
