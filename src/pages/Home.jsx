@@ -144,7 +144,7 @@ const Home = () => {
           <li
             className="hover:text-hover py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
             onClick={() => handleScroll(services)}>
-            Serivces
+            Services
           </li>
           <Link to="/login">
             <li

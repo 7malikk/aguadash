@@ -75,18 +75,18 @@ function InputOrder() {
         newestOnTop={true}
         closeOnClick
       />
-      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border-black  flex items-center rounded-md">
-        Address:
+      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
+        Bags:
         <input
-          type="text"
+          type="number"
           required
-          className="border-none outline-none rounded w-full p-2 pl-1"
-          name="address"
-          value={order?.address}
+          className="border-none outline-none rounded w-[80%] p-2 pl-1 font-normal"
+          name="number of bags"
+          value={order['number of bags']}
           onChange={handleChange}
+          min={0}
         />
       </label>
-
       <label
         title="Click the clock icon"
         className="text-lg desktop:text-2xl ml-2 shadow p-1 border   flex items-center rounded-md">
@@ -94,7 +94,7 @@ function InputOrder() {
         <input
           type="time"
           required
-          className="border-none outline-none rounded  ml-1 p-2 pl-1"
+          className="border-none outline-none rounded  ml-1 p-2 pl-1 font-normal"
           name="time"
           value={order?.time}
           onChange={handleChange}
@@ -109,7 +109,7 @@ function InputOrder() {
         Date:
         <input
           type="date"
-          className="border-none outline-none rounded  ml-1 p-2 pl-1"
+          className="border-none outline-none rounded  font-normal ml-1 p-2 pl-1"
           name="date"
           required
           value={order?.date}
@@ -117,16 +117,15 @@ function InputOrder() {
         />
       </label>
 
-      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border  flex items-center rounded-md">
-        Bags:
+      <label className="text-lg desktop:text-2xl ml-2 shadow p-1 border-black  flex items-center rounded-md">
+        Address:
         <input
-          type="number"
+          type="text"
           required
-          className="border-none outline-none rounded w-[80%] p-2 pl-1"
-          name="number of bags"
-          value={order['number of bags']}
+          className="border-none outline-none rounded w-full p-2 pl-1 font-normal"
+          name="address"
+          value={order?.address}
           onChange={handleChange}
-          min={0}
         />
       </label>
 
@@ -134,7 +133,7 @@ function InputOrder() {
         Total Cost:
         <input
           type="text"
-          className="border-none outline-none rounded w-[80%] p-2 pl-1"
+          className="border-none outline-none rounded w-[80%] font-normal p-2 pl-1"
           name="amount"
           value={formatPrice(
             order['number of bags'] === undefined
