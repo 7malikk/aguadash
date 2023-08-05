@@ -137,17 +137,17 @@ const Home = () => {
               : null
           }  items-center space-x-6 laptop:space-x-10 text-lg laptop:text-xl desktop:text-2xl hidden tablet:flex`}>
           <li
-            className="hover:text-hover py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
+            className=" py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
             onClick={() => handleScroll(hero)}>
             Home
           </li>
           <li
-            className="hover:text-hover py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
+            className=" py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
             onClick={() => handleScroll(about)}>
             About
           </li>
           <li
-            className="hover:text-hover py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
+            className=" py-6 hover:border-b hover:border-b-black hover:cursor-pointer"
             onClick={() => handleScroll(services)}>
             Services
           </li>
@@ -358,12 +358,12 @@ const Home = () => {
       </section>
       <footer
         id="footer"
-        className="bg-black text-white  px-5 tablet:px-11  grid grid-cols-1 laptop:grid-cols-2 desktop:grid-cols-3 gap-2 tablet:gap-8 laptop:gap-12 desktop:gap-14  pb-14">
-        <div className="company w-96 space-y-5 mt-9 ">
+        className="bg-black text-white  px-5 tablet:px-11  flex flex-col items-center laptop:items-start laptop:flex-row justify-between  pb-14">
+        <div className="company flex flex-col items-center laptop:items-start w-96 space-y-5 mt-9 ">
           <h4 className="font-play text-3xl tablet:text-6xl font-bold">
             AGUADASH
           </h4>
-          <div className="space-y-2 tablet:space-y-4">
+          <div className="space-y-2 tablet:space-y-4 flex flex-col items-center laptop:items-start">
             <h5 className="w-[80%] tablet:w-auto">
               Here at Aguadash we give our customers the best services they
               need, which makes us a reliable company to work with.
@@ -375,9 +375,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="links space-y-5 mt-9 ml-0 laptop:mt-14 laptop:ml-56">
+        <div className="links space-y-5 mt-9 ml-0 laptop:mt-14 flex flex-col items-center laptop:items-start ">
           <h6 className="text-3xl font-play font-bold">Links</h6>
-          <ul className="text-xl">
+          <ul className="text-xl text-center laptop:text-start">
             <li
               className=" hover:cursor-pointer"
               onClick={() => handleScroll(hero)}>
@@ -395,9 +395,9 @@ const Home = () => {
             </li>
           </ul>
         </div>
-        <div className="contactUs space-y-5  mt-9 ml-0 laptop:mt-14  desktop:ml-56 flex flex-col justify-start items-start">
+        <div className="contactUs space-y-5  mt-9 ml-0 laptop:mt-14   flex flex-col items-center laptop:items-start">
           <h6 className="text-3xl font-play font-bold">Contact Us</h6>
-          <div className="flex flex-col justify-start items-start space-y-2">
+          <div className="flex flex-col items-center laptop:items-start space-y-2">
             <h1 className="flex justify-center items-center">
               <img src={location} alt="" className="w-6 h-6" />
               <span className="ml-2">Lagos, Nigeria</span>
