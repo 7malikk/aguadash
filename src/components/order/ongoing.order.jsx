@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppContext } from '../../context/AppContext';
 import { formatPrice } from '../../helpers/helperFunctions';
+import { empty } from '../../assets';
 
 function OngoingOrder({ setOrder, handleButtonclicked }) {
   const { processingOrders } = useAppContext();
@@ -67,6 +68,7 @@ function OngoingOrder({ setOrder, handleButtonclicked }) {
         })
       ) : (
         <div className="flex flex-col justify-center items-center space-y-2">
+          <img src={empty} alt="empty" />
           <h4 className="text-lg font-semibold">No ongoing orders</h4>
           <button
             onClick={() => {

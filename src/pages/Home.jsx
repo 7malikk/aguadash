@@ -21,7 +21,12 @@ import {
   stepTwo,
   stepThree,
   stepFour,
+  icon7,
+  icon8,
+  icon9,
 } from '../assets';
+import call from '../assets/icons/call.svg';
+import location from '../assets/icons/location.svg';
 
 const Home = () => {
   const [show, setShow] = useState(false);
@@ -49,7 +54,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main aria-label="homepage" className="relative overflow-x-clip">
+    <main aria-label="homepage" className="relative overflow-x-clip font-lato">
       <aside
         className={` ${
           showSidebar ? 'translate-x-0 ' : 'translate-x-full  '
@@ -287,7 +292,7 @@ const Home = () => {
           </div>
         </div>
         <div className="bg-primary  p-5 tablet:p-11 flex flex-col justify-center items-center">
-          <h4 className="font-play text-5xl font-bold text-white">
+          <h4 className="font-play text-[40px] font-bold text-white">
             How it works
           </h4>
           <div className=" grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3  desktop:grid-cols-4 gap-6 tablet:gap-8 laptop:gap-12 desktop:gap-14 mt-6 laptop:mt-16">
@@ -364,9 +369,9 @@ const Home = () => {
               need, which makes us a reliable company to work with.
             </h5>
             <div className="flex space-x-2 items-center justify-start">
-              <BsFacebook className="w-6 h-6 hover:cursor-pointer" />{' '}
-              <BsLinkedin className="w-6 h-6 hover:cursor-pointer" />{' '}
-              <BsTwitter className="w-6 h-6 hover:cursor-pointer" />
+              <img src={icon9} alt="" />
+              <img src={icon8} alt="" />
+              <img src={icon7} alt="" />
             </div>
           </div>
         </div>
@@ -394,11 +399,11 @@ const Home = () => {
           <h6 className="text-3xl font-play font-bold">Contact Us</h6>
           <div className="flex flex-col justify-start items-start space-y-2">
             <h1 className="flex justify-center items-center">
-              <BsFillEnvelopeFill className="w-6 h-6" />{' '}
-              <span className="ml-2">ad@gmail.com</span>
+              <img src={location} alt="" className="w-6 h-6" />
+              <span className="ml-2">Lagos, Nigeria</span>
             </h1>
             <h1 className="flex justify-center items-center ">
-              <FiPhone className="w-6 h-6" />{' '}
+              <img src={call} alt="" className="w-6 h-6" />
               <span className="ml-2">+(234) 903 3223 232</span>
             </h1>
           </div>

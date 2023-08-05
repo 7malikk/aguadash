@@ -68,7 +68,7 @@ const Login = () => {
           <h2 className="text-5xl font-extrabold text-white font-play laptop:pl-5 laptop:py-[3rem]">
             AD
           </h2>
-          <p className="w-full laptop:w-[90%] text-center text-white mt-2 mb-8 font-loto text-base tablet:text-xl laptop:text-xl">
+          <p className="w-full laptop:w-[90%] text-center text-white mt-2 mb-8 font-lato text-base tablet:text-xl laptop:text-xl">
             "Thirsty for hassle-free hydration? Look no more! Our water delivery
             service brings crisp, refreshing water straight to your door step.
             say goodbye to lugging heavy jugs from store or waiting in long
@@ -79,7 +79,7 @@ const Login = () => {
           </p>
         </div>
 
-        <div className="bg-white  w-full flex flex-col items-center laptop:w-2/3   tablet:px-[6.25rem] laptop:pl-[6.25rem] mt-[3.75rem]">
+        <div className="bg-white  w-full flex flex-col items-center laptop:w-2/3 font-lato  tablet:px-[6.25rem] laptop:pl-[6.25rem] mt-[3.75rem]">
           <Link to="/" className="text-base pb-5 flex items-centers self-start">
             <IoIosArrowBack className="w-6 h-6" />
             <span className="pl-2">Back</span>

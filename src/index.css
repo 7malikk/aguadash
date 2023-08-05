@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&display=swap');
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
